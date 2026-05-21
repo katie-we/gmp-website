@@ -1431,3 +1431,96 @@
   }
   .v6-article-side { position: static; }
 }
+
+/* ── PRACTICES OPTION A ── */
+.v6-prac-a-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1.5px solid var(--ink);
+  margin-bottom: 80px;
+}
+.v6-prac-a-row {
+  display: grid;
+  grid-template-columns: 80px 140px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 48px 0;
+  border-bottom: 1.5px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.15s;
+}
+.v6-prac-a-row:hover { background: var(--paper-2); padding-left: 16px; padding-right: 16px; margin: 0 -16px; }
+.v6-prac-a-num {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 64px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+.v6-prac-a-tag {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-top: 10px;
+}
+.v6-prac-a-text h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+.v6-prac-a-text p {
+  font-family: var(--serif-text);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  max-width: 65ch;
+}
+.v6-prac-a-pull {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  margin: 24px 0;
+}
+.v6-prac-a-script-label {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.v6-prac-a-script {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16px;
+  background: var(--paper-2);
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 3px solid var(--rule);
+}
+.v6-prac-a-cadence {
+  font-size: 14px;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 767px) {
+  .v6-prac-a-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 32px 0;
+  }
+  .v6-prac-a-row:hover { padding-left: 0; padding-right: 0; margin: 0; }
+  .v6-prac-a-num { font-size: 48px; }
+}
