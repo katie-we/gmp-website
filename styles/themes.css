@@ -1,0 +1,349 @@
+/* Growth Mindset Parenting — palette themes
+   Each theme overrides --paper, --ink, --accent, etc.
+   Activate by adding the theme class to <body>: <body class="theme-terracotta">
+
+   The "WS-" prefixed palettes (workshop) are tuned for the v6 Workshop site —
+   bold, photo-forward, with full-bleed accent ticker bars and chunky CTAs.
+   They share a structure: warm-but-clean paper, near-black ink, ONE
+   confident accent that has to look right at 100% saturation in a 1280px-wide
+   ticker. The 5-card stack (cream, blush, clay, sage, ink) carries hue
+   variety; that's where each palette earns its identity. */
+
+/* I — Terracotta / Clay (Aesop-leaning, sun-baked) */
+.theme-terracotta {
+  --paper: oklch(0.985 0.006 80);
+  --paper-2: oklch(0.955 0.014 70);
+  --paper-3: oklch(0.92 0.022 65);
+  --rule: oklch(0.78 0.025 60);
+  --ink: oklch(0.22 0.025 50);
+  --ink-soft: oklch(0.40 0.030 50);
+  --ink-mute: oklch(0.55 0.025 55);
+  --accent: oklch(0.58 0.16 40);
+  --accent-deep: oklch(0.42 0.13 38);
+  --accent-soft: oklch(0.92 0.045 60);
+  --card-cream: oklch(0.95 0.012 80);
+  --card-blush: oklch(0.92 0.018 50);
+  --card-clay:  oklch(0.86 0.022 45);
+  --card-sage:  oklch(0.92 0.014 165);
+  --card-ink:   oklch(0.26 0.012 80);
+}
+
+/* II — Forest / Olive (library-but-living) */
+.theme-forest {
+  --paper: oklch(0.985 0.005 100);
+  --paper-2: oklch(0.95 0.015 110);
+  --paper-3: oklch(0.92 0.022 115);
+  --rule: oklch(0.75 0.025 110);
+  --ink: oklch(0.20 0.025 130);
+  --ink-soft: oklch(0.38 0.028 130);
+  --ink-mute: oklch(0.54 0.022 125);
+  --accent: oklch(0.42 0.085 145);
+  --accent-deep: oklch(0.30 0.065 145);
+  --accent-soft: oklch(0.90 0.040 130);
+}
+
+/* III — Navy + Cream */
+.theme-navy {
+  --paper: oklch(0.982 0.005 90);
+  --paper-2: oklch(0.95 0.012 85);
+  --paper-3: oklch(0.91 0.020 80);
+  --rule: oklch(0.78 0.018 80);
+  --ink: oklch(0.20 0.030 250);
+  --ink-soft: oklch(0.38 0.035 250);
+  --ink-mute: oklch(0.54 0.025 250);
+  --accent: oklch(0.36 0.10 255);
+  --accent-deep: oklch(0.26 0.085 255);
+  --accent-soft: oklch(0.90 0.030 240);
+}
+
+/* IV — Sage / Dusty Teal */
+.theme-sage {
+  --paper: oklch(0.985 0.005 170);
+  --paper-2: oklch(0.95 0.013 175);
+  --paper-3: oklch(0.92 0.020 175);
+  --rule: oklch(0.78 0.020 175);
+  --ink: oklch(0.22 0.025 200);
+  --ink-soft: oklch(0.40 0.030 200);
+  --ink-mute: oklch(0.55 0.022 195);
+  --accent: oklch(0.50 0.075 195);
+  --accent-deep: oklch(0.36 0.060 200);
+  --accent-soft: oklch(0.90 0.035 180);
+}
+
+/* V — Neutral + Marigold */
+.theme-marigold {
+  --paper: oklch(0.985 0.004 90);
+  --paper-2: oklch(0.95 0.008 85);
+  --paper-3: oklch(0.91 0.012 85);
+  --rule: oklch(0.78 0.012 85);
+  --ink: oklch(0.18 0.012 80);
+  --ink-soft: oklch(0.36 0.014 80);
+  --ink-mute: oklch(0.54 0.012 80);
+  --accent: oklch(0.72 0.155 75);
+  --accent-deep: oklch(0.55 0.135 65);
+  --accent-soft: oklch(0.92 0.060 90);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   WORKSHOP MULTI-HUE PALETTES — tuned for v6.
+   Each palette is a coherent COMBINATION of hues for the 5-card stack
+   (cream, blush, clay, sage, ink), not just shades of one accent.
+   That's the whole point — the homepage's interest comes from putting
+   different colors next to each other, like the canonical Brick Ledger
+   stack of cream + blush + clay + sage + ink.
+   ───────────────────────────────────────────────────────────── */
+
+/* WS-01 — Brick Ledger
+   The signature direction. Warm cream paper, oxblood accent, near-black ink.
+   Card stack is the canonical workshop palette: warm cream, dusty blush,
+   pinkish clay, soft sage, near-black ink. Maximum coherence with the
+   live homepage today. SAFE. */
+.theme-ws-brick {
+  --paper:        oklch(0.986 0.006 85);
+  --paper-2:      oklch(0.955 0.014 70);
+  --paper-3:      oklch(0.92 0.022 65);
+  --rule:         oklch(0.76 0.020 55);
+  --ink:          oklch(0.258 0.012 78);
+  --ink-soft:     oklch(0.40 0.018 60);
+  --ink-mute:     oklch(0.55 0.018 55);
+  --accent:       oklch(0.50 0.155 30);
+  --accent-deep:  oklch(0.36 0.130 28);
+  --accent-soft:  oklch(0.92 0.045 40);
+  --card-cream:   oklch(0.951 0.012 80);
+  --card-blush:   oklch(0.919 0.018 49);
+  --card-clay:    oklch(0.860 0.021 44);
+  --card-sage:    oklch(0.921 0.014 162);
+  --card-ink:     oklch(0.258 0.012 78);
+}
+
+/* WS-02 — Sunday Bakery
+   Warmer, oranger sibling of Brick Ledger. Kraft paper, peach, terracotta,
+   butter, walnut. Reads like a bakery counter on a Sunday morning.
+   Card stack pulls all hues from the warm half of the wheel. SAFE. */
+.theme-ws-bakery {
+  --paper:        oklch(0.972 0.014 70);
+  --paper-2:      oklch(0.94 0.022 65);
+  --paper-3:      oklch(0.89 0.030 60);
+  --rule:         oklch(0.76 0.030 60);
+  --ink:          oklch(0.245 0.025 50);
+  --ink-soft:     oklch(0.40 0.030 50);
+  --ink-mute:     oklch(0.55 0.025 50);
+  --accent:       oklch(0.60 0.140 50);
+  --accent-deep:  oklch(0.44 0.120 45);
+  --accent-soft:  oklch(0.91 0.050 60);
+  --card-cream:   oklch(0.945 0.018 80);
+  --card-blush:   oklch(0.890 0.045 55);
+  --card-clay:    oklch(0.815 0.060 45);
+  --card-sage:    oklch(0.910 0.040 90);
+  --card-ink:     oklch(0.245 0.025 50);
+}
+
+/* WS-03 — Library Hour
+   Warm paper + cream + dusty rose + camel + soft moss + ink, with a
+   forest-green accent. Reading room with worn books. Brings real hue
+   variety to the cards (rose, camel, green) — most "color combination"
+   reading of the warm set. SAFE. */
+.theme-ws-library {
+  --paper:        oklch(0.978 0.008 90);
+  --paper-2:      oklch(0.95 0.014 85);
+  --paper-3:      oklch(0.91 0.020 80);
+  --rule:         oklch(0.76 0.022 85);
+  --ink:          oklch(0.235 0.025 130);
+  --ink-soft:     oklch(0.40 0.026 120);
+  --ink-mute:     oklch(0.55 0.022 110);
+  --accent:       oklch(0.40 0.100 145);
+  --accent-deep:  oklch(0.28 0.080 145);
+  --accent-soft:  oklch(0.91 0.035 130);
+  --card-cream:   oklch(0.945 0.014 85);
+  --card-blush:   oklch(0.870 0.045 30);
+  --card-clay:    oklch(0.835 0.060 75);
+  --card-sage:    oklch(0.890 0.050 145);
+  --card-ink:     oklch(0.235 0.025 130);
+}
+
+/* WS-04 — Field Notes
+   Bone paper, butter, ochre, dusty sage, black ink. Mustard ochre accent.
+   Earned, hand-built — a notebook in a barn jacket. SAFE. */
+.theme-ws-field {
+  --paper:        oklch(0.96 0.010 85);
+  --paper-2:      oklch(0.93 0.018 80);
+  --paper-3:      oklch(0.88 0.025 80);
+  --rule:         oklch(0.74 0.025 80);
+  --ink:          oklch(0.20 0.014 80);
+  --ink-soft:     oklch(0.38 0.018 80);
+  --ink-mute:     oklch(0.54 0.018 80);
+  --accent:       oklch(0.68 0.155 75);
+  --accent-deep:  oklch(0.50 0.130 65);
+  --accent-soft:  oklch(0.92 0.060 85);
+  --card-cream:   oklch(0.935 0.018 85);
+  --card-blush:   oklch(0.890 0.055 75);
+  --card-clay:    oklch(0.770 0.110 75);
+  --card-sage:    oklch(0.890 0.040 150);
+  --card-ink:     oklch(0.20 0.014 80);
+}
+
+/* WS-05 — Inkwell
+   Cool sky paper, warm-cream foil, blush, dusty blue, slate-sage, deep
+   navy ink. The first BOLD departure: cool paper, but two warm cards
+   (cream, blush) keep it human. Pelican-paperback meets midcentury
+   textbook. BOLD. */
+.theme-ws-inkwell {
+  --paper:        oklch(0.975 0.008 240);
+  --paper-2:      oklch(0.945 0.014 240);
+  --paper-3:      oklch(0.90 0.020 240);
+  --rule:         oklch(0.76 0.020 240);
+  --ink:          oklch(0.22 0.030 250);
+  --ink-soft:     oklch(0.40 0.032 250);
+  --ink-mute:     oklch(0.55 0.026 245);
+  --accent:       oklch(0.42 0.115 245);
+  --accent-deep:  oklch(0.30 0.095 245);
+  --accent-soft:  oklch(0.90 0.040 240);
+  --card-cream:   oklch(0.945 0.012 90);
+  --card-blush:   oklch(0.890 0.040 30);
+  --card-clay:    oklch(0.85 0.045 240);
+  --card-sage:    oklch(0.91 0.030 200);
+  --card-ink:     oklch(0.22 0.030 250);
+}
+
+/* WS-06 — Atrium
+   Warm paper + cream + butter + soft terracotta + jade + forest ink.
+   Schoolroom with a green chalkboard. Highest-contrast card stack of
+   the set: butter and terracotta sit against a jade card, forest ink.
+   BOLD. */
+.theme-ws-atrium {
+  --paper:        oklch(0.980 0.008 95);
+  --paper-2:      oklch(0.95 0.014 90);
+  --paper-3:      oklch(0.91 0.020 85);
+  --rule:         oklch(0.76 0.022 90);
+  --ink:          oklch(0.22 0.030 155);
+  --ink-soft:     oklch(0.40 0.032 155);
+  --ink-mute:     oklch(0.55 0.026 150);
+  --accent:       oklch(0.50 0.115 155);
+  --accent-deep:  oklch(0.34 0.095 155);
+  --accent-soft:  oklch(0.91 0.060 100);
+  --card-cream:   oklch(0.945 0.014 85);
+  --card-blush:   oklch(0.880 0.060 80);
+  --card-clay:    oklch(0.78 0.105 40);
+  --card-sage:    oklch(0.85 0.090 165);
+  --card-ink:     oklch(0.22 0.030 155);
+}
+
+/* WS-07 — Garnet & Stone
+   Soft greige paper + bone + dusty rose + garnet wine + slate + ink.
+   Jewel-toned but muted — a single rich garnet card anchored by neutrals.
+   Premium, literary, but still parental. BOLD. */
+.theme-ws-garnet {
+  --paper:        oklch(0.974 0.005 60);
+  --paper-2:      oklch(0.945 0.010 50);
+  --paper-3:      oklch(0.90 0.018 45);
+  --rule:         oklch(0.76 0.018 45);
+  --ink:          oklch(0.18 0.014 25);
+  --ink-soft:     oklch(0.36 0.018 25);
+  --ink-mute:     oklch(0.52 0.016 30);
+  --accent:       oklch(0.46 0.150 18);
+  --accent-deep:  oklch(0.32 0.125 18);
+  --accent-soft:  oklch(0.91 0.055 25);
+  --card-cream:   oklch(0.940 0.012 60);
+  --card-blush:   oklch(0.885 0.045 25);
+  --card-clay:    oklch(0.745 0.115 18);
+  --card-sage:    oklch(0.86 0.018 240);
+  --card-ink:     oklch(0.18 0.014 25);
+}
+
+/* WS-08 — Twilight Workshop
+   Dark mode departure. Midnight paper, cream-on-ink, butter accent.
+   Card stack: light cream + burnt orange + rust + dusty teal +
+   deepest panel. The biggest visual departure of the set; only one for
+   readers comfortable with a dark site. BOLD. */
+.theme-ws-twilight {
+  --paper:        oklch(0.20 0.018 270);
+  --paper-2:      oklch(0.27 0.022 265);
+  --paper-3:      oklch(0.34 0.025 260);
+  --rule:         oklch(0.50 0.020 260);
+  --ink:          oklch(0.96 0.010 85);
+  --ink-soft:     oklch(0.82 0.014 85);
+  --ink-mute:     oklch(0.66 0.016 85);
+  --accent:       oklch(0.78 0.140 75);
+  --accent-deep:  oklch(0.62 0.130 70);
+  --accent-soft:  oklch(0.32 0.045 60);
+  --card-cream:   oklch(0.92 0.015 85);
+  --card-blush:   oklch(0.78 0.080 40);
+  --card-clay:    oklch(0.55 0.105 35);
+  --card-sage:    oklch(0.70 0.055 175);
+  --card-ink:     oklch(0.13 0.020 270);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   THEME OVERRIDES FOR .v6-root
+   The v6 homepage component (.v6-root) declares its own canonical card
+   stack inline. Without these higher-specificity rules, every theme
+   would look identical on the homepage. Each rule below re-asserts the
+   theme's card stack so live previews actually swap colors.
+   ───────────────────────────────────────────────────────────── */
+body.theme-ws-brick    .v6-root,
+body.theme-ws-bakery   .v6-root,
+body.theme-ws-library  .v6-root,
+body.theme-ws-field    .v6-root,
+body.theme-ws-inkwell  .v6-root,
+body.theme-ws-atrium   .v6-root,
+body.theme-ws-garnet   .v6-root,
+body.theme-ws-twilight .v6-root {
+  --card-cream: var(--card-cream-theme, var(--card-cream));
+}
+
+body.theme-ws-brick .v6-root {
+  --card-cream: oklch(0.951 0.012 80);
+  --card-blush: oklch(0.919 0.018 49);
+  --card-clay:  oklch(0.860 0.021 44);
+  --card-sage:  oklch(0.921 0.014 162);
+  --card-ink:   oklch(0.258 0.012 78);
+}
+body.theme-ws-bakery .v6-root {
+  --card-cream: oklch(0.945 0.018 80);
+  --card-blush: oklch(0.890 0.045 55);
+  --card-clay:  oklch(0.815 0.060 45);
+  --card-sage:  oklch(0.910 0.040 90);
+  --card-ink:   oklch(0.245 0.025 50);
+}
+body.theme-ws-library .v6-root {
+  --card-cream: oklch(0.945 0.014 85);
+  --card-blush: oklch(0.870 0.045 30);
+  --card-clay:  oklch(0.835 0.060 75);
+  --card-sage:  oklch(0.890 0.050 145);
+  --card-ink:   oklch(0.235 0.025 130);
+}
+body.theme-ws-field .v6-root {
+  --card-cream: oklch(0.935 0.018 85);
+  --card-blush: oklch(0.890 0.055 75);
+  --card-clay:  oklch(0.770 0.110 75);
+  --card-sage:  oklch(0.890 0.040 150);
+  --card-ink:   oklch(0.20 0.014 80);
+}
+body.theme-ws-inkwell .v6-root {
+  --card-cream: oklch(0.945 0.012 90);
+  --card-blush: oklch(0.890 0.040 30);
+  --card-clay:  oklch(0.85 0.045 240);
+  --card-sage:  oklch(0.91 0.030 200);
+  --card-ink:   oklch(0.22 0.030 250);
+}
+body.theme-ws-atrium .v6-root {
+  --card-cream: oklch(0.945 0.014 85);
+  --card-blush: oklch(0.880 0.060 80);
+  --card-clay:  oklch(0.78 0.105 40);
+  --card-sage:  oklch(0.85 0.090 165);
+  --card-ink:   oklch(0.22 0.030 155);
+}
+body.theme-ws-garnet .v6-root {
+  --card-cream: oklch(0.940 0.012 60);
+  --card-blush: oklch(0.885 0.045 25);
+  --card-clay:  oklch(0.745 0.115 18);
+  --card-sage:  oklch(0.86 0.018 240);
+  --card-ink:   oklch(0.18 0.014 25);
+}
+body.theme-ws-twilight .v6-root {
+  --card-cream: oklch(0.92 0.015 85);
+  --card-blush: oklch(0.78 0.080 40);
+  --card-clay:  oklch(0.55 0.105 35);
+  --card-sage:  oklch(0.70 0.055 175);
+  --card-ink:   oklch(0.13 0.020 270);
+}

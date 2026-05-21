@@ -1,0 +1,190 @@
+/* ── MOBILE-FIRST RESPONSIVE — Growth Mindset Parenting
+   Base styles target 375px (iPhone SE). Scale up with min-width queries.
+   Touch targets: 44px minimum. Font size: 16px minimum body.
+   ─────────────────────────────────────────────────────────── */
+
+/* ── NAV MOBILE ── */
+@media (max-width: 767px) {
+  .v6-root, .v6-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .v6-nav {
+    flex-wrap: wrap;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+  .v6-nav-links { display: none; }
+  .v6-nav-cta { display: none; }
+  .v6-nav-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+    margin-left: auto;
+  }
+
+  /* Mobile nav drawer */
+  .v6-nav-drawer {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--paper);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 28px;
+    transform: translateX(100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .v6-nav-drawer.is-open { transform: translateX(0); }
+  .v6-nav-drawer-close {
+    align-self: flex-end;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer;
+    font-size: 24px; color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .v6-nav-drawer-links {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .v6-nav-drawer-links a {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .v6-nav-drawer-links a[aria-current="page"] { color: var(--accent); }
+  .v6-nav-drawer-cta {
+    margin-top: 32px;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 18px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    padding: 18px 24px;
+    border-radius: 999px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  /* HERO */
+  .v6-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
+  .v6-hero-photo { order: -1; }
+  .v6-hero-h1 { font-size: 42px; }
+  .v6-hero-mark { font-size: 18px; }
+  .v6-hero-sub { font-size: 16px; }
+
+  /* TICKER */
+  .v6-ticker { margin: 0 -20px 48px; }
+
+  /* JUMP CARDS */
+  .v6-jump-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+  .v6-jump-grid > a:nth-child(n) {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    min-height: 200px;
+  }
+  .v6-jump-head h2 { font-size: 36px; }
+
+  /* PRACTICES GRID */
+  .v6-work-grid { grid-template-columns: 1fr; }
+  .v6-work-head h2 { font-size: 40px; }
+
+  /* QUOTE */
+  .v6-quote-grid {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 32px;
+  }
+  .v6-quote-photo { max-width: 200px; }
+  .v6-quote-q { font-size: 22px; }
+
+  /* SHOWS */
+  .v6-shows-grid { grid-template-columns: 1fr; }
+
+  /* SUBSCRIBE */
+  .v6-sub-card {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 32px;
+  }
+  .v6-sub-text h2 { font-size: 32px; }
+
+  /* FOOTER */
+  .v6-foot {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .v6-foot-links { flex-wrap: wrap; justify-content: center; }
+  .v6-foot-meta { align-items: center; }
+
+  /* INTERIOR PAGES */
+  .v6-page-head { padding: 32px 0; }
+  .v6-page-head-h1 { font-size: 36px; }
+
+  /* PRACTICES PAGE */
+  .v6-prac-b { grid-template-columns: 1fr; }
+  .v6-prac-b-list { position: static; }
+
+  /* LETTERS PAGE */
+  .v6-letters { grid-template-columns: 1fr; }
+  .v6-letters-side { display: none; }
+  .v6-letters-side-mobile {
+    display: block;
+    margin-bottom: 48px;
+  }
+
+  /* ARTICLE (letter detail) */
+  .v6-article-layout { grid-template-columns: 1fr; }
+  .v6-article-side { display: none; }
+  .v6-article-h1 { font-size: 32px; }
+
+  /* ABOUT */
+  .v6-about-hero { grid-template-columns: 1fr; }
+  .v6-about-essay {
+    grid-template-columns: 1fr;
+  }
+  .v6-about-essay-side { display: none; }
+  .v6-about-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .v6-root, .v6-page { padding-left: 32px; padding-right: 32px; }
+  .v6-hero { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .v6-hero-h1 { font-size: 56px; }
+  .v6-jump-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .v6-jump-grid > a:nth-child(n) {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+  .v6-sub-card { grid-template-columns: 1fr; gap: 32px; }
+  .v6-letters { grid-template-columns: 1fr; }
+  .v6-letters-side { display: none; }
+}
+
+/* Ensure desktop nav hamburger is hidden */
+@media (min-width: 768px) {
+  .v6-nav-hamburger { display: none; }
+  .v6-nav-drawer { display: none !important; }
+}
