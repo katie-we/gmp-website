@@ -73,7 +73,7 @@ export default function LetterPage({ params }) {
           <span className="v6-letter-tag-dot" aria-hidden="true" />
           {letter.tag} &middot;{' '}
           <time dateTime={letter.date}>
-            {new Date(letter.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            {new Date(letter.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </time>
         </div>
         <h1 className="v6-article-h1" itemProp="headline">{letter.title}</h1>

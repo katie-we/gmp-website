@@ -17,8 +17,8 @@ function LetterRow({ letter }) {
   return (
     <Link href={`/letters/${letter.slug}/`} className="v6-letter">
       <time className="v6-letter-date" dateTime={letter.date}>
-        <b>{new Date(letter.date).getDate()}</b>
-        <span>{new Date(letter.date).toLocaleString('en-US', { month: 'short' }).toUpperCase()}</span>
+        <b>{new Date(letter.date + 'T12:00:00').getDate()}</b>
+        <span>{new Date(letter.date + 'T12:00:00').toLocaleString('en-US', { month: 'short' }).toUpperCase()}</span>
       </time>
       <div className="v6-letter-body">
         <div className={`v6-letter-tag ${isEssay ? 'is-essay' : 'is-note'}`}>
@@ -95,7 +95,7 @@ export default function LettersPage() {
         </section>
 
         <aside className="v6-letters-side" aria-label="Sidebar">
-          <div className="v6-letters-side-card" id="subscribe">
+          <div className="v6-letters-side-card">
             <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 20, margin: '0 0 8px' }}>The Sunday Letter</h2>
             <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: '0 0 16px' }}>
               One classroom-tested practice in your inbox, every Sunday. Free, plainspoken, unsubscribe in one click.

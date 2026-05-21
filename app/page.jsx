@@ -53,7 +53,7 @@ const JUMP_CARDS = [
 
 export default function HomePage() {
   return (
-    <main className="v6-root theme-terracotta">
+    <main className="v6-root">
       <JsonLd data={PERSON_SCHEMA} />
       <JsonLd data={WEBSITE_SCHEMA} />
 

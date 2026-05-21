@@ -25,18 +25,19 @@ export const metadata = {
       'application/rss+xml': 'https://growthmindsetparenting.com/feed.xml',
     },
   },
-  verification: {
-    google: 'PASTE_GOOGLE_SEARCH_CONSOLE_CODE_HERE',
-  },
+  // Add verification only after connecting Search Console:
+  // verification: { google: 'YOUR_CODE_HERE' },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="theme-terracotta">
-      <body>{children}</body>
-      {process.env.NEXT_PUBLIC_GA_ID && (
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-      )}
+      <body>
+        {children}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
+      </body>
     </html>
   );
 }
