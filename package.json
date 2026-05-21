@@ -1,0 +1,17 @@
+{
+  "name": "growth-mindset-parenting",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/generate-rss.mjs",
+    "start": "next start",
+    "export": "next build && node scripts/generate-rss.mjs"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@next/third-parties": "14.2.3"
+  }
+}
