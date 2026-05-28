@@ -174,6 +174,7 @@ export default function CoursePage() {
             A self-paced course on the six skills middle schoolers are building — and how parents teach into each one. Join the waitlist for first access, founder&apos;s pricing, and a personal note when enrollment opens.
           </p>
           <SubscribeForm
+            variant="light"
             inputPlaceholder="sean@growthmindsetparenting.com"
             buttonLabel="Join the waitlist →"
           />
