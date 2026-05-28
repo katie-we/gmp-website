@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function LetterPage({ params }) {
+export default function WritingPiecePage({ params }) {
   const letter = getLetterBySlug(params.slug);
   if (!letter) notFound();
 
@@ -49,7 +49,7 @@ export default function LetterPage({ params }) {
       '@type': 'Person',
       name: 'Sean Kane',
       url: `${SITE.url}/about/`,
-      jobTitle: '12-year middle school English teacher and parenting educator',
+      jobTitle: '14-year middle school English teacher and parenting educator',
       sameAs: [SITE.author.tiktok, SITE.author.instagram],
     },
     publisher: {
@@ -57,7 +57,7 @@ export default function LetterPage({ params }) {
       name: 'Growth Mindset Parenting',
       url: SITE.url,
     },
-    mainEntityOfPage: `${SITE.url}/letters/${letter.slug}/`,
+    mainEntityOfPage: `${SITE.url}/writing/${letter.slug}/`,
     image: letter.img ? `${SITE.url}${letter.img}` : `${SITE.url}/images/sean-square.jpg`,
     keywords: ['parenting', 'middle school', 'growth mindset', letter.tag],
   };
@@ -65,10 +65,10 @@ export default function LetterPage({ params }) {
   return (
     <article className="v6-page theme-terracotta" itemScope itemType="https://schema.org/BlogPosting">
       <JsonLd data={ARTICLE_SCHEMA} />
-      <Nav active="/letters" />
+      <Nav active="/writing" />
 
       <header className="v6-article-head">
-        <Link href="/letters/" className="v6-article-back">&larr; All letters</Link>
+        <Link href="/writing/" className="v6-article-back">&larr; All writing</Link>
         <div className={`v6-letter-tag ${isEssay ? 'is-essay' : 'is-note'}`}>
           <span className="v6-letter-tag-dot" aria-hidden="true" />
           {letter.tag} &middot;{' '}
@@ -88,7 +88,7 @@ export default function LetterPage({ params }) {
           />
           <div>
             <div className="v6-article-byline-name" itemProp="author">Sean Kane</div>
-            <div className="v6-article-byline-meta">Twelve years in the classroom. Three sons at the kitchen table.</div>
+            <div className="v6-article-byline-meta">Fourteen years in the classroom. Three sons at the kitchen table.</div>
           </div>
         </Link>
       </header>
@@ -127,15 +127,15 @@ export default function LetterPage({ params }) {
 
           <section className="v6-article-cta" aria-label="Subscribe">
             <h2>Get the next letter on Saturday.</h2>
-            <p>One classroom-tested practice in your inbox, every week. Free, plainspoken, unsubscribe in one click.</p>
+            <p>One classroom-tested skill in your inbox, every week. Free, plainspoken, unsubscribe in one click.</p>
             <SubscribeForm />
           </section>
         </div>
 
         <aside className="v6-article-side">
           <div className="v6-article-side-card">
-            <h3>About the letter</h3>
-            <p>The Saturday Letter is a weekly note from Sean Kane — a former middle-school teacher raising three sons. Practical, plainspoken, free.</p>
+            <h3>About the newsletter</h3>
+            <p>The Saturday newsletter is a weekly note from Sean Kane — a former middle-school teacher raising three sons. Practical, plainspoken, free.</p>
           </div>
 
           {related.length > 0 && (
@@ -144,7 +144,7 @@ export default function LetterPage({ params }) {
               <ul className="v6-article-related">
                 {related.map((r) => (
                   <li key={r.slug}>
-                    <Link href={`/letters/${r.slug}/`}>
+                    <Link href={`/writing/${r.slug}/`}>
                       <div className={`v6-letter-tag ${r.type === 'essay' ? 'is-essay' : 'is-note'}`}>
                         <span className="v6-letter-tag-dot" aria-hidden="true" />
                         {r.tag}
