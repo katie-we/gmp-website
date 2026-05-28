@@ -17,7 +17,7 @@ export const metadata = {
     template: '%s | Growth Mindset Parenting',
   },
   description:
-    'Practical, plainspoken parenting advice from a 12-year middle school teacher and father of three. Evidence-based practices for parents of tweens and teens.',
+    'Practical, plainspoken parenting advice from a 14-year middle school teacher and father of three. Evidence-based skills for parents of kids ages 9–15.',
   openGraph: {
     siteName: 'Growth Mindset Parenting',
     type: 'website',
