@@ -1,10 +1,10 @@
 const TICKER_ITEMS = [
-  'Be the weather',
-  'Use the cooler',
-  'Inspect, don\'t expect',
-  'Three to one',
-  'I do, we do, you do',
-  'Bad moment, great opportunity',
+  'Three sons',
+  '14 years teaching',
+  'One newsletter, weekly',
+  'Six Middle Skills',
+  '140K reading and watching',
+  'Austin, TX',
 ];
 
 export default function Ticker() {
