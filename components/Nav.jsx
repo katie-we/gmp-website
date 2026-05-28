@@ -3,9 +3,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const NAV_LINKS = [
-  { href: '/practices', label: 'Practices' },
-  { href: '/letters', label: 'Letters' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/course', label: 'Course' },
   { href: '/about', label: 'About' },
+  { href: '/about#contact', label: 'Work with me' },
 ];
 
 export default function Nav({ active }) {
@@ -30,7 +32,7 @@ export default function Nav({ active }) {
             </Link>
           ))}
         </div>
-        <Link href="/letters#subscribe" className="v6-nav-cta">
+        <Link href="/writing#subscribe" className="v6-nav-cta">
           Subscribe &rarr;
         </Link>
         <button
@@ -71,7 +73,7 @@ export default function Nav({ active }) {
           ))}
         </nav>
         <Link
-          href="/letters#subscribe"
+          href="/writing#subscribe"
           className="v6-nav-drawer-cta"
           onClick={() => setOpen(false)}
         >
