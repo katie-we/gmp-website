@@ -675,3 +675,47 @@
   font-size: 13px;
   color: var(--ink-mute);
 }
+
+/* ── Offer section (two-tier, replaces jump on home) ──────────────────── */
+.v6-offer { padding: 0 0 96px; }
+.v6-offer-header { margin-bottom: 32px; }
+.v6-offer-eyebrow {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.v6-offer-header h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0;
+}
+.v6-offer-ss2-header { margin: 64px 0 32px; }
+.v6-offer-ss1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.v6-offer-ss2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+/* Larger cards in SS1 */
+.v6-offer-ss1 .v6-card { min-height: 320px; }
+/* Smaller cards in SS2 */
+.v6-offer-ss2 .v6-card { min-height: 240px; }
+.v6-offer-ss2 .v6-card-title { font-size: 22px; line-height: 1.2; }
+.v6-offer-ss2 .v6-card-body { font-size: 14px; }
+@media (max-width: 900px) {
+  .v6-offer-ss1 { grid-template-columns: 1fr; }
+  .v6-offer-ss2 { grid-template-columns: 1fr; }
+}
