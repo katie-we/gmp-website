@@ -3,19 +3,25 @@ import { useState } from 'react';
 import Link from 'next/link';
 import SubscribeForm from './SubscribeForm';
 
-const TOPIC_LABELS = {
-  regulation: 'Regulation',
-  repair: 'Repair',
-  standards: 'Standards',
-  praise: 'Praise',
-  foundations: 'Foundations',
-  'skill-building': 'Skill-building',
-};
+const PRIMARY_SKILLS = [
+  { key: 'emotional-literacy', label: 'Emotional Literacy' },
+  { key: 'resilience',         label: 'Resilience' },
+  { key: 'reflection',         label: 'Reflection' },
+  { key: 'relationship',       label: 'Relationship' },
+  { key: 'autonomy',           label: 'Autonomy' },
+  { key: 'communication',      label: 'Communication' },
+];
+
+const SECONDARY_TOPICS = [
+  { key: 'co-parenting',      label: 'Co-parenting' },
+  { key: 'raising-boys',      label: 'Raising boys' },
+  { key: 'school-teachers',   label: 'School & teachers' },
+];
 
 function LetterRow({ letter }) {
   const isEssay = letter.type === 'essay';
   return (
-    <Link href={`/letters/${letter.slug}/`} className="v6-letter">
+    <Link href={`/writing/${letter.slug}/`} className="v6-letter">
       <time className="v6-letter-date" dateTime={letter.date}>
         <b>{new Date(letter.date + 'T12:00:00').getDate()}</b>
         <span>{new Date(letter.date + 'T12:00:00').toLocaleString('en-US', { month: 'short' }).toUpperCase()}</span>
@@ -36,19 +42,14 @@ function LetterRow({ letter }) {
 export default function LettersFeed({ letters, totalPages }) {
   const [activeTopic, setActiveTopic] = useState(null);
 
-  // Count letters per topic (preserve display order)
-  const topicOrder = ['regulation', 'repair', 'standards', 'praise', 'skill-building', 'foundations'];
-  const topicCounts = {};
-  letters.forEach((l) => {
-    if (l.topic) topicCounts[l.topic] = (topicCounts[l.topic] || 0) + 1;
-  });
-  const topics = topicOrder.filter((t) => topicCounts[t]);
-
   const displayed = activeTopic ? letters.filter((l) => l.topic === activeTopic) : letters;
+
+  const allTopics = [...PRIMARY_SKILLS, ...SECONDARY_TOPICS];
+  const hasContent = (key) => letters.some((l) => l.topic === key);
 
   return (
     <div className="v6-letters">
-      <section className="v6-letters-feed" aria-label="Letters archive">
+      <section className="v6-letters-feed" aria-label="Writing archive">
         {displayed.map((letter) => (
           <LetterRow key={letter.slug} letter={letter} />
         ))}
@@ -58,10 +59,10 @@ export default function LettersFeed({ letters, totalPages }) {
             <span className="v6-letters-pager-btn is-disabled">&larr; Newer</span>
             <span className="v6-letters-pager-btn is-current">1</span>
             {Array.from({ length: Math.min(totalPages - 1, 4) }, (_, i) => i + 2).map((p) => (
-              <Link key={p} href={`/letters/page/${p}/`} className="v6-letters-pager-btn">{p}</Link>
+              <Link key={p} href={`/writing/page/${p}/`} className="v6-letters-pager-btn">{p}</Link>
             ))}
             {totalPages > 5 && <span className="v6-letters-pager-meta">of {totalPages}</span>}
-            <Link href="/letters/page/2/" className="v6-letters-pager-btn">Older &rarr;</Link>
+            <Link href="/writing/page/2/" className="v6-letters-pager-btn">Older &rarr;</Link>
           </nav>
         )}
       </section>
@@ -69,50 +70,70 @@ export default function LettersFeed({ letters, totalPages }) {
       <aside className="v6-letters-side" aria-label="Sidebar">
         <div className="v6-letters-side-card">
           <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 20, margin: '0 0 8px' }}>
-            The Saturday Letter
+            The Newsletter
           </h2>
           <p style={{ fontSize: 14, color: 'var(--ink-soft)', margin: '0 0 16px' }}>
-            One classroom-tested practice in your inbox, every Saturday. Free, plainspoken, unsubscribe in one click.
+            One piece of teaching in your inbox, every Saturday. Free, plainspoken, unsubscribe anytime.
           </p>
           <SubscribeForm
             variant="light"
-            inputPlaceholder="your@email.com"
+            inputPlaceholder="sean@growthmindsetparenting.com"
             buttonLabel="Subscribe free"
           />
         </div>
 
         <div className="v6-letters-side-card" style={{ background: 'var(--card-sage)' }}>
-          <h3 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 16, margin: '0 0 12px' }}>
-            Browse by topic
+          {/* Primary group: six Middle Skills */}
+          <h3 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 16, margin: '0 0 4px' }}>
+            Browse by skill
           </h3>
-          <div className="v6-letters-side-tags">
-            {topics.map((topic) => (
+          <div className="v6-letters-side-tags" style={{ marginBottom: 20 }}>
+            <button
+              className={`v6-letters-side-tag${activeTopic === null ? ' is-active' : ''}`}
+              onClick={() => setActiveTopic(null)}
+              style={{ cursor: 'pointer', border: 'none', fontFamily: 'inherit' }}
+            >
+              All {letters.length}
+            </button>
+            {PRIMARY_SKILLS.filter((s) => hasContent(s.key)).map((s) => (
               <button
-                key={topic}
-                className={`v6-letters-side-tag${activeTopic === topic ? ' is-active' : ''}`}
-                onClick={() => setActiveTopic(activeTopic === topic ? null : topic)}
+                key={s.key}
+                className={`v6-letters-side-tag${activeTopic === s.key ? ' is-active' : ''}`}
+                onClick={() => setActiveTopic(activeTopic === s.key ? null : s.key)}
                 style={{ cursor: 'pointer', border: 'none', fontFamily: 'inherit' }}
               >
-                {TOPIC_LABELS[topic]}
-                <span className="v6-letters-side-tag-n">{topicCounts[topic]}</span>
+                {s.label}
               </button>
             ))}
           </div>
+
+          {/* Secondary group */}
+          {SECONDARY_TOPICS.some((t) => hasContent(t.key)) && (
+            <>
+              <h3 style={{ fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-soft)', margin: '0 0 8px' }}>
+                More topics
+              </h3>
+              <div className="v6-letters-side-tags">
+                {SECONDARY_TOPICS.filter((t) => hasContent(t.key)).map((t) => (
+                  <button
+                    key={t.key}
+                    className={`v6-letters-side-tag${activeTopic === t.key ? ' is-active' : ''}`}
+                    onClick={() => setActiveTopic(activeTopic === t.key ? null : t.key)}
+                    style={{ cursor: 'pointer', border: 'none', fontFamily: 'inherit', fontSize: 13, opacity: 0.85 }}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
+
           {activeTopic && (
             <button
               onClick={() => setActiveTopic(null)}
-              style={{
-                marginTop: 12,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                fontFamily: 'var(--sans)',
-                fontSize: 13,
-                color: 'var(--ink-soft)',
-                padding: 0,
-              }}
+              style={{ marginTop: 12, background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--sans)', fontSize: 13, color: 'var(--ink-soft)', padding: 0 }}
             >
-              ← All letters
+              ← All writing
             </button>
           )}
         </div>
