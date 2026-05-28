@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
           <h2>Information collected</h2>
 
-          <p><strong>Email address.</strong> If you subscribe to the Sunday letter, your
+          <p><strong>Email address.</strong> If you subscribe to the Saturday letter, your
           email address is stored by Kit (formerly ConvertKit), our email service
           provider. You can unsubscribe at any time by clicking the unsubscribe link at
           the bottom of any letter. Kit&apos;s privacy policy is at{' '}
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
 
           <h2>How information is used</h2>
 
-          <p>Email addresses are used only to send the Sunday letter and occasional
+          <p>Email addresses are used only to send the Saturday letter and occasional
           announcements about new content or resources. Analytics data is used to
           understand what content is most useful and to improve the site over time.
           No personal data is sold to third parties.</p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
 
           <h2>Contact</h2>
 
-          <p>Questions about this policy? Reply to any Sunday letter or see the{' '}
+          <p>Questions about this policy? Reply to any Saturday letter or see the{' '}
           <Link href="/about#contact" style={{ color: 'var(--accent)', fontWeight: 600 }}>
             contact section
           </Link>{' '}on the About page.</p>

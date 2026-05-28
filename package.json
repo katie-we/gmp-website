@@ -9,9 +9,12 @@
     "export": "next build && node scripts/generate-rss.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "14.2.3",
     "next": "14.2.3",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "@next/third-parties": "14.2.3"
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
   }
 }

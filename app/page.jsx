@@ -45,7 +45,7 @@ const WEBSITE_SCHEMA = {
 
 const JUMP_CARDS = [
   { color: 'card-cream', n: '01', eyebrow: 'Start here', title: 'The Six Practices', body: 'The classroom-tested system, adapted for the kitchen table. Six tools, each with a script.', href: '/practices', cta: 'Read the practices' },
-  { color: 'card-blush', n: '02', eyebrow: 'Sunday letter', title: 'Letters', body: 'A free Sunday note from Sean. Short, plainspoken, one practice at a time.', href: '/letters', cta: 'Browse the archive' },
+  { color: 'card-blush', n: '02', eyebrow: 'Saturday letter', title: 'Letters', body: 'A free Saturday note from Sean. Short, plainspoken, one practice at a time.', href: '/letters', cta: 'Browse the archive' },
   { color: 'card-clay', n: '03', eyebrow: 'The system', title: 'Parent like a teacher', body: 'What twelve years in the classroom taught me about the three years at the kitchen table.', href: '/about', cta: 'Sean\'s story' },
   { color: 'card-sage', n: '04', eyebrow: '1:1 coaching', title: 'Coaching', body: 'A small number of families each quarter. Real plans, real follow-through.', href: '/about#contact', cta: 'Get in touch' },
   { color: 'card-ink', n: '05', eyebrow: 'Talks & schools', title: 'Speaking', body: 'Parent groups, schools, faith communities. One talk that actually changes behavior.', href: '/about#contact', cta: 'Book a talk' },
@@ -83,7 +83,7 @@ export default function HomePage() {
             </Link>
           </div>
           <span className="v6-hero-mark">
-            {SITE.stats.subscribers} parents reading every Sunday.
+            {SITE.stats.subscribers} parents reading every Saturday.
           </span>
         </div>
         <figure className="v6-hero-photo">
@@ -97,7 +97,7 @@ export default function HomePage() {
           />
           <div className="v6-hero-cap" aria-hidden="true">
             <span>Sean Kane</span>
-            <span>Chicago, IL</span>
+            <span>Austin, TX</span>
           </div>
         </figure>
       </section>
@@ -180,33 +180,33 @@ export default function HomePage() {
           <h2>Where else to find this work.</h2>
         </div>
         <div className="v6-shows-grid">
-          <a href={SITE.author.tiktok} className="v6-show v6-show-podcast" target="_blank" rel="noopener noreferrer">
-            <span className="v6-show-tag">TikTok</span>
+          <a href={SITE.author.instagram} className="v6-show v6-show-podcast" target="_blank" rel="noopener noreferrer">
+            <span className="v6-show-tag">Instagram</span>
             <h3>@growth.mindset.parenting</h3>
-            <p>Short videos on the practices in real life. {SITE.stats.followers} followers. New posts most weeks.</p>
+            <p>Reels and short clips on the practices in real life. {SITE.stats.instagramFollowers} followers.</p>
+            <div className="v6-card-cta">Follow <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
+          </a>
+          <a href={SITE.author.tiktok} className="v6-show v6-show-yt" target="_blank" rel="noopener noreferrer">
+            <span className="v6-show-tag">TikTok</span>
+            <h3>@growthmindsetparenting</h3>
+            <p>Short videos on the practices in real life. {SITE.stats.tiktokFollowers} followers. New posts most weeks.</p>
             <div className="v6-card-cta">Watch <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
           </a>
-          <Link href="/letters" className="v6-show v6-show-yt">
-            <span className="v6-show-tag">Sunday Letter</span>
+          <Link href="/letters" className="v6-show v6-show-essay">
+            <span className="v6-show-tag">Saturday Letter</span>
             <h3>The Letters</h3>
-            <p>One practice, written plainly, every Sunday. Free. {SITE.stats.subscribers} subscribers. Unsubscribe in one click.</p>
+            <p>One practice, written plainly, every Saturday. Free. {SITE.stats.subscribers} subscribers. Unsubscribe in one click.</p>
             <div className="v6-card-cta">Browse the archive <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
-          </Link>
-          <Link href="/about#contact" className="v6-show v6-show-essay">
-            <span className="v6-show-tag">Speaking & Coaching</span>
-            <h3>Work with Sean</h3>
-            <p>Parent groups, schools, and 1:1 coaching. A small number of engagements each quarter.</p>
-            <div className="v6-card-cta">Get in touch <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
           </Link>
         </div>
       </section>
 
       {/* SUBSCRIBE */}
-      <section className="v6-sub" id="subscribe" aria-label="Subscribe to the Sunday letter">
+      <section className="v6-sub" id="subscribe" aria-label="Subscribe to the Saturday letter">
         <div className="v6-sub-card">
           <div className="v6-sub-text">
-            <span className="v6-work-eyebrow">The Sunday Letter</span>
-            <h2>One practice. Every Sunday. Free.</h2>
+            <span className="v6-work-eyebrow">The Saturday Letter</span>
+            <h2>One practice. Every Saturday. Free.</h2>
             <p>
               Join {SITE.stats.subscribers} parents and teachers. Plainspoken, three minutes to read,
               ten years to internalize. Unsubscribe in one click.

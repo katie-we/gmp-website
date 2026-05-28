@@ -119,6 +119,11 @@
 
   /* SHOWS */
   .v6-shows-grid { grid-template-columns: 1fr; }
+  .v6-show h3 {
+    font-size: 22px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 
   /* SUBSCRIBE */
   .v6-sub-card {
@@ -138,8 +143,21 @@
   .v6-foot-meta { align-items: center; }
 
   /* INTERIOR PAGES */
-  .v6-page-head { padding: 32px 0; }
+  .v6-page-head {
+    padding: 32px 0;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
   .v6-page-head-h1 { font-size: 36px; }
+  .v6-page-head-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    text-align: left;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
 
   /* PRACTICES PAGE */
   .v6-prac-b { grid-template-columns: 1fr; }
@@ -152,19 +170,50 @@
     display: block;
     margin-bottom: 48px;
   }
+  .v6-letter {
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+  }
+  .v6-letter-feat {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 
   /* ARTICLE (letter detail) */
   .v6-article-layout { grid-template-columns: 1fr; }
   .v6-article-side { display: none; }
   .v6-article-h1 { font-size: 32px; }
+  .v6-article-cta-form { flex-direction: column; }
 
   /* ABOUT */
   .v6-about-hero { grid-template-columns: 1fr; }
+  .v6-about-hero-text h1 { font-size: 44px; }
   .v6-about-essay {
     grid-template-columns: 1fr;
   }
   .v6-about-essay-side { display: none; }
-  .v6-about-stats { grid-template-columns: repeat(2, 1fr); }
+  /* min-width: 0 fixes a CSS Grid issue where huge stat numbers (88px)
+     force the grid item wider than the viewport */
+  .v6-about-prose { min-width: 0; }
+  .v6-about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .v6-about-stat b { font-size: 48px; }
+  .v6-about-prose p:first-of-type::first-letter {
+    float: none;
+    font-size: 1em;
+    line-height: inherit;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+  }
+  .v6-about-prose figure {
+    margin: 24px 0;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

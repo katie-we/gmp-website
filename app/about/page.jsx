@@ -18,7 +18,7 @@ const PERSON_FULL_SCHEMA = {
   name: 'Sean Kane',
   url: SITE.url,
   jobTitle: 'Parenting educator and former middle school English teacher',
-  description: 'Twelve-year middle school English teacher who applies classroom growth-mindset practices to home parenting. Father of three sons: Henry, Sam, and Theo.',
+  description: 'Twelve-year middle school English teacher who applies classroom growth-mindset practices to home parenting. Father of three sons.',
   knowsAbout: [
     'adolescent development',
     'middle school parenting',
@@ -46,7 +46,7 @@ export default function AboutPage() {
       <section className="v6-about-hero">
         <div className="v6-about-hero-text">
           <span className="v6-page-head-eyebrow">About Sean</span>
-          <h1>From <em>room 214</em> to the kitchen table.</h1>
+          <h1>From <em>room 201</em> to the kitchen table.</h1>
           <p>
             Twelve years teaching middle school. Three sons. One unshakeable
             conviction that the same growth-mindset practices that unlock kids in
@@ -56,14 +56,14 @@ export default function AboutPage() {
         </div>
         <figure className="v6-about-hero-img">
           <img
-            src="/images/sean-square.jpg"
-            alt="Sean Kane — parenting educator and former middle school teacher, Chicago"
+            src="/images/sean-hero.jpg"
+            alt="Sean Kane — parenting educator and former middle school teacher, Austin TX"
             width={600}
             height={750}
             style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: 8 }}
           />
           <figcaption className="v6-about-hero-img-cap">
-            <span>Sean Kane &middot; Chicago, IL</span>
+            <span>Sean Kane &middot; Austin, TX</span>
           </figcaption>
         </figure>
       </section>
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </div>
           <nav className="v6-about-essay-toc" aria-label="Table of contents">
             <span style={{ fontFamily: 'var(--serif-display)', fontStyle: 'italic', color: 'var(--accent)', fontSize: 18, marginBottom: 8, display: 'block' }}>Inside</span>
-            <a href="#room-214">i. Room 214</a>
+            <a href="#room-201">i. Room 201</a>
             <a href="#what-worked">ii. What worked there</a>
             <a href="#kitchen">iii. Kitchen table</a>
             <a href="#now">iv. Now</a>
@@ -86,10 +86,10 @@ export default function AboutPage() {
         </aside>
 
         <div className="v6-about-prose" itemProp="description">
-          <h2 id="room-214">Room 214.</h2>
+          <h2 id="room-201">Room 201.</h2>
           <p>
             For twelve years I taught seventh-grade language arts in a public middle school
-            on Chicago&apos;s north side. My classroom was room 214 — a corner room with bad
+            on Chicago&apos;s north side. My classroom was room 201 — a corner room with bad
             lighting, a stubborn radiator, and thirty-one chairs that I rearranged the way
             other people rearrange furniture: weekly, hopefully, with strong opinions.
           </p>
@@ -167,22 +167,26 @@ export default function AboutPage() {
             </div>
             <div className="v6-about-stat" role="listitem">
               <b>3</b>
-              <div className="v6-about-stat-l">Sons (Henry, Sam, Theo)</div>
+              <div className="v6-about-stat-l">Sons</div>
             </div>
             <div className="v6-about-stat" role="listitem">
               <b>{SITE.stats.subscribers}</b>
-              <div className="v6-about-stat-l">Sunday newsletter readers</div>
+              <div className="v6-about-stat-l">Saturday letter readers</div>
             </div>
             <div className="v6-about-stat" role="listitem">
-              <b>{SITE.stats.followers}</b>
+              <b>{SITE.stats.instagramFollowers}</b>
+              <div className="v6-about-stat-l">Instagram followers</div>
+            </div>
+            <div className="v6-about-stat" role="listitem">
+              <b>{SITE.stats.tiktokFollowers}</b>
               <div className="v6-about-stat-l">TikTok followers</div>
             </div>
           </div>
 
           <h2 id="now">What I&apos;m doing now.</h2>
           <p>
-            In 2024 I left full-time teaching to write about all of this. The Sunday letter is
-            the thing I&apos;m proudest of: short, plainspoken, free, every Sunday, no funnels.
+            In 2024 I left full-time teaching to write about all of this. The Saturday letter is
+            the thing I&apos;m proudest of: short, plainspoken, free, every Saturday, no funnels.
           </p>
           <p>
             I still substitute teach when my old school asks me to. I still believe that the
@@ -196,7 +200,7 @@ export default function AboutPage() {
           <p>
             I read every email. I take a small number of speaking engagements each year (schools,
             faith communities, parent groups, teacher trainings), and a smaller number of 1:1
-            coaching clients when my schedule allows. The fastest way to reach me is the Sunday
+            coaching clients when my schedule allows. The fastest way to reach me is the Saturday
             letter — reply to any one and it lands in my inbox.
           </p>
         </div>
@@ -204,18 +208,20 @@ export default function AboutPage() {
 
       <section className="v6-about-end">
         <span className="v6-page-head-eyebrow">Start where you are</span>
-        <h2>One <em>practice.</em> One Sunday. Free.</h2>
+        <h2>One <em>practice.</em> One Saturday. Free.</h2>
         <p>
           Join {SITE.stats.subscribers} parents and teachers who like their advice plainspoken.
         </p>
-        <div style={{ display: 'inline-flex', gap: 12, flexWrap: 'wrap' }}>
-          <Link href="/letters#subscribe" className="v6-cta v6-cta-primary">
-            Subscribe, free <span className="v6-cta-arrow" aria-hidden="true">&rarr;</span>
-          </Link>
-          <Link href="/practices" className="v6-cta v6-cta-ghost">
-            The six practices
-          </Link>
+        <div style={{ maxWidth: 400, margin: '0 auto 16px' }}>
+          <SubscribeForm
+            variant="light"
+            inputPlaceholder="your@email.com"
+            buttonLabel="Subscribe free →"
+          />
         </div>
+        <Link href="/practices" className="v6-cta v6-cta-ghost">
+          The six practices
+        </Link>
       </section>
 
       <Footer />

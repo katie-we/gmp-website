@@ -432,6 +432,8 @@
   transition: background 0.2s;
   min-height: 280px;
   display: flex; flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
 }
 .v6-prac:hover { background: var(--paper-2); }
 .v6-prac-num {

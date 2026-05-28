@@ -361,6 +361,8 @@
    │  LETTERS — paginated archive feed                    │
    ╰─────────────────────────────────────────────────────╯ */
 
+.v6-letters-side-mobile { display: none; }
+
 .v6-letters {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -1112,25 +1114,34 @@
 
 .v6-about-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-  padding: 64px 0;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
   border-top: 1.5px solid var(--ink);
   border-bottom: 1.5px solid var(--ink);
   margin: 64px 0;
 }
+.v6-about-stat {
+  padding: 28px 24px;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.v6-about-stat:last-child {
+  border-right: 0;
+}
 .v6-about-stat b {
   display: block;
-  font-family: "Lora", Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 88px; line-height: 0.85;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 0.9;
   color: var(--accent);
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
 }
 .v6-about-stat-l {
-  font-family: var(--sans); font-size: 14px;
+  font-family: var(--sans); font-size: 13px;
   color: var(--ink-soft);
 }
 

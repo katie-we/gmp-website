@@ -5,6 +5,11 @@ import '../styles/v6-pages.css';
 import '../styles/v6-mobile.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
   metadataBase: new URL('https://growthmindsetparenting.com'),
   title: {

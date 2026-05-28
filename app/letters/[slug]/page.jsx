@@ -122,11 +122,11 @@ export default function LetterPage({ params }) {
 
           <div className="v6-article-end" aria-hidden="true">
             <span>&mdash;</span>
-            <div>See you Sunday.<br /><em>Sean</em></div>
+            <div>See you Saturday.<br /><em>Sean</em></div>
           </div>
 
           <section className="v6-article-cta" aria-label="Subscribe">
-            <h2>Get the next letter on Sunday.</h2>
+            <h2>Get the next letter on Saturday.</h2>
             <p>One classroom-tested practice in your inbox, every week. Free, plainspoken, unsubscribe in one click.</p>
             <SubscribeForm />
           </section>
@@ -135,7 +135,7 @@ export default function LetterPage({ params }) {
         <aside className="v6-article-side">
           <div className="v6-article-side-card">
             <h3>About the letter</h3>
-            <p>The Sunday Letter is a weekly note from Sean Kane — a former middle-school teacher raising three sons. Practical, plainspoken, free.</p>
+            <p>The Saturday Letter is a weekly note from Sean Kane — a former middle-school teacher raising three sons. Practical, plainspoken, free.</p>
           </div>
 
           {related.length > 0 && (

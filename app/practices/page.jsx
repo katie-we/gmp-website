@@ -66,9 +66,9 @@ export default function PracticesPage() {
       <section className="v6-sub" id="subscribe" aria-label="Subscribe">
         <div className="v6-sub-card">
           <div className="v6-sub-text">
-            <span className="v6-work-eyebrow">The Sunday Letter</span>
+            <span className="v6-work-eyebrow">The Saturday Letter</span>
             <h2>Get one practice a week, plainspoken.</h2>
-            <p>Free, every Sunday. {SITE.stats.subscribers} subscribers. Unsubscribe in one click.</p>
+            <p>Free, every Saturday. {SITE.stats.subscribers} subscribers. Unsubscribe in one click.</p>
           </div>
           <SubscribeForm />
         </div>
