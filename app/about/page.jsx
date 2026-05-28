@@ -50,7 +50,7 @@ export default function AboutPage() {
           <p>Fourteen years teaching middle school. Three sons. The same six skills, in two different rooms.</p>
         </div>
         <figure className="v6-about-hero-img">
-          <img
+          <Image
             src="/images/sean-hero.jpg"
             alt="Sean Kane — parenting educator and former middle school teacher, Austin TX"
             width={600}
