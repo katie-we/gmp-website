@@ -9,7 +9,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'About Sean Kane',
   description:
-    'Twelve years teaching middle school. Three sons. One conviction: the same practices that unlock kids in a classroom unlock them at home.',
+    'Fourteen years teaching middle school. Three sons. The same six skills, in two different rooms.',
 };
 
 const PERSON_FULL_SCHEMA = {
@@ -18,7 +18,7 @@ const PERSON_FULL_SCHEMA = {
   name: 'Sean Kane',
   url: SITE.url,
   jobTitle: 'Parenting educator and former middle school English teacher',
-  description: 'Twelve-year middle school English teacher who applies classroom growth-mindset practices to home parenting. Father of three sons.',
+  description: 'Fourteen-year middle school English teacher who applies classroom skills to home parenting. Father of three sons.',
   knowsAbout: [
     'adolescent development',
     'middle school parenting',
@@ -33,7 +33,7 @@ const PERSON_FULL_SCHEMA = {
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: 'Teaching Certificate',
-    description: '12-year middle school English teacher, Chicago Public Schools',
+    description: '14-year middle school English teacher',
   },
 };
 
@@ -46,13 +46,8 @@ export default function AboutPage() {
       <section className="v6-about-hero">
         <div className="v6-about-hero-text">
           <span className="v6-page-head-eyebrow">About Sean</span>
-          <h1>From <em>room 201</em> to the kitchen table.</h1>
-          <p>
-            Twelve years teaching middle school. Three sons. One unshakeable
-            conviction that the same growth-mindset practices that unlock kids in
-            a classroom unlock them at home — just with fewer interruptions
-            and better snacks.
-          </p>
+          <h1>From <em>Room 201</em> to the kitchen table.</h1>
+          <p>Fourteen years teaching middle school. Three sons. The same six skills, in two different rooms.</p>
         </div>
         <figure className="v6-about-hero-img">
           <img
@@ -70,7 +65,7 @@ export default function AboutPage() {
 
       <section className="v6-about-essay">
         <aside className="v6-about-essay-side" aria-label="Article info">
-          <div><b>11 min</b> read</div>
+          <div><b>12 min</b> read</div>
           <div>
             <span style={{ display: 'block', fontWeight: 600, marginBottom: 6 }}>Last updated</span>
             May 2026
@@ -80,147 +75,197 @@ export default function AboutPage() {
             <a href="#room-201">i. Room 201</a>
             <a href="#what-worked">ii. What worked there</a>
             <a href="#kitchen">iii. Kitchen table</a>
-            <a href="#now">iv. Now</a>
+            <a href="#now">iv. What I&apos;m doing now</a>
             <a href="#contact">v. Get in touch</a>
           </nav>
         </aside>
 
         <div className="v6-about-prose" itemProp="description">
+
+          {/* Section 1 */}
           <h2 id="room-201">Room 201.</h2>
           <p>
-            For twelve years I taught seventh-grade language arts in a public middle school
-            on Chicago&apos;s north side. My classroom was room 201 — a corner room with bad
-            lighting, a stubborn radiator, and thirty-one chairs that I rearranged the way
-            other people rearrange furniture: weekly, hopefully, with strong opinions.
+            I was a middle school educator for fourteen years, starting my career in 5th grade on
+            the South Side of Chicago. I moved to the West Side and worked at an all-boys school in
+            some of the most formative years of my life. Work brought our family to Austin, Texas,
+            where I worked for four years as a 9th-grade teacher and school administrator. Always
+            teaching language arts, somehow always from Room 201. Those years taught me an immense
+            amount about what works and what won&apos;t work with our kids &mdash; but fatherhood
+            made it urgent.
           </p>
           <p>
-            I loved that room. I loved that age. Seventh graders are widely considered to be
-            the worst people on earth, but they are also, secretly, some of the most generous,
-            curious, and unintentionally hilarious humans I&apos;ve ever spent time with. They will
-            tell you the truth about your lesson before you&apos;ve finished writing the date on
-            the board.
+            The man who taught me most was Dave Deal. Founding Dean of students at the all-boys
+            school where I worked, and the most quietly relentless teacher I&apos;ve ever met. His
+            high standards were the most respectful thing a child could experience. Every year, his
+            first lesson taught the kids that their brain was neuroplastic &mdash; he showed them MRI
+            scans to prove it. All of it in the service of a growth mindset: the idea that we can
+            always learn, and engage in change. He would tell them, &ldquo;I&apos;m so glad you made
+            a mistake. We learn nothing from our successes. We learn everything from these.&rdquo;
           </p>
-          <blockquote>
-            What I learned in twelve years was simple: kids do not rise to what you wish for
-            them. They rise to what you build, name, and inspect.
-          </blockquote>
           <p>
-            That is the entire job. It looks like a hundred small things — a routine for
-            walking in the door, a phrase for praise, a pause before consequence, a script for
-            apology — but the headline is the same. <strong>Build the practices. Name
-            them. Inspect them gently. Repair when they break.</strong> Wishing is not a strategy.
-            Yelling is the absence of one.
+            That was the disposition. Every kid, limitless. Every mistake, useful. Every day a chance
+            to grow. Mr. Deal wasn&apos;t a cheerleader and he wasn&apos;t soft &mdash; he was strict,
+            structured, and demanding. But he treated every kid like a person becoming, not a problem
+            to manage. I followed him around for years trying to learn how he did it.
+          </p>
+          <p>
+            What I eventually figured out was this: the kids who do well in middle school
+            aren&apos;t the ones who happen to be born good at it. They&apos;re the ones being
+            taught &mdash; actively taught, with patience and repetition &mdash; how to handle their
+            feelings, how to stay in something hard, how to look at their own choices honestly, how
+            to repair when they&apos;ve broken something. There&apos;s a set of skills underneath
+            everything else. And those skills can be taught.
           </p>
 
+          {/* Section 2 */}
           <h2 id="what-worked">What worked there.</h2>
-          <p>
-            Six practices kept showing up, year after year, room after room, kid after kid.
-            They worked in honors classes and remedial classes; they worked with the kid who
-            cried at her locker and the kid who set fire to a notebook (once, I want to be
-            clear). They worked because they weren&apos;t about the kid — they were about the
-            adult and the room.
-          </p>
           <figure className="v6-about-figure">
             <Image src="/images/sean-teaching.jpg" alt="Sean in the classroom" width={500} height={375} />
-            <Image src="/images/sean-studio.jpg" alt="Sean writing" width={500} height={375} />
-            <figcaption>Left: the classroom, circa 2017. Right: where the newsletter actually gets written.</figcaption>
+            <figcaption>The classroom, circa 2017.</figcaption>
           </figure>
           <p>
-            The practices aren&apos;t original. None of them are mine. I borrowed every single one
-            from someone better — from Lemov, from Yeager, from a school librarian
-            named Mrs. Esparza who saved my career in 2014 by telling me to stop talking and
-            start watching. What I did was sand them down to the version that worked
-            with thirty seventh-graders on a Tuesday when the heat was out, and then wrote them
-            down so I wouldn&apos;t forget.
+            After fourteen years of watching this developmental window play out with over a thousand
+            kids, the patterns started to feel less like patterns and more like a curriculum. Six
+            things kids in this age are always building, in some order, whether the adults around
+            them notice or not &mdash; emotional literacy, resilience, reflection, relationship,
+            autonomy, communication. The adults who taught them connected with kids, and helped them
+            grow. And the kids who engaged with that work realized the person I am matters more than
+            the scores I earn.
+          </p>
+          <p>
+            You also start to see what the kids in front of you can do that no adult is giving them
+            credit for. A twelve-year-old can think honestly about their own behavior if you ask the
+            right question and wait long enough for the answer. A thirteen-year-old can apologize
+            without prompting if they&apos;ve watched the adults in their life do it first. A
+            fourteen-year-old can sit with something difficult instead of running from it &mdash;
+            once they&apos;ve done it a few times and noticed they survived.
+          </p>
+          <p>
+            It&apos;s not magic. It&apos;s teaching. And the disposition Dave Deal modeled &mdash;
+            this kid is forming, not finished; this moment is data, not a verdict; everything is
+            learnable &mdash; turns out to be a daily practice.
           </p>
 
+          {/* Section 3 */}
           <h2 id="kitchen">Kitchen table.</h2>
           <p>
-            My eldest is Henry. He was born during my fifth year of teaching, and for the
-            first three years of his life, my wife and I parented him by guessing. We read the
-            books. We did the bedtimes. He mostly turned out fine, in the way that kids of two
-            well-meaning, sleep-deprived, extremely literate parents do.
+            I became a dad in my late twenties and now have three boys. There wasn&apos;t one moment
+            when fatherhood reframed everything I&apos;d learned in the classroom &mdash; it happened
+            gradually, over years, as one boy became three and the work I&apos;d been doing with other
+            people&apos;s kids became the work I had to do at home, every day, with much less distance
+            and much more emotional weight.
           </p>
           <p>
-            Then his brother Sam was born, and three years later, Theo, and somewhere in the
-            middle of that I noticed something embarrassing: I was a better teacher than I was a
-            parent. The worst parts of my parenting were the parts where I&apos;d forgotten to be
-            the adult I was at school. I was wishing where I should have been inspecting. I was
-            reacting where I should have been pausing. I was lecturing where I should have been
-            modeling.
+            What I noticed was that I parent like a teacher. Not deliberately at first &mdash;
+            it&apos;s just the only way I know how. I name what&apos;s happening when I see it. I ask
+            the question instead of declaring the answer. I inspect rather than expect. I model what
+            I want to see, more often than I tell them what to do. I structure every routine and follow
+            through. I&apos;ve spent fourteen years building these habits with other people&apos;s
+            children. They don&apos;t switch off when I walk through the door of my own house.
           </p>
-          <blockquote>
-            My wife used to say I had an unfair advantage. I didn&apos;t. I had twelve years
-            of practice with other people&apos;s kids.
-          </blockquote>
+          <p>But teaching your own kids is different, and harder.</p>
           <p>
-            So I took the practices home. I wrote them on an index card on the fridge. I taught
-            them to my sons the way I&apos;d taught poetry to a hundred seventh graders —
-            embarrassingly explicitly, with humor, with patience, and with the underlying belief
-            that they were capable of learning them. They were. They all are.
+            The detachment that lets you see other people&apos;s children clearly doesn&apos;t exist
+            when the kid in front of you is yours. The emotional stakes change, the strategies change,
+            but what remains is the understanding that every kid deserves the support that allows them
+            to be their best. In a school year, you become a slice of the child&apos;s story and they
+            move on in June. In your home, you are a main character &mdash; and the goal is to remain
+            connected, in some way, forever.
+          </p>
+          <p>
+            In 2021 we bought a small flower farm in Texas, which is where I started keeping a real
+            practice of being someone who&apos;s still learning. I knew nothing about farming. I had
+            to figure it out the same way I tell parents to figure parenting out: try, fail, ask better
+            questions, watch the people who know more than you, and keep going. The farm taught me what
+            I&apos;d been telling kids for years. Growth happens when the conditions are right. You
+            can&apos;t force it.
+          </p>
+          <p>
+            But it also taught me about potential again. Just because you feel lost doesn&apos;t mean
+            you can&apos;t grow. Great things happen when we try, fail, learn, and try again. And
+            that&apos;s my invitation to parents &mdash; just keep growing.
           </p>
 
+          {/* Stats block */}
           <div className="v6-about-stats" role="list">
             <div className="v6-about-stat" role="listitem">
-              <b itemProp="yearsOfExperience">12</b>
-              <div className="v6-about-stat-l">Years teaching middle school</div>
+              <b itemProp="yearsOfExperience">14</b>
+              <div className="v6-about-stat-l">yrs &middot; Teaching middle school</div>
             </div>
             <div className="v6-about-stat" role="listitem">
               <b>3</b>
-              <div className="v6-about-stat-l">Sons</div>
+              <div className="v6-about-stat-l">Schools, two cities</div>
             </div>
             <div className="v6-about-stat" role="listitem">
-              <b>{SITE.stats.subscribers}</b>
-              <div className="v6-about-stat-l">Saturday letter readers</div>
+              <b>1,000+</b>
+              <div className="v6-about-stat-l">Students taught</div>
             </div>
             <div className="v6-about-stat" role="listitem">
-              <b>{SITE.stats.instagramFollowers}</b>
-              <div className="v6-about-stat-l">Instagram followers</div>
-            </div>
-            <div className="v6-about-stat" role="listitem">
-              <b>{SITE.stats.tiktokFollowers}</b>
-              <div className="v6-about-stat-l">TikTok followers</div>
+              <b>140K</b>
+              <div className="v6-about-stat-l">Following across social</div>
             </div>
           </div>
 
+          {/* Pull quote between Section 3 and Section 4 */}
+          <blockquote style={{
+            fontFamily: 'var(--serif-display)',
+            fontStyle: 'italic',
+            fontSize: 26,
+            fontWeight: 500,
+            color: 'var(--ink)',
+            borderLeft: '4px solid var(--accent)',
+            paddingLeft: 28,
+            margin: '48px 0',
+            lineHeight: 1.5,
+          }}>
+            In a school year, you become a slice of the child&apos;s story and they move on in June.
+            In your home, you are a main character &mdash; and the goal is to remain connected, in
+            some way, forever.
+          </blockquote>
+
+          {/* Section 4 */}
           <h2 id="now">What I&apos;m doing now.</h2>
           <p>
-            In 2024 I left full-time teaching to write about all of this. The Saturday letter is
-            the thing I&apos;m proudest of: short, plainspoken, free, every Saturday, no funnels.
+            I&apos;m still teaching &mdash; just not in Room 201. The classroom now is the weekly
+            newsletter, the videos, the long essays, the coaching calls with parents who want a
+            teacher in their corner. There&apos;s a course coming, built around the six skills,
+            designed for parents who want the full curriculum instead of the highlights. And the
+            daily work of raising three boys, which is the only part of any of this that
+            isn&apos;t optional.
           </p>
           <p>
-            I still substitute teach when my old school asks me to. I still believe that the
-            classroom is the most underrated parenting research lab in the country. And I
-            still rearrange the furniture in my own kitchen, weekly, hopefully, with strong
-            opinions, while three sons watch me carry chairs around and ask me what I&apos;m doing.
+            I do this work because I still believe in kids. Fourteen years in a classroom
+            didn&apos;t burn that out &mdash; it affirmed my vocation. Every kid I taught was
+            becoming someone, and most of them have. I want every parent reading this to feel about
+            their own kid the way I felt about mine: that this is a person worth knowing, that this
+            phase is a chance to do something with, and that the work you&apos;re doing matters even
+            when nobody hands you a grade for it.
           </p>
-          <p>I tell them: I&apos;m building the room.</p>
+          <p>Your kid is awesome. The trick is staying close enough, and patient enough, and curious enough to see it.</p>
 
+          {/* Contact */}
           <h2 id="contact">Get in touch.</h2>
           <p>
             I read every email. I take a small number of speaking engagements each year (schools,
             faith communities, parent groups, teacher trainings), and a smaller number of 1:1
             coaching clients when my schedule allows. The fastest way to reach me is the Saturday
-            letter — reply to any one and it lands in my inbox.
+            newsletter &mdash; reply to any one and it lands in my inbox.
           </p>
         </div>
       </section>
 
       <section className="v6-about-end">
-        <span className="v6-page-head-eyebrow">Start where you are</span>
-        <h2>One <em>practice.</em> One Saturday. Free.</h2>
-        <p>
-          Join {SITE.stats.subscribers} parents and teachers who like their advice plainspoken.
-        </p>
+        <span className="v6-page-head-eyebrow">Two ways forward</span>
+        <h2>Start where you are.</h2>
         <div style={{ maxWidth: 400, margin: '0 auto 16px' }}>
           <SubscribeForm
             variant="light"
-            inputPlaceholder="your@email.com"
-            buttonLabel="Subscribe free →"
+            inputPlaceholder="sean@growthmindsetparenting.com"
+            buttonLabel="Get the weekly newsletter →"
           />
         </div>
-        <Link href="/practices" className="v6-cta v6-cta-ghost">
-          The six practices
+        <Link href="/about#contact" className="v6-cta v6-cta-ghost">
+          Or work with me directly &rarr;
         </Link>
       </section>
 
