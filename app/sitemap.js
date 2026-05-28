@@ -2,18 +2,19 @@ import { getAllLetters } from '../lib/letters';
 import { SITE } from '../data/site';
 
 const STATIC_PAGES = [
-  { url: `${SITE.url}/`,          lastModified: '2026-05-21' },
-  { url: `${SITE.url}/practices/`, lastModified: '2026-05-21' },
-  { url: `${SITE.url}/letters/`,   lastModified: '2026-05-21' },
-  { url: `${SITE.url}/about/`,     lastModified: '2026-05-21' },
+  { url: `${SITE.url}/`,          lastModified: '2026-05-28' },
+  { url: `${SITE.url}/skills/`,   lastModified: '2026-05-28' },
+  { url: `${SITE.url}/writing/`,  lastModified: '2026-05-28' },
+  { url: `${SITE.url}/course/`,   lastModified: '2026-05-28' },
+  { url: `${SITE.url}/about/`,    lastModified: '2026-05-28' },
 ];
 
 export default function sitemap() {
   const letters = getAllLetters();
-  const letterUrls = letters.map((letter) => ({
-    url: `${SITE.url}/letters/${letter.slug}/`,
+  const writingUrls = letters.map((letter) => ({
+    url: `${SITE.url}/writing/${letter.slug}/`,
     lastModified: letter.date,
   }));
 
-  return [...STATIC_PAGES, ...letterUrls];
+  return [...STATIC_PAGES, ...writingUrls];
 }
