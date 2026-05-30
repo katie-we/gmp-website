@@ -3,7 +3,7 @@ const TICKER_ITEMS = [
   '14 years teaching',
   'One newsletter, weekly',
   'Six Middle Skills',
-  '140K reading and watching',
+  '3.2M monthly views',
   'Austin, TX',
 ];
 
