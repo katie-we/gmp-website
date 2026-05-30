@@ -44,6 +44,7 @@ export default function WritingPage() {
         </div>
       </header>
 
+      <span id="subscribe" style={{ display: 'block' }} />
       <LettersFeed letters={letters} totalPages={totalPages} />
 
       <Footer />

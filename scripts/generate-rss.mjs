@@ -14,8 +14,8 @@ const sorted = [...LETTERS].sort((a, b) => new Date(b.date) - new Date(a.date));
 const items = sorted.map(l => `
   <item>
     <title><![CDATA[${l.title}]]></title>
-    <link>${SITE.url}/letters/${l.slug}/</link>
-    <guid isPermaLink="true">${SITE.url}/letters/${l.slug}/</guid>
+    <link>${SITE.url}/writing/${l.slug}/</link>
+    <guid isPermaLink="true">${SITE.url}/writing/${l.slug}/</guid>
     <pubDate>${new Date(l.date).toUTCString()}</pubDate>
     <description><![CDATA[${l.excerpt || l.dek || ''}]]></description>
   </item>`).join('');
