@@ -1616,3 +1616,82 @@
   .v6-prac-a-row:hover { padding-left: 0; padding-right: 0; margin: 0; }
   .v6-prac-a-num { font-size: 48px; }
 }
+
+/* ─── Middle Skills card grid (.msk-*) ──────────────────────── */
+.msk-section {
+  padding: 80px 56px;
+  box-sizing: border-box;
+}
+.msk-eyebrow {
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent);
+  margin: 0 0 20px;
+}
+.msk-title {
+  font-family: var(--sans);
+  font-size: clamp(40px, 5vw, 64px); line-height: 0.98;
+  letter-spacing: -0.035em; font-weight: 800;
+  color: var(--ink); margin: 0 0 48px;
+}
+.msk-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1.5px solid var(--ink);
+  border-left: 1.5px solid var(--ink);
+}
+.msk-card {
+  border-right: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  padding: 40px 40px 92px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.15s;
+  color: var(--ink);
+}
+a.msk-card:hover { background: var(--paper-2); }
+.msk-num {
+  font-family: var(--serif-display);
+  font-style: italic; font-weight: 500;
+  font-size: 52px; line-height: 1; color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.msk-name {
+  font-family: var(--sans);
+  font-size: 31px; line-height: 1.05; letter-spacing: -0.02em;
+  font-weight: 800; color: var(--ink);
+  margin: 0 0 10px;
+}
+.msk-desc {
+  font-family: var(--serif-display);
+  font-style: italic; font-weight: 500;
+  font-size: 22px; line-height: 1.2; color: var(--accent);
+  margin: 0;
+}
+.msk-body {
+  font-family: var(--serif-text);
+  font-size: 16px; line-height: 1.5; color: var(--ink-soft);
+  margin: 16px 0 0; max-width: 34ch;
+}
+.msk-arrow {
+  position: absolute; right: 36px; bottom: 32px;
+  width: 44px; height: 44px; border-radius: 999px;
+  background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  transition: background 0.15s, transform 0.15s;
+}
+a.msk-card:hover .msk-arrow { background: var(--accent); transform: translateX(3px); }
+
+@media (max-width: 960px) {
+  .msk-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .msk-section { padding: 56px 24px; }
+  .msk-grid { grid-template-columns: 1fr; }
+}

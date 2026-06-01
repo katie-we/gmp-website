@@ -166,19 +166,17 @@ export default function HomePage() {
       </section>
 
       {/* SIX MIDDLE SKILLS */}
-      <section className="v6-work" aria-label="The six Middle Skills">
-        <div className="v6-work-head">
-          <span className="v6-work-eyebrow">WHAT THEY&apos;RE BUILDING</span>
-          <h2>The six Middle Skills.</h2>
-        </div>
-        <div className="v6-work-grid" role="list">
+      <section className="msk-section" aria-label="The six Middle Skills">
+        <p className="msk-eyebrow">WHAT THEY&apos;RE BUILDING</p>
+        <h2 className="msk-title">The six Middle Skills.</h2>
+        <div className="msk-grid">
           {SKILLS.map((s) => (
-            <Link key={s.n} href={`/skills#${s.slug}`} className="v6-prac" role="listitem">
-              <div className="v6-prac-num" aria-hidden="true">{s.n}</div>
-              <div className="v6-prac-tag">{s.tag}</div>
-              <h3 className="v6-prac-title">{s.title}</h3>
-              <p className="v6-prac-body">{s.body.slice(0, 120)}&hellip;</p>
-              <div className="v6-prac-arrow" aria-hidden="true">&rarr;</div>
+            <Link key={s.n} href={`/skills#${s.slug}`} className="msk-card">
+              <span className="msk-num">{s.n}</span>
+              <h3 className="msk-name">{s.tag}</h3>
+              <p className="msk-desc">{s.title}</p>
+              <p className="msk-body">{s.body}</p>
+              <span className="msk-arrow" aria-hidden="true">&rarr;</span>
             </Link>
           ))}
         </div>

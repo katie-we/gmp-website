@@ -54,18 +54,17 @@ export default function SkillsPage() {
         one is, what it looks like when it&apos;s missing, and the part of the work that&apos;s yours.
       </p>
 
-      <section className="v6-prac-a-list" aria-label="The six Middle Skills">
-        {SKILLS.map((s) => (
-          <div key={s.n} id={s.slug} className="v6-skills-row">
-            <div className="v6-prac-a-num" aria-hidden="true">{s.n}</div>
-            <div className="v6-prac-a-tag">{s.tag}</div>
-            <div className="v6-prac-a-text">
-              <h2>{s.title}</h2>
-              <p>{s.body}</p>
+      <section className="msk-section" style={{ paddingTop: 0 }} aria-label="The six Middle Skills">
+        <div className="msk-grid">
+          {SKILLS.map((s) => (
+            <div key={s.n} id={s.slug} className="msk-card" style={{ cursor: 'default' }}>
+              <span className="msk-num">{s.n}</span>
+              <h2 className="msk-name">{s.tag}</h2>
+              <p className="msk-desc">{s.title}</p>
+              <p className="msk-body">{s.body}</p>
             </div>
-            <div className="v6-prac-a-meta">{s.meta}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
       {/* CTA block */}

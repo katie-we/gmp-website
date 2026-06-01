@@ -3,6 +3,7 @@ import Footer from '../../components/Footer';
 import SubscribeForm from '../../components/SubscribeForm';
 import JsonLd from '../../components/JsonLd';
 import { SITE } from '../../data/site';
+import { SKILLS } from '../../data/skills';
 import Link from 'next/link';
 
 export const metadata = {
@@ -205,18 +206,15 @@ export default function CoursePage() {
         <p style={{ fontFamily: 'var(--serif-text)', fontSize: 17, color: 'var(--ink-soft)', maxWidth: '65ch', marginBottom: 40 }}>
           Each module is a self-contained curriculum on one of the Middle Skills — what it is, why it matters in the middle years, what gets in the way, and the specific moves parents use to teach it. Take them in order or skip to the one you need most this week.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-          {PREVIEW_CARDS.map((card) => (
-            <div key={card.n} className="v6-card card-cream" style={{ cursor: 'default' }}>
-              <div className="v6-card-top">
-                <span className="v6-card-eyebrow">{card.eyebrow}</span>
-              </div>
-              <h3 className="v6-card-title" style={{ fontSize: 20 }}>{card.title}</h3>
-              <p className="v6-card-body">{card.body}</p>
-              <div className="v6-card-cta" style={{ color: 'var(--accent)' }}>
-                Preview module &rarr;
-              </div>
-            </div>
+        <div className="msk-grid">
+          {SKILLS.map((s) => (
+            <Link key={s.n} href={`/skills#${s.slug}`} className="msk-card">
+              <span className="msk-num">{s.n}</span>
+              <h3 className="msk-name">{s.tag}</h3>
+              <p className="msk-desc">{s.title}</p>
+              <p className="msk-body">{s.body}</p>
+              <span className="msk-arrow" aria-hidden="true">&rarr;</span>
+            </Link>
           ))}
         </div>
       </section>
