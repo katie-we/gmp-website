@@ -50,7 +50,7 @@ export const metadata = {
     locale: 'en_US',
   },
   twitter: { card: 'summary_large_image' },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   alternates: {
     types: {
       'application/rss+xml': 'https://growthmindsetparenting.com/feed.xml',
