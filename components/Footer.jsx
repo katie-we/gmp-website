@@ -11,11 +11,10 @@ export default function Footer() {
         </span>
       </div>
       <nav className="v6-foot-links">
-        <Link href="/skills">Skills</Link>
         <Link href="/writing">Writing</Link>
         <Link href="/course">Course</Link>
         <Link href="/about">About</Link>
-        <Link href="/about#contact">Work with me</Link>
+        <Link href="/work-with-me">Work with me</Link>
         <Link href="/privacy" style={{ color: 'var(--ink-mute)', fontSize: 13 }}>Privacy</Link>
         <a href="/feed.xml" style={{ color: 'var(--ink-mute)', fontSize: 13 }}>RSS</a>
       </nav>

@@ -1,0 +1,1169 @@
+/* V6 Workshop — interior pages
+   Shares the homepage palette, type, nav, and CTAs from v6.css.
+   These styles cover the Practices / Letters / Course / About pages. */
+
+/* ── PAGE FRAME ── shared by every interior page */
+.v6-page {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  width: 100%;
+  padding: 24px 56px 0;
+  --v6-chroma-scale: 1;
+  --card-cream: oklch(0.95 0.012 80);
+  --card-blush: oklch(0.92 0.018 50);
+  --card-clay: oklch(0.86 0.022 45);
+  --card-sage: oklch(0.92 0.014 165);
+  --card-ink: oklch(0.26 0.012 80);
+}
+
+/* ── PAGE HEADER (subhero pattern) ── */
+.v6-page-head {
+  padding: 32px 0 64px;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 64px;
+  align-items: end;
+}
+.v6-page-head-eyebrow {
+  display: inline-block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.v6-page-head-h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.v6-page-head-h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v6-page-head-meta {
+  display: flex; flex-direction: column; gap: 6px;
+  text-align: right;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.v6-page-head-meta b {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ── BIG NUMERAL (editorial illustration) ── */
+.v6-numeral {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  PRACTICES — Option A: index-only long scroll        │
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-prac-a-list {
+  display: flex; flex-direction: column;
+}
+.v6-prac-a-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 2fr 1fr;
+  gap: 48px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.2s, padding 0.2s;
+}
+.v6-prac-a-row:hover {
+  background: var(--paper-2);
+  padding-left: 16px; padding-right: 16px;
+}
+.v6-prac-a-num {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 88px;
+  line-height: 0.85;
+  color: var(--accent);
+}
+.v6-prac-a-tag {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-soft);
+  padding-top: 18px;
+}
+.v6-prac-a-text h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 12px;
+}
+.v6-prac-a-text p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px; line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0; max-width: 56ch;
+}
+.v6-prac-a-arrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: right;
+  padding-top: 22px;
+}
+.v6-prac-a-row:hover .v6-prac-a-arrow { color: var(--accent); }
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  PRACTICES — Option B: index + detail (split view)   │
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-prac-b {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+.v6-prac-b-list {
+  position: sticky; top: 24px;
+  display: flex; flex-direction: column;
+  border-top: 1.5px solid var(--ink);
+}
+.v6-prac-b-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+.v6-prac-b-item:hover { color: var(--accent); }
+.v6-prac-b-item.is-active { background: linear-gradient(90deg, var(--accent-soft), transparent); padding-left: 12px; }
+.v6-prac-b-item.is-active .v6-prac-b-item-num,
+.v6-prac-b-item.is-active .v6-prac-b-item-h3 { color: var(--accent); }
+.v6-prac-b-item-num {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-soft);
+}
+.v6-prac-b-item-tag {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 4px;
+}
+.v6-prac-b-item-h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+.v6-prac-b-detail {
+  background: var(--paper-2);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  padding: 56px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.v6-prac-b-detail-num {
+  position: absolute; top: 24px; right: 32px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 220px; line-height: 0.8;
+  color: var(--accent); opacity: 0.18;
+  pointer-events: none;
+}
+.v6-prac-b-detail-tag {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.v6-prac-b-detail h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+  text-wrap: balance;
+}
+.v6-prac-b-detail p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px; line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.v6-prac-b-pull {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 28px; line-height: 1.3;
+  color: var(--ink);
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 24px;
+  margin: 32px 0;
+}
+.v6-prac-b-detail-foot {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--sans); font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  PRACTICES — Option C: single deep-dive (all expanded)│
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-prac-c {
+  display: flex; flex-direction: column; gap: 0;
+}
+.v6-prac-c-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 80px 0;
+  border-top: 1.5px solid var(--ink);
+  align-items: start;
+}
+.v6-prac-c-block:nth-child(even) {
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
+}
+.v6-prac-c-block:nth-child(even) > * { direction: ltr; }
+.v6-prac-c-card {
+  padding: 48px;
+  border-radius: 16px;
+  border: 1.5px solid var(--ink);
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 360px;
+  background: var(--card-cream);
+}
+.v6-prac-c-block:nth-child(2) .v6-prac-c-card { background: var(--card-blush); }
+.v6-prac-c-block:nth-child(3) .v6-prac-c-card { background: var(--card-clay); }
+.v6-prac-c-block:nth-child(4) .v6-prac-c-card { background: var(--card-sage); }
+.v6-prac-c-block:nth-child(5) .v6-prac-c-card { background: var(--card-cream); }
+.v6-prac-c-block:nth-child(6) .v6-prac-c-card { background: var(--card-blush); }
+.v6-prac-c-card-num {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 132px; line-height: 0.8;
+  color: var(--accent);
+}
+.v6-prac-c-card-tag {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+}
+.v6-prac-c-text h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+.v6-prac-c-text p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px; line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.v6-prac-c-text .v6-prac-c-pull {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 26px; line-height: 1.32;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding: 6px 0 6px 20px;
+  margin: 24px 0;
+}
+.v6-prac-c-script {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  border-radius: 8px;
+}
+.v6-prac-c-script-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.v6-prac-c-script-line {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 19px; line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── PRACTICE OPTION TOGGLE BANNER ── */
+.v6-prac-opt-banner {
+  display: flex; align-items: center; gap: 24px;
+  padding: 16px 28px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  margin: -32px 0 56px;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.v6-prac-opt-banner b { color: var(--accent-deep); margin-right: 8px; }
+.v6-prac-opt-banner-tag {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  color: var(--accent-deep);
+  font-size: 18px;
+}
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  LETTERS — paginated archive feed                    │
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-letters {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 80px;
+  align-items: start;
+}
+.v6-letters-feed { display: flex; flex-direction: column; }
+.v6-letter-year {
+  display: flex; align-items: baseline; justify-content: space-between;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 32px; margin-top: 56px; margin-bottom: 24px;
+}
+.v6-letter-year:first-child { margin-top: 0; }
+.v6-letter-year h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 64px;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  margin: 0;
+}
+.v6-letter-year-meta {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.v6-letter {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 48px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+}
+.v6-letter:hover .v6-letter-title { color: var(--accent); }
+.v6-letter-date {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  padding-top: 6px;
+}
+.v6-letter-date b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 2px;
+  letter-spacing: 0;
+}
+.v6-letter-body { display: flex; flex-direction: column; gap: 8px; }
+.v6-letter-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+.v6-letter-tag.is-essay { color: var(--accent); }
+.v6-letter-tag.is-note { color: var(--ink-soft); }
+.v6-letter-tag-dot {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: currentColor;
+}
+.v6-letter-title {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  transition: color 0.15s;
+  text-wrap: balance;
+}
+.v6-letter-title em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+.v6-letter-dek {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 16px; line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+  max-width: 70ch;
+}
+.v6-letter-meta {
+  display: flex; gap: 16px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 8px;
+}
+
+/* Featured letter (first essay of each year) */
+.v6-letter-feat {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  padding: 48px 0 56px;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+}
+.v6-letter-feat-img {
+  aspect-ratio: 4 / 3;
+  background: var(--paper-3);
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+.v6-letter-feat-img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 60%, var(--accent-soft) 100%);
+  mix-blend-mode: multiply;
+}
+.v6-letter-feat-num {
+  position: absolute; left: 24px; bottom: 16px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 96px; line-height: 0.8;
+  color: var(--paper); opacity: 0.85;
+}
+.v6-letter-feat h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin: 16px 0 16px;
+  text-wrap: balance;
+}
+.v6-letter-feat p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px; line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+/* Sidebar */
+.v6-letters-side { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 32px; }
+.v6-letters-side-card {
+  padding: 28px;
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  background: var(--card-cream);
+}
+.v6-letters-side-card h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.v6-letters-side-card p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 15px; line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.v6-letters-side-form { display: flex; flex-direction: column; gap: 8px; }
+.v6-letters-side-form input {
+  padding: 12px 14px;
+  font-family: var(--sans); font-size: 14px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.v6-letters-side-form button {
+  padding: 12px 18px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  background: var(--ink); color: var(--paper);
+  border: 0; border-radius: 8px;
+  cursor: pointer;
+}
+.v6-letters-side-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.v6-letters-side-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: var(--paper);
+  cursor: pointer;
+}
+.v6-letters-side-tag.is-active {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.v6-letters-side-tag .v6-letters-side-tag-n {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+}
+.v6-letters-side-tag.is-active .v6-letters-side-tag-n { color: var(--accent-soft); }
+
+.v6-letters-pager {
+  display: flex; justify-content: center; align-items: center; gap: 16px;
+  padding: 64px 0 96px;
+  border-top: 1.5px solid var(--ink);
+  margin-top: 64px;
+}
+.v6-letters-pager-btn {
+  padding: 12px 20px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--sans); font-weight: 500; font-size: 14px;
+  cursor: pointer;
+  text-decoration: none; color: var(--ink);
+}
+.v6-letters-pager-btn.is-current { background: var(--ink); color: var(--paper); }
+.v6-letters-pager-btn.is-disabled { opacity: 0.4; pointer-events: none; }
+.v6-letters-pager-meta {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-soft);
+  margin: 0 16px;
+}
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  COURSE — flagship + 6 minis as a path               │
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-course-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: 16px 0 96px;
+}
+.v6-course-hero-text h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 8px 0 24px;
+  text-wrap: balance;
+}
+.v6-course-hero-text h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v6-course-hero-sub {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px; line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  max-width: 52ch;
+}
+.v6-course-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  padding-top: 20px;
+  margin-bottom: 28px;
+}
+.v6-course-hero-meta-item {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+.v6-course-hero-meta-item b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--accent);
+  letter-spacing: 0;
+  margin-bottom: 2px;
+}
+.v6-course-hero-card {
+  padding: 36px;
+  background: var(--card-clay);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.v6-course-hero-card-eyebrow {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--accent);
+}
+.v6-course-hero-card-price {
+  display: flex; align-items: baseline; gap: 8px;
+}
+.v6-course-hero-card-price-big {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 72px;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  line-height: 1;
+}
+.v6-course-hero-card-price-meta {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.v6-course-hero-card ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.v6-course-hero-card li {
+  font-family: var(--sans); font-size: 14px;
+  color: var(--ink);
+  display: flex; align-items: baseline; gap: 8px;
+}
+.v6-course-hero-card li::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* The Path — 6 minis lead into flagship */
+.v6-path { padding: 96px 0; border-top: 1.5px solid var(--ink); }
+.v6-path-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  margin-bottom: 56px; align-items: end;
+}
+.v6-path-head-text h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 8px 0 0;
+  text-wrap: balance;
+}
+.v6-path-head-aside {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px; line-height: 1.6;
+  color: var(--ink-soft);
+}
+.v6-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.2fr;
+  gap: 14px;
+  position: relative;
+}
+.v6-path-mini {
+  padding: 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  text-decoration: none; color: var(--ink);
+  display: flex; flex-direction: column; gap: 12px;
+  min-height: 240px;
+  transition: transform 0.18s, border-color 0.18s;
+}
+.v6-path-mini:hover { transform: translateY(-3px); border-color: var(--ink); }
+.v6-path-mini-n {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--accent);
+}
+.v6-path-mini-tag {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 600;
+}
+.v6-path-mini h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.v6-path-mini-meta {
+  margin-top: auto;
+  display: flex; justify-content: space-between;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.v6-path-mini-meta b { font-weight: 600; color: var(--ink); }
+.v6-path-flag {
+  grid-column: span 1;
+  grid-row: span 2;
+  padding: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 16px;
+  display: flex; flex-direction: column; gap: 16px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.v6-path-flag::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% -20%, var(--accent) 0%, transparent 60%);
+  opacity: 0.5;
+}
+.v6-path-flag > * { position: relative; }
+.v6-path-flag-eyebrow {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--accent-soft);
+}
+.v6-path-flag h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+.v6-path-flag p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 15px; line-height: 1.55;
+  margin: 0;
+  color: oklch(0.85 0.015 80);
+}
+.v6-path-flag-meta {
+  margin-top: auto;
+  display: flex; justify-content: space-between; align-items: end;
+}
+.v6-path-flag-price {
+  font-family: var(--sans);
+  font-weight: 800; font-size: 36px; letter-spacing: -0.02em;
+  line-height: 1;
+}
+.v6-path-flag-price b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--accent-soft);
+}
+
+/* Curriculum */
+.v6-curric { padding: 96px 0; border-top: 1.5px solid var(--ink); }
+.v6-curric-head { margin-bottom: 56px; max-width: 700px; }
+.v6-curric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 80px;
+}
+.v6-curric-mod {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+}
+.v6-curric-mod-num {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 88px; line-height: 0.85;
+  color: var(--accent);
+}
+.v6-curric-mod h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.v6-curric-mod p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 16px; line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+.v6-curric-mod ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.v6-curric-mod li {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding-left: 18px; position: relative;
+}
+.v6-curric-mod li::before {
+  content: "—"; position: absolute; left: 0;
+  color: var(--accent);
+}
+
+/* Testimonials */
+.v6-testi { padding: 96px 0; border-top: 1.5px solid var(--ink); background: var(--paper-2); margin: 0 -56px; padding-left: 56px; padding-right: 56px; }
+.v6-testi-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+.v6-testi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.v6-testi-card {
+  padding: 32px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.v6-testi-stars {
+  font-family: var(--sans);
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.v6-testi-q {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 24px; line-height: 1.3;
+  color: var(--ink);
+  margin: 0;
+}
+.v6-testi-attrib {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.v6-testi-attrib-name {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 15px;
+}
+.v6-testi-attrib-meta {
+  font-family: var(--sans); font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* FAQ */
+.v6-faq { padding: 96px 0; border-top: 1.5px solid var(--ink); }
+.v6-faq-grid {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+  align-items: start;
+}
+.v6-faq-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
+.v6-faq-item { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+.v6-faq-item h3 {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 22px; letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.v6-faq-item h3 span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 28px; color: var(--accent); font-weight: 400;
+}
+.v6-faq-item p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 16px; line-height: 1.55; color: var(--ink-soft);
+  margin: 0; max-width: 64ch;
+}
+
+/* Final enroll bar */
+.v6-enroll {
+  margin: 56px 0 64px;
+  padding: 56px;
+  background: var(--ink); color: var(--paper);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.v6-enroll h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+.v6-enroll h2 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v6-enroll p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px; line-height: 1.55;
+  color: oklch(0.85 0.015 80);
+  margin: 0;
+}
+.v6-enroll-cta {
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+/* ╭─────────────────────────────────────────────────────╮
+   │  ABOUT — long-form classroom-to-kitchen-table arc    │
+   ╰─────────────────────────────────────────────────────╯ */
+
+.v6-about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding: 16px 0 96px;
+}
+.v6-about-hero-text h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 16px 0 24px;
+  text-wrap: balance;
+}
+.v6-about-hero-text h1 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v6-about-hero-text p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px; line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 0;
+}
+.v6-about-hero-img {
+  aspect-ratio: 4 / 5;
+  background-size: cover; background-position: center;
+  border-radius: 12px;
+  border: 1.5px solid var(--ink);
+  position: relative;
+}
+.v6-about-hero-img-cap {
+  position: absolute; bottom: -1px; left: -1px; right: -1px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); font-size: 12px;
+  padding: 14px 20px;
+  display: flex; justify-content: space-between;
+  border-radius: 0 0 11px 11px;
+}
+
+.v6-about-essay {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 720px) 1fr;
+  gap: 64px;
+  padding: 96px 0;
+  border-top: 1.5px solid var(--ink);
+}
+.v6-about-essay-side {
+  position: sticky; top: 24px; height: max-content;
+  font-family: var(--sans);
+  font-size: 13px; color: var(--ink-soft);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.v6-about-essay-side b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+.v6-about-essay-toc {
+  display: flex; flex-direction: column; gap: 8px;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+}
+.v6-about-essay-toc a {
+  font-family: var(--sans); font-size: 13px;
+  color: var(--ink-soft); text-decoration: none;
+}
+.v6-about-essay-toc a:hover { color: var(--accent); }
+
+.v6-about-prose h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  margin: 64px 0 24px;
+  text-wrap: balance;
+}
+.v6-about-prose h2:first-child { margin-top: 0; }
+.v6-about-prose p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px; line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 24px;
+  text-wrap: pretty;
+}
+.v6-about-prose p:first-of-type::first-letter {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  float: left;
+  font-size: 4.6em;
+  line-height: 0.86;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+.v6-about-prose blockquote {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 32px; line-height: 1.3;
+  color: var(--ink);
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 28px;
+  margin: 32px 0;
+  text-wrap: balance;
+}
+.v6-about-prose figure {
+  margin: 32px -56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.v6-about-prose figure img {
+  width: 100%; height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.v6-about-prose figcaption {
+  grid-column: 1 / -1;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.v6-about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding: 64px 0;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  margin: 64px 0;
+}
+.v6-about-stat b {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 88px; line-height: 0.85;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.v6-about-stat-l {
+  font-family: var(--sans); font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.v6-about-end {
+  padding: 96px 0;
+  text-align: center;
+  border-top: 1.5px solid var(--ink);
+}
+.v6-about-end h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 64px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0 0 16px;
+}
+.v6-about-end h2 em {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v6-about-end p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 0 auto 32px;
+}
+
+/* ── PAGE FOOTER (reused) ── */
+.v6-pg-foot {
+  padding: 48px 0;
+  border-top: 1.5px solid var(--ink);
+  display: flex; justify-content: space-between; align-items: end;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}

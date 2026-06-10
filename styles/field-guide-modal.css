@@ -1,0 +1,344 @@
+/* ─────────────────────────────────────────────────────────────
+   FIELD GUIDE MODAL — email capture for the free Middle School
+   Field Guide. Lives inside .v6-root, inherits the workshop palette
+   tokens (--paper, --ink, --accent, --card-ink, --serif, --sans).
+   Portal'd to <body>, so it also re-declares fonts defensively.
+   ───────────────────────────────────────────────────────────── */
+
+.fgm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: color-mix(in oklch, var(--ink) 58%, transparent);
+  -webkit-backdrop-filter: blur(6px) saturate(112%);
+  backdrop-filter: blur(6px) saturate(112%);
+  animation: fgm-fade 0.22s ease both;
+  font-family: var(--sans, "Inter", system-ui, sans-serif);
+}
+
+.fgm-overlay.is-closing { animation: fgm-fade-out 0.18s ease both; }
+
+@keyframes fgm-fade   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fgm-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+/* ── DIALOG SHELL ── */
+.fgm-dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  width: min(920px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  background: var(--paper);
+  border-radius: 22px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.4) inset,
+    0 40px 80px -24px color-mix(in oklch, var(--ink) 55%, transparent),
+    0 8px 24px -12px color-mix(in oklch, var(--ink) 40%, transparent);
+  animation: fgm-rise 0.30s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fgm-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.975); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fgm-overlay, .fgm-overlay.is-closing, .fgm-dialog { animation: none; }
+}
+
+/* ── CLOSE BUTTON ── */
+.fgm-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--paper) 82%, transparent);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.fgm-close:hover { background: var(--ink); color: var(--paper); transform: rotate(90deg); }
+.fgm-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ── LEFT: THE GUIDE "COVER" ── */
+.fgm-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 36px;
+  background: var(--card-ink);
+  color: var(--card-cream);
+  overflow: hidden;
+}
+/* hairline edge so the booklet feels like a printed cover */
+.fgm-cover::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid color-mix(in oklch, var(--card-cream) 22%, transparent);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.fgm-cover-kicker {
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--card-cream) 68%, transparent);
+}
+
+.fgm-cover-title {
+  margin: 18px 0 4px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.fgm-cover-title em {
+  display: block;
+  font-family: var(--serif, var(--serif-italic, "Lora", Georgia, serif));
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+.fgm-cover-rule {
+  height: 1px;
+  margin: 22px 0 16px;
+  background: color-mix(in oklch, var(--card-cream) 22%, transparent);
+}
+
+/* numbered list of the six skills */
+.fgm-skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.fgm-skills li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: color-mix(in oklch, var(--card-cream) 92%, transparent);
+}
+.fgm-skills li span {
+  font-family: var(--serif, var(--serif-italic, "Lora", Georgia, serif));
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--accent);
+  min-width: 22px;
+}
+
+.fgm-cover-meta {
+  margin-top: 22px;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--card-cream) 60%, transparent);
+}
+
+/* ── RIGHT: THE FORM ── */
+.fgm-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 44px;
+  overflow-y: auto;
+}
+
+.fgm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--serif, var(--serif-italic, "Lora", Georgia, serif));
+  font-style: italic;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--accent);
+}
+.fgm-eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.fgm-h2 {
+  margin: 14px 0 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.fgm-sub {
+  margin: 16px 0 0;
+  font-family: var(--serif-text, "Source Serif 4", Georgia, serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.fgm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.fgm-field { position: relative; }
+.fgm-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 17px;
+  color: var(--ink);
+  padding: 17px 20px;
+  background: var(--paper-2);
+  border: 1.5px solid var(--rule);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.fgm-input::placeholder { color: var(--ink-mute); }
+.fgm-input:focus {
+  border-color: var(--accent);
+  background: var(--paper);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent) 16%, transparent);
+}
+.fgm-input.is-error {
+  border-color: var(--accent-deep);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--accent-deep) 16%, transparent);
+}
+
+.fgm-error {
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-deep);
+  margin: -2px 0 0 2px;
+}
+
+.fgm-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--paper);
+  background: var(--ink);
+  border: none;
+  padding: 17px 24px;
+  border-radius: var(--v6-cta-radius, 999px);
+  cursor: pointer;
+  transition: background 0.15s, gap 0.18s;
+}
+.fgm-submit:hover { background: var(--accent); gap: 14px; }
+.fgm-submit:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.fgm-submit:disabled { opacity: 0.6; cursor: default; }
+.fgm-submit-arrow { transition: transform 0.18s; }
+.fgm-submit:hover .fgm-submit-arrow { transform: translateX(4px); }
+
+.fgm-fine {
+  margin: 14px 0 0;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
+/* ── SUCCESS STATE ── */
+.fgm-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fgm-fade 0.3s ease both;
+}
+.fgm-check {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  font-size: 28px;
+  margin-bottom: 22px;
+  animation: fgm-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes fgm-pop {
+  0%   { transform: scale(0.4); opacity: 0; }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.fgm-success strong { color: var(--ink); font-weight: 700; }
+.fgm-done {
+  margin-top: 26px;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid var(--ink);
+  padding: 13px 26px;
+  border-radius: var(--v6-cta-radius, 999px);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.fgm-done:hover { background: var(--ink); color: var(--paper); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .fgm-overlay { padding: 0; align-items: stretch; }
+  .fgm-dialog {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    overflow-y: auto;
+  }
+  .fgm-cover { padding: 30px 28px 26px; }
+  .fgm-cover::after { inset: 10px; }
+  .fgm-cover-title { font-size: 30px; }
+  .fgm-skills { gap: 7px; }
+  .fgm-skills li { font-size: 14px; }
+  .fgm-panel { padding: 34px 28px 40px; }
+  .fgm-h2 { font-size: 28px; }
+}

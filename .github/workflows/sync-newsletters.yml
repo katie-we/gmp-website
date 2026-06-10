@@ -1,0 +1,45 @@
+name: Sync Newsletters
+
+on:
+  schedule:
+    # Every Saturday at 10am CT (4pm UTC, accounting for CDT = UTC-6)
+    - cron: '0 16 * * 6'
+  workflow_dispatch: # Allow manual trigger from GitHub Actions UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync newsletters from Google Docs
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        run: node scripts/sync-newsletters.mjs
+
+      - name: Build site
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_KIT_FORM_ID: ${{ secrets.NEXT_PUBLIC_KIT_FORM_ID }}
+          NEXT_PUBLIC_KIT_API_KEY: ${{ secrets.NEXT_PUBLIC_KIT_API_KEY }}
+        run: npm run build
+
+      - name: Commit and push if letters.js changed
+        run: |
+          git config user.email "newsletter-sync@growthmindsetparenting.com"
+          git config user.name "Newsletter Sync Bot"
+          git add content/letters.js
+          git diff --staged --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Add newsletter(s) from $(date +'%B %d, %Y')"
+          git push

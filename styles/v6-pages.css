@@ -8,6 +8,8 @@
   color: var(--ink);
   font-family: var(--sans);
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 24px 56px 0;
   --v6-chroma-scale: 1;
   /* Canonical Workshop card stack — locked to the palette of record.
@@ -176,7 +178,7 @@
 }
 .v6-prac-b-item-tag {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-mute);
@@ -324,7 +326,7 @@
 }
 .v6-prac-c-script-label {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-mute);
@@ -421,7 +423,7 @@
 .v6-letter-tag {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 600;
@@ -541,8 +543,9 @@
   background: var(--paper);
 }
 .v6-letters-side-form button {
-  padding: 12px 18px;
-  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  padding: 14px 18px;
+  min-height: 44px;
+  font-family: var(--sans); font-size: 14px; font-weight: 600; line-height: 1;
   background: var(--ink); color: var(--paper);
   border: 0; border-radius: 8px;
   cursor: pointer;
@@ -625,11 +628,11 @@
   color: var(--accent);
 }
 .v6-course-hero-sub {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: var(--serif-text);
   font-size: 19px; line-height: 1.55;
   color: var(--ink-soft);
   margin: 0 0 28px;
-  max-width: 52ch;
+  max-width: 64ch;
 }
 .v6-course-hero-meta {
   display: grid;
@@ -733,6 +736,7 @@
   text-decoration: none; color: var(--ink);
   display: flex; flex-direction: column; gap: 12px;
   min-height: 240px;
+  position: relative;
   transition: transform 0.18s, border-color 0.18s;
 }
 .v6-path-mini:hover { transform: translateY(-3px); border-color: var(--ink); }
@@ -744,7 +748,7 @@
 }
 .v6-path-mini-tag {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-mute);
@@ -822,6 +826,137 @@
   font-weight: 400;
   font-size: 14px;
   color: var(--accent-soft);
+}
+
+/* ── Course page: hero + grid overrides ── */
+.v6-course-hero { align-items: center; }
+.v6-course-hero-text h1 { font-size: clamp(52px, 5.2vw, 84px); }
+.v6-course-hero-meta { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1024px) {
+  .v6-course-hero { grid-template-columns: 1fr; gap: 40px; }
+  .v6-course-hero-sub { max-width: none; }
+}
+
+/* Skills grid — bordered 3-col variant (course page only) */
+.v6-skills-grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
+  border: 1.5px solid var(--ink);
+}
+.v6-skills-grid .v6-path-mini {
+  background: transparent;
+  border: 0;
+  border-right: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  border-radius: 0;
+  padding: 40px 40px 80px;
+  min-height: 320px;
+  gap: 6px;
+  position: relative;
+}
+.v6-skills-grid .v6-path-mini:nth-child(3n) { border-right: 0; }
+.v6-skills-grid .v6-path-mini:nth-child(n+4) { border-bottom: 0; }
+.v6-skills-grid .v6-path-mini:hover { transform: none; background: var(--paper-2); }
+.v6-skills-grid .v6-path-mini-n { font-size: 44px !important; margin-bottom: 8px; }
+.v6-skills-grid .v6-path-mini h3 { font-size: 28px !important; margin: 0; }
+.v6-path-mini-sub {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  margin: 2px 0 14px;
+}
+.v6-path-mini-body {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.v6-path-mini-arrow {
+  position: absolute;
+  right: 32px; bottom: 32px;
+  width: 46px; height: 46px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  font-family: var(--sans);
+  transition: background 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.v6-skills-grid .v6-path-mini:hover .v6-path-mini-arrow {
+  background: var(--accent);
+  transform: translateX(3px);
+}
+@media (max-width: 760px) {
+  .v6-skills-grid { grid-template-columns: 1fr !important; }
+  .v6-skills-grid .v6-path-mini { border-right: 0; }
+  .v6-skills-grid .v6-path-mini:nth-child(n+4) { border-bottom: 1.5px solid var(--ink); }
+  .v6-skills-grid .v6-path-mini:last-child { border-bottom: 0; }
+}
+
+/* Skills flag — light bordered band (course page) */
+.v6-skills-flag {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  padding: 48px;
+  background: var(--paper-2);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 0;
+  text-decoration: none;
+  align-items: center;
+}
+.v6-skills-flag::before { display: none; }
+.v6-skills-flag .v6-path-flag-eyebrow { color: var(--accent); }
+.v6-skills-flag h3 { color: var(--ink); font-size: 64px; margin-top: 8px; }
+.v6-skills-flag p { color: var(--ink-soft); }
+.v6-skills-flag .v6-path-flag-meta {
+  display: flex; flex-direction: column; align-items: flex-end;
+  justify-content: center; gap: 18px; text-align: right;
+}
+
+/* Is this for you */
+.v6-fit { padding: 96px 0; border-top: 1.5px solid var(--ink); }
+.v6-fit-head {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px;
+  align-items: end; margin-bottom: 48px;
+}
+.v6-fit-head h2 {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(40px, 4.4vw, 56px); line-height: 1.0;
+  letter-spacing: -0.03em; margin: 8px 0 0; text-wrap: balance;
+}
+.v6-fit-head-aside {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin: 0;
+}
+.v6-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.v6-fit-card { border: 1.5px solid var(--ink); border-radius: 16px; padding: 36px 40px; }
+.v6-fit-card-yes { background: var(--card-blush); }
+.v6-fit-card-no { background: var(--paper-2); }
+.v6-fit-card h3 {
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 24px;
+}
+.v6-fit-card-no h3 { color: var(--ink-mute); }
+.v6-fit-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.v6-fit-card li {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px; line-height: 1.4; color: var(--ink);
+  padding-left: 32px; position: relative;
+}
+.v6-fit-card-yes li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+.v6-fit-card-no li { color: var(--ink-soft); }
+.v6-fit-card-no li::before { content: "\00d7"; position: absolute; left: 0; color: var(--ink-mute); font-weight: 600; font-size: 18px; }
+@media (max-width: 1024px) {
+  .v6-fit-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+  .v6-fit-grid { grid-template-columns: 1fr; }
 }
 
 /* Curriculum */
@@ -1092,24 +1227,22 @@
   text-wrap: balance;
 }
 .v6-about-prose figure {
-  margin: 32px -56px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  margin: 32px 0;
+  display: block;
+  max-width: 600px;
 }
 .v6-about-prose figure img {
-  width: 100%; height: 100%;
+  width: 100%; height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 8px;
 }
 .v6-about-prose figcaption {
-  grid-column: 1 / -1;
   font-family: "Lora", Georgia, serif;
   font-style: italic;
   font-size: 17px;
   color: var(--ink-soft);
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .v6-about-stats {
@@ -1532,7 +1665,6 @@
   font-size: 18px;
   line-height: 1.7;
   color: var(--ink-soft);
-  max-width: 72ch;
   padding: 32px 0 48px;
   border-bottom: 1.5px solid var(--rule);
   margin-bottom: 0;
@@ -1556,6 +1688,9 @@
   padding: 48px 0;
   border-bottom: 1.5px solid var(--rule);
   color: var(--ink);
+}
+.v6-skills-row .v6-prac-a-text p {
+  max-width: none;
 }
 .v6-skills-cta-block {
   border-top: 1.5px solid var(--ink);
@@ -1596,6 +1731,108 @@
   gap: 8px;
 }
 .v6-skills-cta-secondary:hover { color: var(--ink); }
+
+/* ── COURSE BLOCK (static, between skills list and CTA) ── */
+.v6-course-block {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: center;
+  background: var(--card-blush);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  padding: 44px 52px;
+  margin: 64px 0 0;
+}
+.v6-course-block-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.v6-course-block-label {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--accent);
+}
+.v6-course-block-badge {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+.v6-course-block-h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.v6-course-block-body {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.v6-course-block-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.v6-course-block-right .v6-letters-side-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.v6-course-block-right .v6-letters-side-form input {
+  padding: 13px 16px;
+  border: 1.5px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+}
+.v6-course-block-right .v6-letters-side-form button {
+  padding: 14px 20px;
+  min-height: 44px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.v6-course-block-right .v6-letters-side-form button:hover { background: var(--accent); }
+.v6-course-block-peek {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.v6-course-block-peek:hover { text-decoration: underline; }
+@media (max-width: 700px) {
+  .v6-course-block {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+    gap: 28px;
+  }
+}
+
 @media (max-width: 900px) {
   .v6-skills-row {
     grid-template-columns: 80px 1fr;
@@ -1619,7 +1856,7 @@
 
 /* ─── Middle Skills card grid (.msk-*) ──────────────────────── */
 .msk-section {
-  padding: 80px 56px;
+  padding: 80px 0;
   box-sizing: border-box;
 }
 .msk-eyebrow {
@@ -1673,10 +1910,15 @@ a.msk-card:hover { background: var(--paper-2); }
   font-size: 22px; line-height: 1.2; color: var(--accent);
   margin: 0;
 }
+.msk-summary {
+  font-family: var(--sans);
+  font-size: 15px; line-height: 1.45; color: var(--ink-soft);
+  margin: 12px 0 0;
+}
 .msk-body {
   font-family: var(--serif-text);
-  font-size: 16px; line-height: 1.5; color: var(--ink-soft);
-  margin: 16px 0 0; max-width: 34ch;
+  font-size: 16px; line-height: 1.55; color: var(--ink-soft);
+  margin: 16px 0 0;
 }
 .msk-arrow {
   position: absolute; right: 36px; bottom: 32px;

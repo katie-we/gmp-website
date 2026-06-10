@@ -1,0 +1,73 @@
+/* Growth Mindset Parenting — palette themes
+   Each theme overrides --paper, --ink, --accent, etc.
+   Activate by adding the theme class to <body>: <body class="theme-terracotta"> */
+
+/* I — Terracotta / Clay (Aesop-leaning, sun-baked) */
+.theme-terracotta {
+  --paper: oklch(0.985 0.006 80);
+  --paper-2: oklch(0.955 0.014 70);
+  --paper-3: oklch(0.92 0.022 65);
+  --rule: oklch(0.78 0.025 60);
+  --ink: oklch(0.22 0.025 50);
+  --ink-soft: oklch(0.40 0.030 50);
+  --ink-mute: oklch(0.55 0.025 55);
+  --accent: oklch(0.58 0.16 40);          /* terracotta */
+  --accent-deep: oklch(0.42 0.13 38);
+  --accent-soft: oklch(0.92 0.045 60);
+}
+
+/* II — Forest / Olive (library-but-living) */
+.theme-forest {
+  --paper: oklch(0.985 0.005 100);
+  --paper-2: oklch(0.95 0.015 110);
+  --paper-3: oklch(0.92 0.022 115);
+  --rule: oklch(0.75 0.025 110);
+  --ink: oklch(0.20 0.025 130);
+  --ink-soft: oklch(0.38 0.028 130);
+  --ink-mute: oklch(0.54 0.022 125);
+  --accent: oklch(0.42 0.085 145);        /* forest */
+  --accent-deep: oklch(0.30 0.065 145);
+  --accent-soft: oklch(0.90 0.040 130);
+}
+
+/* III — Navy + Cream (literary, calm, classic) */
+.theme-navy {
+  --paper: oklch(0.982 0.005 90);
+  --paper-2: oklch(0.95 0.012 85);
+  --paper-3: oklch(0.91 0.020 80);
+  --rule: oklch(0.78 0.018 80);
+  --ink: oklch(0.20 0.030 250);
+  --ink-soft: oklch(0.38 0.035 250);
+  --ink-mute: oklch(0.54 0.025 250);
+  --accent: oklch(0.36 0.10 255);         /* deep navy */
+  --accent-deep: oklch(0.26 0.085 255);
+  --accent-soft: oklch(0.90 0.030 240);
+}
+
+/* IV — Sage / Dusty Teal (modern, considered) */
+.theme-sage {
+  --paper: oklch(0.985 0.005 170);
+  --paper-2: oklch(0.95 0.013 175);
+  --paper-3: oklch(0.92 0.020 175);
+  --rule: oklch(0.78 0.020 175);
+  --ink: oklch(0.22 0.025 200);
+  --ink-soft: oklch(0.40 0.030 200);
+  --ink-mute: oklch(0.55 0.022 195);
+  --accent: oklch(0.50 0.075 195);        /* dusty teal */
+  --accent-deep: oklch(0.36 0.060 200);
+  --accent-soft: oklch(0.90 0.035 180);
+}
+
+/* V — Neutral + Marigold (mostly quiet, one playful accent) */
+.theme-marigold {
+  --paper: oklch(0.985 0.004 90);
+  --paper-2: oklch(0.95 0.008 85);
+  --paper-3: oklch(0.91 0.012 85);
+  --rule: oklch(0.78 0.012 85);
+  --ink: oklch(0.18 0.012 80);
+  --ink-soft: oklch(0.36 0.014 80);
+  --ink-mute: oklch(0.54 0.012 80);
+  --accent: oklch(0.72 0.155 75);         /* marigold */
+  --accent-deep: oklch(0.55 0.135 65);
+  --accent-soft: oklch(0.92 0.060 90);
+}

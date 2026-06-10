@@ -3,12 +3,13 @@ const TICKER_ITEMS = [
   '14 years teaching',
   'One newsletter, weekly',
   'Six Middle Skills',
+  '1,000+ Students taught',
   '3.2M monthly views',
   'Austin, TX',
 ];
 
 export default function Ticker() {
-  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS];
   return (
     <div className="v6-ticker" aria-hidden="true">
       <div className="v6-ticker-track">

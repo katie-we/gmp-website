@@ -3,6 +3,8 @@ import '../styles/themes.css';
 import '../styles/v6.css';
 import '../styles/v6-pages.css';
 import '../styles/v6-mobile.css';
+import '../styles/v6-work-with-me.css';
+import '../styles/field-guide-modal.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const viewport = {

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Treatment Preview — GMP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: oklch(0.985 0.006 80);
+    --paper-2: oklch(0.955 0.014 70);
+    --rule: oklch(0.78 0.025 60);
+    --ink: oklch(0.22 0.025 50);
+    --ink-soft: oklch(0.40 0.030 50);
+    --ink-mute: oklch(0.55 0.025 55);
+    --accent: oklch(0.58 0.16 40);
+    --card-cream: oklch(0.95 0.012 80);
+    --sans: 'Inter', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    font-family: var(--sans);
+    color: var(--ink);
+    padding: 48px 40px;
+  }
+
+  h1 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    padding: 4px 10px;
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+  }
+
+  .section {
+    margin-bottom: 72px;
+  }
+
+  .section-head {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+  }
+
+  /* ─── CURRENT (reference) ─── */
+  .card-current {
+    background: var(--card-cream);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: 240px;
+  }
+  .card-current .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .card-current .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .card-current .title {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .card-current .body {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: auto;
+  }
+
+  /* ─── OPTION A: Skill name as hero ─── */
+  .card-a {
+    background: var(--card-cream);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+  }
+  .card-a .num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .card-a .skill-name {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .card-a .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-top: auto;
+  }
+
+  /* ─── OPTION B: Big number + skill name dominant ─── */
+  .card-b {
+    background: var(--card-cream);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+  }
+  .card-b .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .card-b .skill-name {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .card-b .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: auto;
+  }
+
+  /* ─── OPTION C: Number left accent, skill name large right ─── */
+  .card-c {
+    background: var(--card-cream);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+  }
+  .card-c .top-row {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+  .card-c .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .card-c .skill-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .card-c .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: auto;
+  }
+
+  .current-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--rule);
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+  <!-- CURRENT -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Current <span class="current-tag">Live today</span></div>
+      <div class="section-desc">Skill name is tiny/muted — the tagline reads as the card hero</div>
+    </div>
+    <div class="grid">
+      <div class="card-current">
+        <div class="num">01</div>
+        <div class="eyebrow">Emotional Literacy</div>
+        <div class="title">Naming what's happening inside.</div>
+        <div class="body">How kids learn to recognize, name, and regulate feelings — and what changes when they do.</div>
+      </div>
+      <div class="card-current">
+        <div class="num">02</div>
+        <div class="eyebrow">Resilience</div>
+        <div class="title">Staying in it.</div>
+        <div class="body">How kids build the capacity to stay engaged with discomfort long enough to learn from it.</div>
+      </div>
+      <div class="card-current">
+        <div class="num">03</div>
+        <div class="eyebrow">Reflection</div>
+        <div class="title">Looking back honestly.</div>
+        <div class="body">How experience becomes identity — and the questions parents ask to scaffold it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION A -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Option A — Skill name as hero</div>
+      <div class="section-desc">Skill name is now the big bold heading. Tagline drops to serif italic below. Body copy removed — cards are cleaner.</div>
+    </div>
+    <div class="grid">
+      <div class="card-a">
+        <div class="num">01 · EMOTIONAL LITERACY</div>
+        <div class="skill-name">Emotional Literacy</div>
+        <div class="tagline">Naming what's happening inside.</div>
+      </div>
+      <div class="card-a">
+        <div class="num">02 · RESILIENCE</div>
+        <div class="skill-name">Resilience</div>
+        <div class="tagline">Staying in it.</div>
+      </div>
+      <div class="card-a">
+        <div class="num">03 · REFLECTION</div>
+        <div class="skill-name">Reflection</div>
+        <div class="tagline">Looking back honestly.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Option B — Big number stays, skill name bold below</div>
+      <div class="section-desc">Keeps the existing number treatment. Skill name is now bold uppercase below the number. Tagline becomes the smaller secondary line.</div>
+    </div>
+    <div class="grid">
+      <div class="card-b">
+        <div class="num">01</div>
+        <div class="skill-name">Emotional Literacy</div>
+        <div class="tagline">Naming what's happening inside.</div>
+      </div>
+      <div class="card-b">
+        <div class="num">02</div>
+        <div class="skill-name">Resilience</div>
+        <div class="tagline">Staying in it.</div>
+      </div>
+      <div class="card-b">
+        <div class="num">03</div>
+        <div class="skill-name">Reflection</div>
+        <div class="tagline">Looking back honestly.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Option C — Number left, skill name right (editorial split)</div>
+      <div class="section-desc">Number and skill name share a row separated by a rule. More structured and editorial. Tagline sits below the rule as body.</div>
+    </div>
+    <div class="grid">
+      <div class="card-c">
+        <div class="top-row">
+          <div class="num">01</div>
+          <div class="skill-name">Emotional Literacy</div>
+        </div>
+        <div class="tagline">Naming what's happening inside.</div>
+      </div>
+      <div class="card-c">
+        <div class="top-row">
+          <div class="num">02</div>
+          <div class="skill-name">Resilience</div>
+        </div>
+        <div class="tagline">Staying in it.</div>
+      </div>
+      <div class="card-c">
+        <div class="top-row">
+          <div class="num">03</div>
+          <div class="skill-name">Reflection</div>
+        </div>
+        <div class="tagline">Looking back honestly.</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

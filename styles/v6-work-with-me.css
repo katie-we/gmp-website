@@ -1,0 +1,133 @@
+/* ─── Work with Me page (pd6) ─── */
+
+.pd6 { font-family: var(--sans, Inter, sans-serif); color: var(--ink); }
+
+.pd6-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* Hero */
+.pd6-hero { padding: 40px 0 64px; border-bottom: 1.5px solid var(--ink); }
+.pd6-hero-eyebrow {
+  font-family: "Lora", Georgia, serif; font-style: italic;
+  font-size: 19px; color: var(--accent); margin-bottom: 14px;
+}
+.pd6-hero h1 {
+  font-family: var(--sans); margin: 0 0 28px;
+  font-size: 76px; line-height: 0.98; letter-spacing: -0.04em;
+  font-weight: 800; max-width: 14ch; text-wrap: balance;
+}
+.pd6-hero h1 em {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic; font-weight: 500; color: var(--accent);
+}
+.pd6-hero p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 22px; line-height: 1.55; max-width: 46ch;
+  color: var(--ink-soft); margin: 0 0 32px;
+}
+
+/* Sections */
+.pd6-block {
+  display: grid; grid-template-columns: 96px 1fr;
+  gap: 0 44px; align-items: start;
+  padding: 56px 0;
+  border-top: 1px solid var(--rule);
+}
+.pd6-block:first-of-type { border-top: 0; padding-top: 48px; }
+.pd6-aside { position: sticky; top: 32px; }
+.pd6-num {
+  font-family: var(--sans); font-weight: 800;
+  font-size: 34px; line-height: 1; color: var(--accent);
+  font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+  padding-top: 6px;
+}
+.pd6-body { max-width: 60ch; }
+.pd6-topic {
+  font-family: var(--sans); font-weight: 800;
+  font-size: 40px; line-height: 1.0; letter-spacing: -0.03em;
+  color: var(--ink); margin: 0 0 12px; max-width: 18ch;
+  text-wrap: balance;
+}
+.pd6-body .pd6-lead {
+  font-family: "Lora", Georgia, serif; font-style: italic;
+  font-weight: 500; font-size: 23px; line-height: 1.3;
+  color: var(--accent); margin: 0 0 20px;
+}
+.pd6-body p {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px; line-height: 1.62; color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.pd6-body p:last-child { margin-bottom: 0; }
+.pd6-body em { font-style: italic; color: var(--ink); }
+
+/* Topics list */
+.pd6-topics {
+  margin: 24px 0 0; padding: 22px 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+.pd6-topics-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+  margin-bottom: 14px;
+}
+.pd6-topics li {
+  font-family: var(--sans); font-weight: 600;
+  font-size: 18px; line-height: 1.4; color: var(--ink);
+  padding: 10px 0 10px 26px; position: relative;
+  border-top: 1px solid var(--rule);
+}
+.pd6-topics li:first-of-type { border-top: 0; }
+.pd6-topics li::before {
+  content: "\2014"; position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+
+/* Contact close */
+.pd6-contact {
+  margin-top: 8px; padding: 64px 0 16px;
+  border-top: 1.5px solid var(--ink);
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 24px 56px; align-items: start;
+}
+.pd6-contact-copy h2 {
+  font-family: var(--sans);
+  font-size: 40px; line-height: 1.04; letter-spacing: -0.03em;
+  font-weight: 800; margin: 0; max-width: 16ch;
+}
+.pd6-contact-copy h2 em {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic; font-weight: 500; color: var(--accent);
+}
+.pd6-contact-lead {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 19px; line-height: 1.6; color: var(--ink-soft);
+  margin: 0 0 28px; max-width: 42ch;
+}
+
+/* Email CTA */
+.pd6-email {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.pd6-email-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+  flex-shrink: 0;
+}
+.pd6-email a {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 24px; line-height: 1.4; color: var(--ink);
+  text-decoration: none; border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 1px; transition: color 0.15s;
+}
+.pd6-email a:hover { color: var(--accent); }
+
+/* Responsive */
+@media (max-width: 820px) {
+  .pd6-hero h1 { font-size: 52px; }
+  .pd6-block, .pd6-contact { grid-template-columns: 1fr; gap: 20px; }
+  .pd6-aside { position: static; }
+}

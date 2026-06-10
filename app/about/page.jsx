@@ -76,7 +76,6 @@ export default function AboutPage() {
             <a href="#what-worked">ii. What worked there</a>
             <a href="#kitchen">iii. Kitchen table</a>
             <a href="#now">iv. What I&apos;m doing now</a>
-            <a href="#contact">v. Get in touch</a>
           </nav>
         </aside>
 
@@ -243,14 +242,6 @@ export default function AboutPage() {
           </p>
           <p>Your kid is awesome. The trick is staying close enough, and patient enough, and curious enough to see it.</p>
 
-          {/* Contact */}
-          <h2 id="contact">Get in touch.</h2>
-          <p>
-            I read every email. I take a small number of speaking engagements each year (schools,
-            faith communities, parent groups, teacher trainings), and a smaller number of 1:1
-            coaching clients when my schedule allows. The fastest way to reach me is the Saturday
-            newsletter &mdash; reply to any one and it lands in my inbox.
-          </p>
         </div>
       </section>
 
@@ -264,7 +255,7 @@ export default function AboutPage() {
             buttonLabel="Get the weekly newsletter →"
           />
         </div>
-        <Link href="/about#contact" className="v6-cta v6-cta-ghost">
+        <Link href="/work-with-me" className="v6-cta v6-cta-ghost">
           Or work with me directly &rarr;
         </Link>
       </section>

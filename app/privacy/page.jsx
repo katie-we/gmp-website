@@ -56,10 +56,10 @@ export default function PrivacyPage() {
 
           <h2>Contact</h2>
 
-          <p>Questions about this policy? Reply to any Saturday letter or see the{' '}
-          <Link href="/about#contact" style={{ color: 'var(--accent)', fontWeight: 600 }}>
-            contact section
-          </Link>{' '}on the About page.</p>
+          <p>Questions about this policy? Reply to any Saturday letter or visit the{' '}
+          <Link href="/work-with-me" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+            Work with me
+          </Link>{' '}page.</p>
 
         </div>
         <div />

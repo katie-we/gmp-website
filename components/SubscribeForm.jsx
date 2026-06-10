@@ -1,8 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-const KIT_FORM_ID = process.env.NEXT_PUBLIC_KIT_FORM_ID;
-const KIT_API_KEY = process.env.NEXT_PUBLIC_KIT_API_KEY;
+const KIT_FORM_ID = process.env.NEXT_PUBLIC_KIT_FORM_ID || '9228951';
 
 export default function SubscribeForm({
   inputPlaceholder = 'you@yourkitchen.com',
@@ -17,18 +16,15 @@ export default function SubscribeForm({
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!KIT_FORM_ID || !KIT_API_KEY) {
-      setStatus('coming-soon');
-      return;
-    }
     setStatus('submitting');
     try {
+      const body = new URLSearchParams({ email_address: email });
       const res = await fetch(
-        `https://api.convertkit.com/v3/forms/${KIT_FORM_ID}/subscribe`,
+        `https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`,
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ api_key: KIT_API_KEY, email }),
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString(),
         }
       );
       if (res.ok) {
@@ -50,18 +46,10 @@ export default function SubscribeForm({
     );
   }
 
-  if (status === 'coming-soon') {
-    return (
-      <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, color: textColor }}>
-        Subscription is setting up — check back at launch.
-      </p>
-    );
-  }
-
   if (status === 'error') {
     return (
       <p style={{ fontFamily: 'var(--sans)', fontWeight: 600, color: textColor }}>
-        Something went wrong. Try emailing Sean directly — reply to any Saturday letter.
+        Something went wrong. Try again or email Sean directly.
       </p>
     );
   }

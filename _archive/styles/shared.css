@@ -1,0 +1,72 @@
+/* Growth Mindset Parenting — shared editorial system
+   Palette is set by a theme class on <body>, defined in /styles/themes.css */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+a { color: inherit; }
+
+.gmp-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+
+.gmp-rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+.gmp-rule-thin {
+  border: 0;
+  border-top: 0.5px solid var(--rule);
+  margin: 0;
+}
+
+.gmp-smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+.gmp-num {
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.gmp-dropcap::first-letter {
+  font-family: var(--serif);
+  font-weight: 500;
+  float: left;
+  font-size: 5.2em;
+  line-height: 0.86;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+.gmp-stripe {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--paper-2) 0 8px,
+    var(--paper-3) 8px 16px
+  );
+}
+
+/* Default font tokens (palette-agnostic) */
+:root {
+  --serif: "Cormorant Garamond", "Tiempos", "Iowan Old Style", Georgia, serif;
+  --serif-text: "Source Serif 4", "Source Serif Pro", "Iowan Old Style", Georgia, serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}

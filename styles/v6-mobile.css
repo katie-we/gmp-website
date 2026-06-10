@@ -90,7 +90,7 @@
   .v6-hero-sub { font-size: 16px; }
 
   /* TICKER */
-  .v6-ticker { margin: 0 -20px 48px; }
+  .v6-ticker { margin-bottom: 48px; }
 
   /* JUMP CARDS */
   .v6-jump-grid {
@@ -197,9 +197,11 @@
   .v6-about-prose { min-width: 0; }
   .v6-about-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 8px;
   }
-  .v6-about-stat b { font-size: 48px; }
+  /* Reduce stat padding + font so "140K" / "1,000+" fit in 2-col at 375px */
+  .v6-about-stat { padding: 20px 10px; }
+  .v6-about-stat b { font-size: 40px; }
   .v6-about-prose p:first-of-type::first-letter {
     float: none;
     font-size: 1em;
@@ -214,6 +216,38 @@
     margin: 24px 0;
     grid-template-columns: 1fr;
   }
+
+  /* COURSE PAGE — collapse multi-column sections */
+  .v6-curric-grid { grid-template-columns: 1fr; gap: 40px; }
+  .v6-curric-mod { grid-template-columns: auto 1fr; gap: 16px; }
+  .v6-curric-mod-num { font-size: 56px; }
+
+  .v6-testi { margin: 0; padding-left: 20px; padding-right: 20px; }
+  .v6-testi-grid { grid-template-columns: 1fr; }
+
+  .v6-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .v6-enroll {
+    grid-template-columns: 1fr;
+    padding: 36px 24px;
+    gap: 28px;
+    border-radius: 16px;
+  }
+  .v6-enroll h2 { font-size: 36px; }
+
+  .v6-path-head { grid-template-columns: 1fr; gap: 24px; }
+  .v6-path-head-text h2 { font-size: 44px; }
+
+  .v6-skills-flag {
+    grid-template-columns: 1fr !important;
+    padding: 36px 28px !important;
+    gap: 28px !important;
+    border-radius: 16px;
+  }
+  .v6-skills-flag h3 { font-size: 40px !important; }
+
+  /* TOUCH TARGETS — footer links need taller click area */
+  .v6-foot-links a { padding: 10px 0; display: inline-flex; align-items: center; }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -230,6 +264,46 @@
   .v6-sub-card { grid-template-columns: 1fr; gap: 32px; }
   .v6-letters { grid-template-columns: 1fr; }
   .v6-letters-side { display: none; }
+
+  /* FOOTER — collapse to 1-col at tablet to prevent overflow */
+  .v6-foot {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  .v6-foot-links { justify-content: center; }
+  .v6-foot-meta { align-items: center; }
+
+  /* PAGE HEADER — collapse right meta column at tablet */
+  .v6-page-head {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+  .v6-page-head-h1 { font-size: 64px; }
+  .v6-page-head-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    text-align: left;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+
+  /* ABOUT STATS — 3-col instead of 5 at tablet */
+  .v6-about-stats { grid-template-columns: repeat(3, 1fr); }
+  .v6-about-stat b { font-size: 40px; }
+
+  /* COURSE — testimonials: clamp negative margin to match 32px page padding */
+  .v6-testi { margin-left: 0; margin-right: 0; padding-left: 32px; padding-right: 32px; }
+
+  /* COURSE — skills grid: 2-col at tablet (760px breakpoint misses 768px) */
+  .v6-skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* COURSE — collapse heavy layouts */
+  .v6-enroll { grid-template-columns: 1fr; gap: 32px; }
+  .v6-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+  .v6-skills-flag { grid-template-columns: 1fr !important; gap: 32px !important; }
 }
 
 /* Ensure desktop nav hamburger is hidden */

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Letters · Growth Mindset Parenting</title>
+  <meta name="description" content="A Sunday note. An occasional essay. Plainspoken parenting written by a teacher — the full archive from Sean Kane." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/themes.css" />
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="stylesheet" href="styles/v6.css" />
+  <link rel="stylesheet" href="styles/v6-pages.css" />
+
+  <style> html, body { width: 100%; } </style>
+
+  <script>
+    document.documentElement.setAttribute('data-theme', 'terracotta');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('theme-terracotta');
+    });
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="content/site.js"></script>
+  <script type="text/babel" src="content/letters.js"></script>
+  <script type="text/babel" src="scripts/v6-page-shell.jsx"></script>
+  <script type="text/babel" src="scripts/letters.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById('root')).render(<V6LettersPage />);
+  </script>
+</body>
+</html>
