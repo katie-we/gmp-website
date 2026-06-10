@@ -65,7 +65,7 @@ export default function HomePage() {
             <em>It&apos;s when they have the best shot of going right.</em>
           </h1>
           <p className="v6-hero-sub">
-            Your middle schooler melts down over homework, goes quiet at dinner, and meets every request with a complaint. It&apos;s not a character flaw, yet. It&apos;s a set of skills they haven&apos;t built, and these are the years you have to teach them.
+            Your kid&apos;s brain is unusually open in these years, and you&apos;re the most trusted teacher they have. I write for parents who want to spend this window building the skills their kid is still learning &mdash; and the ones they&apos;re still building themselves.
           </p>
           <div className="v6-hero-actions">
             <FieldGuideHeroCta />
