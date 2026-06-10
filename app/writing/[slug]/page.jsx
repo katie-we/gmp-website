@@ -85,6 +85,7 @@ export default function WritingPiecePage({ params }) {
             alt="Sean Kane"
             width={48}
             height={48}
+            loading="lazy"
           />
           <div>
             <div className="v6-article-byline-name" itemProp="author">Sean Kane</div>
@@ -98,6 +99,9 @@ export default function WritingPiecePage({ params }) {
           <img
             src={letter.img}
             alt={letter.title}
+            width={1200}
+            height={480}
+            loading="lazy"
             style={{ width: '100%', maxHeight: 480, objectFit: 'cover' }}
           />
         </figure>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+/* Fonts loaded via next/font/google in layout.jsx */
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
   background: var(--paper, #faf9f7);
   color: var(--ink, #221f1b);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -23,11 +23,11 @@ a { color: inherit; }
 button { font-family: inherit; }
 
 :root {
-  --sans:          'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --serif-italic:  'Lora', 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
-  --serif-display: 'Lora', Georgia, serif; /* alias — prefer --serif-italic */
-  --serif-text:    'Source Serif 4', 'Iowan Old Style', Georgia, serif;
-  --serif:         'Lora', 'Source Serif 4', Georgia, serif; /* alias for modal/component compatibility */
+  --sans:          var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
+  --serif-italic:  var(--font-lora), 'Iowan Old Style', Georgia, serif;
+  --serif-display: var(--font-lora), Georgia, serif;
+  --serif-text:    var(--font-source-serif), 'Iowan Old Style', Georgia, serif;
+  --serif:         var(--font-lora), Georgia, serif;
   --mono:          'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
 }
 
