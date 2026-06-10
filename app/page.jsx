@@ -6,6 +6,7 @@ import JsonLd from '../components/JsonLd';
 import SkillsAccordion from '../components/SkillsAccordion';
 import FieldGuideHeroCta from '../components/FieldGuideHeroCta';
 import FieldGuideCardOne from '../components/FieldGuideCardOne';
+import ChaosSection from '../components/ChaosSection';
 import { SITE } from '../data/site';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -97,75 +98,41 @@ export default function HomePage() {
 
       <Ticker />
 
-      {/* OFFER — mosaic grid */}
-      <section className="v6-jump" aria-label="Ways to get started">
-        <div className="v6-jump-head">
-          <span className="v6-jump-eyebrow">Jump into</span>
-          <h2>Tools and stories for parents who want a system that holds.</h2>
-        </div>
-        <div className="v6-jump-grid">
-
-          {/* 01 — Field Guide */}
-          <FieldGuideCardOne />
-
-          {/* 02 — Newsletter */}
-          <Link href="#subscribe" className="v6-card card-blush">
-            <div className="v6-card-top">
-              <span className="v6-card-n">02</span>
-              <span className="v6-card-eyebrow">THE NEWSLETTER &middot; WEEKLY</span>
-            </div>
-            <h3 className="v6-card-title">One letter, every Saturday.</h3>
-            <p className="v6-card-body">The developmental science your kid&rsquo;s teachers know &mdash; explained in plain language for parents doing this without a manual.</p>
-            <div className="v6-card-cta">
-              Subscribe
-              <span className="v6-card-arrow" aria-hidden="true">&rarr;</span>
-            </div>
-          </Link>
-
-          {/* 03 — Course */}
-          <Link href="/course" className="v6-card card-clay">
-            <div className="v6-card-top">
-              <span className="v6-card-n">03</span>
-              <span className="v6-card-eyebrow">COURSE &middot; COMING SOON</span>
-            </div>
-            <h3 className="v6-card-title">The Middle Skills.</h3>
-            <p className="v6-card-body">A self-paced course for parents who want the full curriculum: six modules, one per Middle Skill, with readings, scripts, and the tactics that work in your kitchen.</p>
-            <div className="v6-card-cta">
-              Join the waitlist
-              <span className="v6-card-arrow" aria-hidden="true">&rarr;</span>
-            </div>
-          </Link>
-
-          {/* 04 — Coaching */}
-          <Link href="/work-with-me" className="v6-card card-sage">
-            <div className="v6-card-top">
-              <span className="v6-card-n">04</span>
-              <span className="v6-card-eyebrow">1:1 &middot; LIMITED</span>
-            </div>
-            <h3 className="v6-card-title">Coaching for parents who want a teacher in their corner.</h3>
-            <p className="v6-card-body">We look at your kid, your situation, your week &mdash; and build a plan you&apos;ll actually run. Engagements are custom, openings are limited, and I work with each family directly.</p>
-            <div className="v6-card-cta">
-              Apply
-              <span className="v6-card-arrow" aria-hidden="true">&rarr;</span>
-            </div>
-          </Link>
-
-          {/* 05 — Speaking */}
-          <Link href="/work-with-me" className="v6-card card-ink">
-            <div className="v6-card-top">
-              <span className="v6-card-n">05</span>
-              <span className="v6-card-eyebrow">SPEAKING</span>
-            </div>
-            <h3 className="v6-card-title">Talks for schools, faculties, and parent organizations.</h3>
-            <p className="v6-card-body">Keynotes and workshops on raising kids in the middle years &mdash; the developmental science, the parent&apos;s role, the moves that work. For any room full of people who want something real.</p>
-            <div className="v6-card-cta">
-              Inquire
-              <span className="v6-card-arrow" aria-hidden="true">&rarr;</span>
-            </div>
-          </Link>
-
+      {/* MISSION */}
+      <section className="v6-mission" aria-label="What I'm here to do">
+        <div className="v6-mission-inner">
+          <div className="v6-mission-eyebrow">
+            <span className="v6-dot" aria-hidden="true" />
+            What I&rsquo;m here to do
+          </div>
+          <h2 className="v6-mission-h">
+            I help everyday parents turn the hard moments into real{' '}
+            <em>connection</em> &mdash; and raise resilient, capable kids while keeping
+            their patience, their weekends, and the <em>relationship</em> intact.
+          </h2>
+          <div className="v6-mission-body">
+            <p>
+              If you want a home that runs on connection instead of consequences &mdash;
+              where the hard days don&rsquo;t harden into hard years &mdash; you&rsquo;re in
+              the right place. You don&rsquo;t need to be a perfect parent or a child
+              psychologist. You need a handful of practices that cut through the chaos and
+              tell you the next right move.
+            </p>
+            <p>
+              I spent fourteen years learning them in a classroom. They work just as well at
+              your kitchen table. Here you&rsquo;ll find the field guide, the Saturday Letter,
+              the course, and the practices themselves &mdash; built to help you take one
+              small action tonight and raise kids who can stand on their own.
+            </p>
+          </div>
+          <a href="#skills" className="v6-mission-cta">
+            See where to start
+            <span className="v6-mission-arrow" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
       </section>
+
+      <ChaosSection />
 
       {/* SIX MIDDLE SKILLS — accordion */}
       <SkillsAccordion />

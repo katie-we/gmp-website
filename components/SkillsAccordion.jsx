@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { SKILLS } from '../data/skills';
+import FieldGuideModal from './FieldGuideModal';
 
-const INTRO =
-  "Most of what looks like attitude in middle school — the eye-rolls, the slammed doors, the \"I don't care\" — is actually a skill the kid hasn't built yet. The same six skills, every kid, every year, in some order. Below is what each one is, what it looks like when it's missing, and the part of the work that's yours.";
 
 function SkillsDesktop() {
   const [open, setOpen] = useState(null);
@@ -31,11 +30,23 @@ function SkillsDesktop() {
                 </span>
               </div>
             </button>
-            {isOpen && s.more && (
+            {isOpen && (
               <div className="skills-more-pad">
                 <div className="skills-more-body">
-                  <p>{s.more}</p>
+                  {s.more && <p>{s.more}</p>}
                   {s.pull && <p className="skills-pull">&ldquo;{s.pull}&rdquo;</p>}
+                  {s.missing && (
+                    <div className="state state--missing">
+                      <span className="state__tab">What it looks like when it&rsquo;s missing</span>
+                      <p className="state__text"><mark>{s.missing}</mark></p>
+                    </div>
+                  )}
+                  {s.present && (
+                    <div className="state state--present">
+                      <span className="state__tab">What it looks like when it&rsquo;s present</span>
+                      <p className="state__text"><mark>{s.present}</mark></p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -72,6 +83,18 @@ function SkillsMobile() {
                 {s.pull && (
                   <p className="skills-card-pull">&ldquo;{s.pull}&rdquo;</p>
                 )}
+                {s.missing && (
+                  <div className="state state--missing">
+                    <span className="state__tab">What it looks like when it&rsquo;s missing</span>
+                    <p className="state__text"><mark>{s.missing}</mark></p>
+                  </div>
+                )}
+                {s.present && (
+                  <div className="state state--present">
+                    <span className="state__tab">What it looks like when it&rsquo;s present</span>
+                    <p className="state__text"><mark>{s.present}</mark></p>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -82,18 +105,43 @@ function SkillsMobile() {
 }
 
 export default function SkillsAccordion() {
+  const [guideOpen, setGuideOpen] = useState(false);
   return (
     <section className="skills-section" id="skills" aria-label="The six Middle Skills">
-      <span className="skills-eyebrow">The Skills</span>
+      <span className="skills-eyebrow">The Six Middle Skills</span>
       <h2 className="skills-h2">
-        Six skills your kid is building. Six skills you can teach.
+        There&rsquo;s a set of skills<br />underneath the chaos.
       </h2>
-      <p className="skills-intro">{INTRO}</p>
+      <p className="skills-intro">
+        Most of what looks like attitude in middle school &mdash; the eye-rolls, the slammed
+        doors, the &ldquo;I don&rsquo;t care&rdquo; &mdash; is actually a skill the kid hasn&rsquo;t
+        built yet. When they&rsquo;re missing, you see the meltdowns, the shutdowns, the friction.
+        When they&rsquo;re building, everything shifts.
+      </p>
+      <p className="skills-intro">
+        The same six skills, every kid, every year, in some order. Below is what each one is,
+        what it looks like when it&rsquo;s missing, and the part of the work that&rsquo;s yours.
+      </p>
       <div className="skills-desktop-only">
         <SkillsDesktop />
       </div>
       <div className="skills-mobile-only">
         <SkillsMobile />
+      </div>
+      <div className="skills-footer">
+        <p className="skills-footer-text">
+          These aren&rsquo;t traits kids either have or don&rsquo;t. They&rsquo;re <strong>skills that develop</strong> &mdash; unevenly, slowly, and with the right conditions. The free field guide shows you what each skill looks like before it&rsquo;s online, as it&rsquo;s developing, and where it leads.
+        </p>
+        <button
+          type="button"
+          className="v6-cta v6-cta-primary"
+          style={{ border: 'none', cursor: 'pointer' }}
+          onClick={() => setGuideOpen(true)}
+        >
+          Get the free field guide
+          <span className="v6-cta-arrow" aria-hidden="true">&rarr;</span>
+        </button>
+        <FieldGuideModal open={guideOpen} onClose={() => setGuideOpen(false)} />
       </div>
     </section>
   );
