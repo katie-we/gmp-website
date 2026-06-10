@@ -330,15 +330,29 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     width: 100%;
-    max-height: 100vh;
+    /* 100dvh = dynamic viewport: excludes iOS Safari chrome. 100svh as fallback. */
+    height: 100svh;
+    height: 100dvh;
+    max-height: 100svh;
+    max-height: 100dvh;
     border-radius: 0;
-    overflow-y: auto;
+    overflow: hidden; /* dialog clips; panel scrolls internally */
   }
-  .fgm-cover { padding: 30px 28px 26px; }
-  .fgm-cover::after { inset: 10px; }
-  .fgm-cover-title { font-size: 30px; }
-  .fgm-skills { gap: 7px; }
-  .fgm-skills li { font-size: 14px; }
-  .fgm-panel { padding: 34px 28px 40px; }
-  .fgm-h2 { font-size: 28px; }
+  .fgm-cover {
+    padding: 22px 24px 18px;
+    flex: 0 0 auto; /* don't let it grow into the panel's space */
+  }
+  .fgm-cover::after { inset: 8px; }
+  .fgm-cover-title { font-size: 26px; margin: 12px 0 2px; }
+  .fgm-cover-rule { margin: 14px 0 10px; }
+  .fgm-skills { gap: 5px; flex: 0; /* don't stretch */ }
+  .fgm-skills li { font-size: 13px; }
+  .fgm-cover-meta { margin-top: 14px; }
+  .fgm-panel {
+    padding: 28px 24px 40px;
+    overflow-y: auto; /* form panel scrolls independently */
+    -webkit-overflow-scrolling: touch;
+  }
+  .fgm-h2 { font-size: 26px; }
+  .fgm-sub { font-size: 15px; }
 }
