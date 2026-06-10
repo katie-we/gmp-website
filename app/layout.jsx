@@ -26,7 +26,7 @@ export const metadata = {
     locale: 'en_US',
   },
   twitter: { card: 'summary_large_image' },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: false },
   alternates: {
     types: {
       'application/rss+xml': 'https://growthmindsetparenting.com/feed.xml',
