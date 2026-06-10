@@ -93,11 +93,19 @@
   .v6-ticker { margin-bottom: 48px; }
 
   /* CHAOS */
-  .v6-chaos { padding-top: 56px; }
-  .v6-chaos-cols { grid-template-columns: 1fr; gap: 28px; padding-bottom: 48px; }
-  .v6-chaos-h { margin-bottom: 32px; }
-  .v6-chaos-reframe { flex-direction: column; align-items: flex-start; padding: 48px 20px; gap: 24px; }
-  .v6-chaos-reframe-text { font-size: 18px; }
+  .v6-chaos-inner { padding: 56px 20px 0; }
+  .v6-chaos-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 48px; }
+  .v6-chaos-card { position: static; }
+  .v6-chaos-reframe { padding: 48px 20px; }
+  .v6-chaos-reframe-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  /* FIELD GUIDE (v7) */
+  .v7-lead-card { grid-template-columns: 1fr; gap: 36px; padding: 40px 28px; }
+  .v7-gc { width: 100%; transform: none; }
+  .v7-lead-cta { width: 100%; justify-content: center; }
+  /* FIELD GUIDE (v6 legacy) */
+  .v6-fg-card { grid-template-columns: 1fr; gap: 36px; padding: 36px 24px; }
+  .v6-fg-mock { display: none; }
+  .v6-fg-h { font-size: 28px; }
 
   /* MISSION */
   .v6-mission { padding: 64px 20px 60px; margin-bottom: 48px; }

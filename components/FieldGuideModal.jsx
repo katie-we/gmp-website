@@ -10,7 +10,7 @@ const FGM_SKILLS = [
   'Reflection',
   'Relationship',
   'Autonomy',
-  'Communication',
+  'Adaptation',
 ];
 
 export default function FieldGuideModal({ open, onClose }) {

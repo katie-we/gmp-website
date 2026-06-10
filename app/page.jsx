@@ -7,6 +7,7 @@ import SkillsAccordion from '../components/SkillsAccordion';
 import FieldGuideHeroCta from '../components/FieldGuideHeroCta';
 import FieldGuideCardOne from '../components/FieldGuideCardOne';
 import ChaosSection from '../components/ChaosSection';
+import FieldGuideSection from '../components/FieldGuideSection';
 import { SITE } from '../data/site';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -62,8 +63,8 @@ export default function HomePage() {
             For the middle years &mdash; <span style={{ color: 'var(--accent)', fontWeight: 700 }}>ages 9 to 15.</span>
           </div>
           <h1 className="v6-hero-h1">
-            Middle school isn&apos;t when things fall apart.{' '}
-            <em>It&apos;s when they have the best shot of going right.</em>
+            Middle school isn&apos;t when things fall apart. It&apos;s when they have the
+            best shot of <em>going right.</em>
           </h1>
           <p className="v6-hero-sub">
             Your kid&apos;s brain is unusually open in these years, and you&apos;re the most trusted teacher they have. I write for parents who want to spend this window building the skills their kid is still learning &mdash; and the ones they&apos;re still building themselves.
@@ -136,6 +137,9 @@ export default function HomePage() {
 
       {/* SIX MIDDLE SKILLS — accordion */}
       <SkillsAccordion />
+
+      {/* FREE FIELD GUIDE */}
+      <FieldGuideSection />
 
       {/* QUOTE */}
       <section className="v6-quote" aria-label="A note from Sean">
