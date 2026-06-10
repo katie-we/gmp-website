@@ -336,21 +336,23 @@
     max-height: 100svh;
     max-height: 100dvh;
     border-radius: 0;
-    overflow: hidden; /* dialog clips; panel scrolls internally */
+    overflow: hidden;
   }
   .fgm-cover {
-    padding: 22px 24px 18px;
-    flex: 0 0 auto; /* don't let it grow into the panel's space */
+    padding: 20px 24px 16px;
+    flex: 0 0 auto;
   }
   .fgm-cover::after { inset: 8px; }
-  .fgm-cover-title { font-size: 26px; margin: 12px 0 2px; }
-  .fgm-cover-rule { margin: 14px 0 10px; }
-  .fgm-skills { gap: 5px; flex: 0; /* don't stretch */ }
-  .fgm-skills li { font-size: 13px; }
-  .fgm-cover-meta { margin-top: 14px; }
+  .fgm-cover-title { font-size: 26px; margin: 10px 0 2px; }
+  /* Hide the skills list and rule on mobile — cover becomes kicker + title + meta only */
+  .fgm-cover-rule { display: none; }
+  .fgm-skills { display: none; }
+  .fgm-cover-meta { margin-top: 10px; }
   .fgm-panel {
+    /* flex-start so top content is always reachable when panel overflows */
+    justify-content: flex-start;
     padding: 28px 24px 40px;
-    overflow-y: auto; /* form panel scrolls independently */
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
   .fgm-h2 { font-size: 26px; }
