@@ -119,8 +119,8 @@ export default function SkillsAccordion() {
         When they&rsquo;re building, everything shifts.
       </p>
       <p className="skills-intro">
-        The same six skills, every kid, every year, in some order. Below is what each one is,
-        what it looks like when it&rsquo;s missing, and the part of the work that&rsquo;s yours.
+        Six skills, and every hard moment maps back to one of them. Name them, and you stop
+        reacting to the behavior &mdash; and start seeing what&rsquo;s actually going on underneath it.
       </p>
       <div className="skills-desktop-only">
         <SkillsDesktop />
