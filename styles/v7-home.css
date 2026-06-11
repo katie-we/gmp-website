@@ -1,0 +1,263 @@
+/* v7-home.css — homepage additions (v7 iteration)
+   Base: v6.css. Tokens: themes.css (.theme-terracotta).
+   Adds: v7-root, hero clay-block + narrative headline,
+   pain progression section, founder section, ticker overrides.
+   Note: v7-eyebrow, v7-skills-*, v7-of-*, v7-lead-*, v7-gc-*
+   are already in v6.css and are NOT repeated here. */
+
+.v7-root { max-width: 1400px; margin: 0 auto; }
+
+/* ── HERO ── */
+.v7-root .v6-hero {
+  --v6-hero-cols: 1.12fr 1fr;
+  align-items: stretch;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+.v7-hero-h1-narrative {
+  font-size: clamp(28px, 2.95vw, 41px);
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+  margin: 0 0 26px;
+  max-width: 22ch;
+}
+.v7-hero-h1-narrative .v7-hero-lead { color: var(--ink-soft); }
+.v7-hero-h1-narrative em { font-size: 1em; letter-spacing: -0.015em; }
+.v7-root .v6-hero-sub { max-width: 58ch; margin-bottom: 30px; }
+.v7-root .v6-hero-text { display: flex; flex-direction: column; }
+.v7-root .v6-hero-text .v7-hero-actions { margin-top: auto; padding-top: 6px; }
+
+.v7-hero-photo-wrap { position: relative; display: flex; }
+.v7-hero-block {
+  position: absolute;
+  inset: 26px -26px -26px 26px;
+  background: var(--card-clay);
+  border-radius: 12px;
+  z-index: 0;
+}
+.v7-hero-photo-wrap .v6-hero-photo {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 520px;
+}
+.v7-root .v6-hero-photo img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.v7-hero-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.v7-trust {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  display: inline-flex;
+  align-items: center;
+}
+.v7-hero-watch {
+  text-decoration: none;
+  color: var(--ink-soft);
+  gap: 8px;
+  transition: gap .18s, color .15s;
+}
+.v7-hero-watch:hover { color: var(--accent); gap: 12px; }
+.v7-hero-watch .v6-cta-arrow { font-weight: 600; }
+
+/* ── TICKER overrides ── */
+.v7-root .v6-ticker { border-top: none; border-bottom: none; margin-bottom: 0; }
+.v7-root .v6-ticker-track { font-weight: 700; }
+
+/* ── PAIN PROGRESSION ── */
+.v7-pain {
+  margin: 0 -56px 0;
+  background: var(--paper-2);
+  border-top: 1.5px solid var(--ink);
+  padding: 92px 56px 0;
+}
+.v7-pain-inner { max-width: 1080px; margin: 0 auto; }
+.v7-pain-head { margin: 0 0 52px; }
+.v7-pain-head h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(40px, 4.6vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 18px 0 0;
+  max-width: 16ch;
+}
+.v7-pain-head h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.v7-pain-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+.v7-pain-prose p {
+  font-family: var(--serif-text), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.74;
+  color: var(--ink-soft);
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
+.v7-pain-prose p:last-child { margin-bottom: 0; }
+.v7-pain-prose b { color: var(--ink); font-weight: 600; }
+.v7-pain-card {
+  background: var(--card-clay);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  padding: 40px 38px;
+  position: sticky;
+  top: 40px;
+}
+.v7-pain-card-mark {
+  font-family: var(--serif);
+  font-size: 60px;
+  line-height: 0.6;
+  color: var(--accent);
+  display: block;
+  height: 30px;
+}
+.v7-pain-card blockquote {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.38;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.v7-pain-card-tag {
+  margin-top: 26px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+}
+.v7-pain-turn {
+  margin: 80px -56px 0;
+  background: var(--accent-soft);
+  padding: 64px 56px;
+}
+.v7-pain-turn-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.v7-pain-turn-h {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(27px, 2.9vw, 37px);
+  letter-spacing: -0.025em;
+  line-height: 1.16;
+  margin: 0;
+  color: var(--ink);
+}
+.v7-pain-turn-h .soft {
+  display: block;
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-family: var(--serif-text), Georgia, serif;
+  font-style: italic;
+  font-size: 0.6em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.v7-pain-turn-cta { margin-top: 34px; }
+
+/* ── FOUNDER ── */
+.v7-founder { padding: 24px 0 96px; }
+.v7-founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 64px;
+  align-items: center;
+  background: var(--paper-2);
+  border: 1.5px solid var(--ink);
+  border-radius: 24px;
+  padding: 56px;
+}
+.v7-founder-photo { margin: 0; position: relative; }
+.v7-founder-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+.v7-founder-body .v7-eyebrow { margin-bottom: 24px; }
+.v7-founder-body p {
+  font-family: var(--serif-text), Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+  text-wrap: pretty;
+}
+.v7-founder-body p:first-of-type {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.v7-founder-body p em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.v7-founder-attrib {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.v7-founder-name {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.v7-founder-meta {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .v7-root .v6-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .v7-hero-h1-narrative { max-width: 32ch; }
+  .v7-root .v6-hero-text .v7-hero-actions { margin-top: 24px; padding-top: 0; }
+  .v7-hero-photo-wrap { display: block; }
+  .v7-hero-block { inset: 16px 0 -16px 16px; }
+  .v7-hero-photo-wrap .v6-hero-photo { min-height: 0; aspect-ratio: 16 / 11; }
+}
+@media (max-width: 900px) {
+  .v7-hero-h1-narrative { max-width: 26ch; }
+  .v7-pain-grid { grid-template-columns: 1fr; }
+  .v7-pain-card { position: static; }
+  .v7-founder-grid { grid-template-columns: 1fr; gap: 36px; }
+  .v7-founder-photo { max-width: 360px; }
+}

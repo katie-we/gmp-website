@@ -5,11 +5,11 @@ const KIT_FORM_ID = process.env.NEXT_PUBLIC_KIT_FIELD_GUIDE_FORM_ID;
 
 const SKILLS = [
   { n: '01', name: 'Emotional literacy' },
-  { n: '02', name: 'Autonomy' },
-  { n: '03', name: 'Resilience' },
-  { n: '04', name: 'Reflection' },
-  { n: '05', name: 'Adaptation' },
-  { n: '06', name: 'Relationship' },
+  { n: '02', name: 'Resilience' },
+  { n: '03', name: 'Reflection' },
+  { n: '04', name: 'Relationship' },
+  { n: '05', name: 'Autonomy' },
+  { n: '06', name: 'Adaptation' },
 ];
 
 export default function FieldGuideSection() {
