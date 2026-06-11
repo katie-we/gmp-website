@@ -1,6 +1,6 @@
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
-import SubscribeForm from '../../../components/SubscribeForm';
+import ArticleCtaForm from '../../../components/ArticleCtaForm';
 import JsonLd from '../../../components/JsonLd';
 import { getLetterBySlug, getAllSlugs, getAllLetters } from '../../../lib/letters';
 import { SITE } from '../../../data/site';
@@ -130,9 +130,9 @@ export default function WritingPiecePage({ params }) {
           </div>
 
           <section className="v6-article-cta" aria-label="Subscribe">
-            <h2>Get the next letter on Saturday.</h2>
-            <p>One classroom-tested skill in your inbox, every week. Free, plainspoken, unsubscribe in one click.</p>
-            <SubscribeForm />
+            <h3>Get the next letter on Saturday.</h3>
+            <p>One classroom-tested practice in your inbox, every week. Free, plainspoken, unsubscribe in one click.</p>
+            <ArticleCtaForm />
           </section>
         </div>
 
