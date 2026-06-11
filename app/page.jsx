@@ -200,12 +200,12 @@ export default function HomePage() {
             <p>Back issues of the newsletter and longer essays on the six Middle Skills, the developmental window, and teaching at home &mdash; for the parent who wants to think this through on a Sunday morning.</p>
             <div className="v6-card-cta">Read <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
           </Link>
-          <Link href="#subscribe" className="v6-show v6-show-podcast">
+          <a href="#subscribe" className="v6-show v6-show-podcast">
             <span className="v6-show-tag">PARENTING PODCAST &middot; COMING SOON</span>
             <h3>The Podcast</h3>
             <p>Honest, classroom-tested conversations on raising kids in the middle years. Subscribe to be the first to know when it launches.</p>
             <div className="v6-card-cta">Get notified <span className="v6-card-arrow" aria-hidden="true">&rarr;</span></div>
-          </Link>
+          </a>
         </div>
       </section>
 
