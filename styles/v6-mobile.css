@@ -98,7 +98,7 @@
   .v6-chaos-card { position: static; }
   .v6-chaos-reframe { padding: 48px 20px; }
   /* FIELD GUIDE (v7) */
-  .v7-lead-card { grid-template-columns: 1fr; gap: 0; padding: 40px 28px; }
+  .v7-lead-card { grid-template-columns: 1fr; gap: 0; padding: 40px 28px 56px; }
   .v7-lead-mock { display: none; }
   .v7-lead-cta { width: 100%; justify-content: center; }
   /* FIELD GUIDE (v6 legacy) */
