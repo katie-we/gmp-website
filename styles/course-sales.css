@@ -303,7 +303,7 @@
 
 /* ── 8. ABOUT SEAN ── */
 .cs-about { padding: 96px 0; border-bottom: 1.5px solid var(--ink); }
-.cs-about-inner { max-width: 75%; }
+.cs-about-inner { max-width: 75%; margin: 0 auto; }
 .cs-about-quote {
   font-family: var(--font-lora), Georgia, serif;
   font-style: italic;
