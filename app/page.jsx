@@ -147,7 +147,7 @@ export default function HomePage() {
         <div className="v7-founder-grid">
           <figure className="v7-founder-photo">
             <Image
-              src="/images/sean-studio.jpg"
+              src="/images/sean-quote.jpg"
               alt="Sean Kane"
               width={400}
               height={500}
