@@ -1632,3 +1632,152 @@
   border-top: 1px solid var(--rule);
 }
 .skills-card-time b { color: var(--ink); }
+
+/* ══════════════════════════════════════════════════════
+   SIX MIDDLE SKILLS — Outcome-First (v7)
+   Replaces the old accordion. All content visible on load.
+   ══════════════════════════════════════════════════════ */
+
+.v7-eyebrow {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.v7-eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.v7-skills { padding: 100px 0 96px; }
+.v7-skills-head { max-width: none; margin: 0 0 56px; }
+.v7-skills-head h2 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 20px 0 18px;
+  text-wrap: pretty;
+}
+.v7-skills-head h2 em {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.v7-skills-head p {
+  font-family: var(--serif-text), Georgia, serif;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: none;
+}
+.v7-skills-head p + p { margin-top: 18px; }
+
+.v7-of { border-top: 1.5px solid var(--ink); }
+.v7-of-row {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 48px;
+  padding: 44px 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.v7-of-row:last-child { border-bottom: 1.5px solid var(--ink); }
+
+.v7-of-gutter { display: flex; flex-direction: column; gap: 8px; }
+.v7-of-num {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.v7-of-tag {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 23px;
+  color: var(--ink);
+  line-height: 1.16;
+  letter-spacing: -0.005em;
+}
+
+.v7-of-body { max-width: 760px; }
+.v7-of-headline {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(23px, 2.2vw, 29px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 24px;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+.v7-of-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-top: 1px solid var(--rule);
+  padding-top: 20px;
+}
+.v7-of-line {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  align-items: baseline;
+  margin: 0;
+}
+.v7-of-lab {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.v7-of-line > span:last-child {
+  font-family: var(--serif-text), Georgia, serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.v7-skills-foot {
+  margin-top: 48px;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.v7-skills-foot p {
+  font-family: var(--serif-text), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.58;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.v7-skills-foot p strong { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 880px) {
+  .v7-skills { padding: 64px 0 56px; }
+  .v7-of-row { grid-template-columns: 1fr; gap: 22px; }
+  .v7-of-gutter { flex-direction: row; align-items: baseline; gap: 14px; }
+  .v7-of-line { grid-template-columns: 1fr; gap: 5px; }
+}

@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import Ticker from '../components/Ticker';
 import SubscribeForm from '../components/SubscribeForm';
 import JsonLd from '../components/JsonLd';
-import SkillsAccordion from '../components/SkillsAccordion';
+import SixSkillsSection from '../components/SixSkillsSection';
 import FieldGuideHeroCta from '../components/FieldGuideHeroCta';
 import FieldGuideCardOne from '../components/FieldGuideCardOne';
 import ChaosSection from '../components/ChaosSection';
@@ -135,8 +135,8 @@ export default function HomePage() {
 
       <ChaosSection />
 
-      {/* SIX MIDDLE SKILLS — accordion */}
-      <SkillsAccordion />
+      {/* SIX MIDDLE SKILLS — outcome-first */}
+      <SixSkillsSection />
 
       {/* FREE FIELD GUIDE */}
       <FieldGuideSection />
