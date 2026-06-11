@@ -118,8 +118,8 @@ const FAQS = [
     a: "The free posts are one idea at a time. Middle Skills is the whole thing, in order — six modules, 18 lessons, the worksheets and scripts, and the audio version of every lesson. The free content is the front door. The course is the house.",
   },
   {
-    n: '05', q: "I don't have hours to watch a course.",
-    a: "Each module is broken into short lessons you can take in a single nap window or after bedtime — and every lesson also comes as a podcast-style audio episode, so you can listen on a commute, a walk, or the school run instead of watching. The full curriculum is roughly 90 minutes per module; you don't have to take it all at once.",
+    n: '05', q: "I don't have the time to watch a course.",
+    a: "We know. Each module is broken into 3 lessons that you can complete in a week. Around 90 minutes per module, 30 minutes per lesson. Every lesson comes with video and podcast-style audio for the car or the gym. And for every robust written resource, there are key points, frameworks and summary documents to reference. The course is designed so you can use the pieces you need, when you need, as you go.",
   },
   {
     n: '06', q: "My partner isn't on board — will this still work?",
@@ -234,34 +234,38 @@ export default function CoursePage() {
         <div className="cs-reframe-body">
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">01</div>
-            <h3>The brain goes offline</h3>
+            <h3>It&rsquo;s a renovation, not a malfunction.</h3>
             <p>
-              During early adolescence the prefrontal cortex &mdash; impulse control, empathy,
-              long-term thinking &mdash; is rebuilt from the inside out. Not metaphorically.
-              Neurologically.
+              The early adolescent brain isn&rsquo;t breaking down. It&rsquo;s being rebuilt.
+              Between 9 and 15, neural pathways prune and rewire on a scale matched by few other
+              periods of life. Impulse control, empathy, long-term thinking, social skills are all
+              under construction. Not metaphorically, neurologically.
             </p>
           </div>
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">02</div>
-            <h3>Your old tools stop working</h3>
+            <h3>You see what they&rsquo;re actually working on.</h3>
             <p>
-              The reasoning, the consequences, the heart-to-hearts that used to land now bounce off.
-              You didn&rsquo;t get worse at parenting. The kid you were parenting changed.
+              What looks like defiance is often autonomy taking shape. What looks like withdrawal is
+              resilience being tested. What looks like overreaction is an emotional system still being
+              built. Your kid isn&rsquo;t broken or behind. They&rsquo;re doing the developmental
+              work this stage requires.
             </p>
           </div>
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">03</div>
-            <h3>It becomes learnable</h3>
+            <h3>You teach what the stage requires.</h3>
             <p>
-              Once you understand the developmental architecture, you can stop fighting the wrong
-              battle &mdash; and start teaching the skills the stage actually requires.
+              With the architecture in view and your kid&rsquo;s work in focus, you can stop fighting
+              the wrong battle and start teaching the skills the moment is built for. This is the
+              leverage. The brain is open. You&rsquo;re the trusted presence inside it.
             </p>
           </div>
         </div>
         <div className="cs-reframe-land">
           <p>
-            This is a teaching problem, not a character problem. And{' '}
-            <em>teaching is a skill</em> &mdash; one you can learn.
+            Once the architecture is in view, the rest becomes learnable.
+            That&rsquo;s what the Course is built to teach.
           </p>
         </div>
         <p className="cs-reframe-bridge">
@@ -275,8 +279,7 @@ export default function CoursePage() {
         <header className="cs-transform-head">
           <span className="cs-eyebrow">What actually changes</span>
           <h2>
-            It isn&rsquo;t about fixing your kid. It&rsquo;s a calmer, surer you &mdash;{' '}
-            <em>and a kid who actually grows.</em>
+            It isn&rsquo;t about fixing your kid. It&rsquo;s a course that changes how you show up.
           </h2>
           <p>
             The behavior improves &mdash; but that&rsquo;s just the surface. The real change runs
@@ -288,37 +291,40 @@ export default function CoursePage() {
           <div className="cs-transform-item">
             <div className="cs-transform-num">01</div>
             <p>
-              You&rsquo;ll <b>know what to say</b> the next time your kid shuts down at the dinner
-              table &mdash; not just in theory, but the actual words.
+              You&rsquo;ll know what to say when your kid shuts down at the dinner table &mdash;{' '}
+              <b>not a script, but the mechanism that opens the door instead of forcing it.</b>
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">02</div>
             <p>
-              You&rsquo;ll know how to <b>let them struggle without rushing in to fix it</b> &mdash;
-              so they build the resilience to recover on their own.
+              You&rsquo;ll stay with your kid through the missed assignment, the bad practice, the
+              friend who went cold &mdash; <b>without taking it over</b> &mdash; and they will build
+              the muscle to recover on their own.
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">03</div>
             <p>
-              You&rsquo;ll <b>hand off real responsibility without the power struggle</b> &mdash; and
-              watch them grow into ownership instead of waiting to be told.
+              You&rsquo;ll hand off the morning routine, the schoolwork, the chores &mdash;{' '}
+              <b>without the power struggle</b> &mdash; and watch your kid grow into ownership
+              instead of waiting to be told.
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">04</div>
             <p>
-              You&rsquo;ll <b>trust yourself again</b> &mdash; the parent who actually understands
-              what your kid is going through, while everyone else is just waiting it out.
+              You&rsquo;ll walk through the hard moments together &mdash; talking about what
+              happened, what was felt, and what they&rsquo;d do differently &mdash; so the challenge
+              becomes <b>instructive instead of destructive.</b>
             </p>
           </div>
           <div className="cs-transform-item cs-transform-item-capstone">
             <div className="cs-transform-num">05</div>
             <p>
-              And the whole point: you&rsquo;ll{' '}
-              <b>raise a kid who can stand on their own two feet</b> &mdash; more resilient, more
-              capable, more themselves &mdash; long after the hard years are behind you both.
+              You&rsquo;ll raise a kid who can <b>communicate, feel, struggle, recover, own their
+              choices, and stay in real relationship with you</b> &mdash; long after the hard years
+              are behind you both.
             </p>
           </div>
         </div>
@@ -334,8 +340,8 @@ export default function CoursePage() {
             </h2>
           </div>
           <p className="v6-fit-head-aside">
-            So here&rsquo;s the honest version of who Middle Skills is built for &mdash; and who it
-            isn&rsquo;t. When the wrong fit walks away, the right fit can trust me.
+            Here&rsquo;s the honest version of who Middle Skills is built for &mdash; and who it
+            isn&rsquo;t.
           </p>
         </header>
         <div className="v6-fit-grid">
@@ -344,8 +350,8 @@ export default function CoursePage() {
             <ul>
               <li>Your kid is somewhere between 9 and 15, and you feel like you&rsquo;ve lost your ability to get through to them</li>
               <li>They&rsquo;re not a &ldquo;problem kid&rdquo; &mdash; they&rsquo;ve just become someone you don&rsquo;t fully recognize</li>
-              <li>You want to understand what&rsquo;s happening in their brain, not just manage the behavior</li>
-              <li>You want to learn how to teach your kid the skills this stage demands &mdash; resilience, responsibility, standing on their own two feet</li>
+              <li>You want to understand and communicate about what&rsquo;s happening in their inner life, not just manage the behavior</li>
+              <li>You want to teach your kid the skills this stage demands &mdash; resilience, responsibility, autonomy &mdash; so they bring them to adult life</li>
               <li>You&rsquo;re willing to change how you show up, not only how they act</li>
               <li>You&rsquo;re tired of waiting for &ldquo;the phase&rdquo; to pass on its own</li>
               <li>You&rsquo;d rather learn the why than memorize a one-size-fits-all script</li>
@@ -381,10 +387,9 @@ export default function CoursePage() {
             fontFamily: 'var(--font-source-serif), Georgia, serif',
             fontSize: '18px', lineHeight: 1.55, color: 'var(--ink-soft)', margin: 0,
           }}>
-            Each module is roughly 90 minutes of video across three lessons, plus a worksheet and
-            scripts you&rsquo;ll actually use. Every one is built around what your kid will be able
-            to <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>do</em> &mdash; real,
-            nameable skills, not vague takeaways.
+            Each module is roughly 90 minutes of video, or audio format, across three lessons.
+            Plus resources and reference materials you&rsquo;ll actually use. Every one is built
+            around concrete behaviors for parents and kids, not vague ideas.
           </p>
         </header>
         <div className="v6-curric-grid">
@@ -421,9 +426,10 @@ export default function CoursePage() {
             <p>
               When his own sons hit the middle years, he noticed something uncomfortable: he was a
               better teacher than he was a dad. The skills he used all day with other people&rsquo;s
-              kids &mdash; the ones that reached even the toughest students &mdash; he simply
-              wasn&rsquo;t using at home. So he started. They worked at the kitchen table just like
-              they worked in the classroom. Middle Skills is those tools, built for parents.
+              kids &mdash; the ones that reached even the toughest students &mdash; weren&rsquo;t
+              always working at home. So he&rsquo;s building the bridge between the spaces.
+              Connecting what teachers and psychologists know to what parents do. Using his passion
+              to teach people and help kids to facilitate progressive change for families.
             </p>
           </div>
           <p className="cs-about-sig">
@@ -481,12 +487,11 @@ export default function CoursePage() {
         <div className="cs-value-head">
           <span className="cs-eyebrow is-center">What you&rsquo;re getting</span>
           <h2>
-            The whole course, for less than <em>two therapy sessions.</em>
+            The whole course, for less than <em>a few therapy sessions.</em>
           </h2>
           <p>
-            A single family-therapy hour runs $150&ndash;$200. Middle Skills is everything &mdash;
-            the full curriculum, monthly live time with Sean, the parent community, and every future
-            update &mdash; for one price.
+            Middle Skills is everything &mdash; the full curriculum, monthly live time with Sean,
+            the parent community, and every future update &mdash; for one price.
           </p>
         </div>
         <div className="cs-value-grid">
@@ -496,7 +501,7 @@ export default function CoursePage() {
               <li>A podcast-style audio version of every lesson</li>
               <li>Printable worksheets &amp; scripts</li>
               <li>Monthly live office hour with Sean</li>
-              <li>Private parent community</li>
+              <li>Resource summaries, frameworks and key points</li>
               <li>Lifetime access &amp; every future update</li>
             </ul>
           </div>
@@ -532,11 +537,12 @@ export default function CoursePage() {
             <span>Day</span>
           </div>
           <div className="cs-guarantee-text">
-            <h3>The <em>Parent Confidence</em> Guarantee.</h3>
+            <h3>Our Guarantee.</h3>
             <p>
-              Complete the first module. If you don&rsquo;t understand your kid differently within 30
-              days, write me and I&rsquo;ll refund you in full &mdash; same day, no questions asked.
-              The course works when you do the work, and I&rsquo;ll stand behind that.
+              Complete the course. Apply the tools. Give the process an honest effort. If you
+              don&rsquo;t feel more confident handling the challenges of middle school parenting
+              after doing the work, we&rsquo;ll refund your purchase. You bring the commitment.
+              We&rsquo;ll take the risk.
             </p>
           </div>
         </div>
