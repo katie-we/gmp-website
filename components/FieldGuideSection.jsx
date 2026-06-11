@@ -65,48 +65,59 @@ export default function FieldGuideSection() {
           </p>
 
           {status === 'success' ? (
-            <p style={{ fontFamily: 'var(--sans)', fontSize: 18, color: 'var(--paper)', margin: '0 0 14px' }}>
-              It&rsquo;s on its way. Check your inbox &mdash; peek in spam if it&rsquo;s shy.
-            </p>
-          ) : (
-            <form className="v7-lead-form" onSubmit={handleSubmit} noValidate>
-              <input
-                type="email"
-                placeholder="you@yourkitchen.com"
-                aria-label="Email address"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                disabled={status === 'submitting'}
-              />
-              <label className="v7-lead-consent">
-                <input
-                  type="checkbox"
-                  checked={consent}
-                  onChange={e => setConsent(e.target.checked)}
-                />
-                <span>
-                  Yes, send me the free field guide and the{' '}
-                  <a href="#subscribe">Saturday Letter</a>. I can unsubscribe anytime &mdash; no
-                  awkward breakups.
-                </span>
-              </label>
-              {status === 'error' && (
-                <p style={{ fontFamily: 'var(--sans)', color: 'var(--paper)', fontSize: 13 }}>
-                  Something went wrong &mdash; try again in a moment.
+            <div className="v7-lead-success" role="status" aria-live="polite">
+              <div className="v7-lead-check" aria-hidden="true">&#10003;</div>
+              <div className="v7-lead-success-body">
+                <p className="v7-lead-success-eyebrow">Check your inbox</p>
+                <h3 className="v7-lead-success-h">It&rsquo;s on its way.</h3>
+                <p className="v7-lead-success-say">
+                  I just sent the field guide to <strong>{email.trim()}</strong>. It&rsquo;ll
+                  land in a minute &mdash; peek in spam if it&rsquo;s shy, and drag it to your
+                  inbox so the Saturday Letter finds you too.
                 </p>
-              )}
-              <button
-                type="submit"
-                className="v7-lead-cta"
-                disabled={status === 'submitting' || !consent}
-              >
-                {status === 'submitting' ? 'Sending…' : 'Send me the field guide'}
-                {status !== 'submitting' && <span className="a">&rarr;</span>}
-              </button>
-            </form>
+              </div>
+            </div>
+          ) : (
+            <>
+              <form className="v7-lead-form" onSubmit={handleSubmit} noValidate>
+                <input
+                  type="email"
+                  placeholder="you@yourkitchen.com"
+                  aria-label="Email address"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  disabled={status === 'submitting'}
+                />
+                <label className="v7-lead-consent">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={e => setConsent(e.target.checked)}
+                  />
+                  <span>
+                    Yes, send me the free field guide and the{' '}
+                    <a href="#subscribe">Saturday Letter</a>. I can unsubscribe anytime &mdash; no
+                    awkward breakups.
+                  </span>
+                </label>
+                {status === 'error' && (
+                  <p style={{ fontFamily: 'var(--sans)', color: 'var(--paper)', fontSize: 13 }}>
+                    Something went wrong &mdash; try again in a moment.
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  className="v7-lead-cta"
+                  disabled={status === 'submitting' || !consent}
+                >
+                  {status === 'submitting' ? 'Sending…' : 'Send me the field guide'}
+                  {status !== 'submitting' && <span className="a">&rarr;</span>}
+                </button>
+              </form>
+              <p className="v7-lead-fine">Free. Delivered to your inbox instantly. Plain text, no spam.</p>
+            </>
           )}
-          <p className="v7-lead-fine">Free. Delivered to your inbox instantly. Plain text, no spam.</p>
         </div>
       </div>
     </section>
