@@ -115,23 +115,16 @@ export default function HomePage() {
             What I&rsquo;m here to do
           </div>
           <h2 className="v6-mission-h">
-            I help everyday parents turn the hard moments into real{' '}
-            <em>connection</em> &mdash; and raise resilient, capable kids while keeping
-            their patience, their weekends, and the <em>relationship</em> intact.
+            I help responsive, thoughtful parents of middle school kids shift from reactive to proactive by giving parents the tools to see their kid clearly and to develop the six skills that make a kid emotionally intelligent, <em>independent</em> and <em>connected</em>.
           </h2>
           <div className="v6-mission-body">
             <p>
-              If you want a home that runs on connection instead of consequences &mdash;
-              where the hard days don&rsquo;t harden into hard years &mdash; you&rsquo;re in
-              the right place. You don&rsquo;t need to be a perfect parent or a child
-              psychologist. You need a handful of practices that cut through the chaos and
-              tell you the next right move.
-            </p>
-            <p>
-              I spent fourteen years learning them in a classroom. They work just as well at
-              your kitchen table. Here you&rsquo;ll find the field guide, the Saturday Letter,
-              the course, and the practices themselves &mdash; built to help you take one
-              small action tonight and raise kids who can stand on their own.
+              If you want to see your kid thrive instead of survive, communicate instead of
+              collapse and form before they fold, then they will need a parent who can meet
+              them where they are with the skills they need to be their best. You don&rsquo;t
+              have the manual. I have the science backed, classroom and kitchen tested skills
+              that help you transform your flailing middle schooler into an emotionally
+              intelligent, capable, and connected kid you&rsquo;re proud to call your own.
             </p>
           </div>
           <a href="#skills" className="v6-mission-cta">
