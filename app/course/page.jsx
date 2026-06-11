@@ -1,6 +1,5 @@
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
-import SubscribeForm from '../../components/SubscribeForm';
 import JsonLd from '../../components/JsonLd';
 import { SITE } from '../../data/site';
 import Link from 'next/link';
@@ -8,278 +7,608 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Middle Skills — The Course | Growth Mindset Parenting',
   description:
-    'A self-paced course on the six skills middle schoolers are building — and how parents teach into each one. Join the waitlist.',
-  openGraph: { title: 'Middle Skills | Growth Mindset Parenting' },
+    'The parenting curriculum for the years the old playbook stops working — built by a 14-year middle school teacher. Six modules, 18 lessons. Pre-order founding price: $499.',
+  openGraph: {
+    title: 'Middle Skills | Growth Mindset Parenting',
+    description: 'Six skills for the middle years. A self-paced course built by a teacher who spent 14 years in the room.',
+  },
 };
 
 const COURSE_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Course',
   name: 'Middle Skills',
-  description: 'A self-paced course on the six skills middle schoolers are building and how parents teach them.',
+  description:
+    'A self-paced parenting course on the six skills middle schoolers are building — and how parents teach into each one.',
   provider: { '@type': 'Person', name: 'Sean Kane', url: SITE.url },
   educationalLevel: 'Parents of middle schoolers (ages 9–15)',
+  offers: {
+    '@type': 'Offer',
+    price: '499',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/PreOrder',
+  },
 };
 
 const MODULES = [
-  { n: '01', title: 'Emotional Literacy', desc: 'How kids recognize, name, and regulate emotion. Why “calm down” doesn’t work — and what actually does.' },
-  { n: '02', title: 'Resilience', desc: 'The challenge → regulation → action → reflection loop. How kids build durability — and how to stop solving their problems for them.' },
-  { n: '03', title: 'Reflection', desc: 'How experience becomes identity — and the questions parents ask to scaffold honest self-observation instead of shame.' },
-  { n: '04', title: 'Relationship', desc: 'Trust, repair, and the daily work of staying close while your kid pulls away. The skill underneath every other skill.' },
-  { n: '05', title: 'Autonomy', desc: 'The handoff from you running their life to them running it. Confidence, accountability, and executive function — taught, not assumed.' },
-  { n: '06', title: 'Communication', desc: 'Tone, listening, disagreement, and repair. Your voice in conflict is the voice they’ll borrow.' },
+  {
+    n: '01', title: 'Emotional Literacy',
+    desc: 'Why "calm down" backfires — and how a kid learns to name a feeling instead of becoming it.',
+    objs: [
+      'Name a feeling out loud instead of acting it out',
+      'Catch a feeling as it rises and know what set it off',
+      'Feel something strongly and still choose how they respond',
+    ],
+  },
+  {
+    n: '02', title: 'Autonomy',
+    desc: 'The gradual handoff of ownership — so responsibility gets taught, not just assumed.',
+    objs: [
+      'Start a task on their own and carry it through to done',
+      'Own a mistake and handle what comes next, instead of hiding it',
+      'Set a goal that matters to them and take real steps toward it',
+    ],
+  },
+  {
+    n: '03', title: 'Resilience',
+    desc: 'How to let them struggle and recover — instead of rescuing the lesson away.',
+    objs: [
+      'Stay with something hard long enough to work through it',
+      'Recover after a failure or disappointment and try again',
+      'Hear feedback as help aimed at growth, not as an attack',
+    ],
+  },
+  {
+    n: '04', title: 'Reflection',
+    desc: 'Turning a hard day into self-knowledge instead of shame — scaffolding the thinking they can\'t yet do alone.',
+    objs: [
+      'See their own part in how something went, honestly',
+      'Learn from an experience and change what they do next time',
+      'Build a steadier sense of who they are and what matters',
+    ],
+  },
+  {
+    n: '05', title: 'Adaptation',
+    desc: 'The middle years never stop changing — new schools, new groups, plans that fall apart. This is how they bend without breaking.',
+    objs: [
+      'Adjust when a plan falls apart or the rules change',
+      'Find their footing somewhere new without losing who they are',
+      'Try a different approach when the first one isn\'t working',
+    ],
+  },
+  {
+    n: '06', title: 'Relationship',
+    desc: 'Repair, honesty, and perspective — the skill underneath staying close while your kid pulls away.',
+    objs: [
+      'Come back after a conflict, own their part, and reconnect',
+      'Say something hard to someone they love and stay in the conversation',
+      'Sense what someone else is feeling and let it shape how they act',
+    ],
+  },
+];
+
+const TESTIMONIALS = [
+  { q: 'You are gonna almost single-handedly help heal my home. Tools I never had that you\'re giving me.', src: 'From Instagram' },
+  { q: 'Thank GOD I found your content. At a very low point in parenting my 11-year-old son. Gratefully out here listening to ALL your advice.', src: 'From TikTok' },
+  { q: 'I love you. Where have you been my entire motherhood?', src: 'From Instagram' },
+  { q: "I'm so thankful for your page and guidance. In these moments that I've in some way failed — then I see your videos and realize maybe I'm not failing, but instead in the exact place with my 11-year-old that I'm supposed to be.", src: 'From TikTok' },
+  { q: 'The way you put this into words and help us to understand is your true desire to help these kids shining through.', src: 'From Instagram' },
+  { q: "So grateful I found your account. I can tell you have so much knowledge and I value your insight. You are an excellent teacher.", src: 'From TikTok' },
+  { q: "Wow this is good. I'm so glad I stumbled upon your page. This approach is what I'm looking for.", src: 'From Instagram' },
+  { q: "The fact you came across my FYP a while ago is the universe telling me I am doing the right thing as a teacher and parent. Progress over perfection.", src: 'From TikTok' },
+  { q: "Great content. I appreciate your knowledge. It's clear, real-world advice.", src: 'From Instagram' },
+  { q: "I'm so grateful for your page — my son is the most incredible person and I can better understand him now. So thankful.", src: 'Cassidy' },
 ];
 
 const FAQS = [
   {
-    n: '01',
-    q: 'Is this a self-paced course or a cohort?',
-    a: 'Both, gently. The lessons are self-paced — you work through them on your schedule, with lifetime access. But there’s also a monthly office hour where I meet with enrolled parents to talk through what’s actually happening in their houses. Show up to none, all of them, or whichever ones fit your month.',
+    n: '01', q: 'My kid is 14 — is it too late?',
+    a: "There are more dinners, more car rides, more \"can we talk?\" moments ahead of you than behind you. The window you think has closed is still open. You just need to know how to reach through it.",
   },
   {
-    n: '02',
-    q: 'How is this different from your free newsletter?',
-    a: 'The newsletter is short, one piece of teaching at a time, distributed weekly. The course is the whole curriculum — sequenced, scripted, with worksheets and the 90-day plan you can actually run. The newsletter is the front door. The course is the house.',
+    n: '02', q: 'Is this self-paced, or do I need to keep up with a group?',
+    a: "Self-paced. The lessons are yours on your own schedule, with lifetime access — take them in a nap window or after bedtime, watch or listen. There's also a monthly live office hour with Sean if you want to bring a real situation to a teacher: come to all of them, none of them, or whichever ones fit your month.",
   },
   {
-    n: '03',
-    q: 'What ages does it work for?',
-    a: 'It’s built for parents of kids roughly 9 to 15 — the middle years, where the brain is unusually open and the parent is still the most trusted teacher. Some parts scale up and down; the core skills hold across that whole window.',
+    n: '03', q: "We've tried therapy. How is this different?",
+    a: "Therapy works on your kid. This works on you — specifically on how you show up in the moments that count. They're not in competition. Many families do both.",
   },
   {
-    n: '04',
-    q: 'Does my partner need to take it with me?',
-    a: 'No, but it helps if you both eventually do. The course includes co-parenting modules and a track for solo and shared parenting both.',
+    n: '04', q: 'How is this different from your free content?',
+    a: "The free posts are one idea at a time. Middle Skills is the whole thing, in order — six modules, 18 lessons, the worksheets and scripts, and the audio version of every lesson. The free content is the front door. The course is the house.",
   },
   {
-    n: '05',
-    q: 'Is there a refund policy?',
-    a: '30 days, no questions, no funnels. If it isn’t useful, write me, I’ll send the money back the same day.',
+    n: '05', q: "I don't have hours to watch a course.",
+    a: "Each module is broken into short lessons you can take in a single nap window or after bedtime — and every lesson also comes as a podcast-style audio episode, so you can listen on a commute, a walk, or the school run instead of watching. The full curriculum is roughly 90 minutes per module; you don't have to take it all at once.",
   },
   {
-    n: '06',
-    q: 'Can my school or parent group buy it as a group?',
-    a: 'Yes. There’s a group rate for 10+ enrollments and a school license for libraries. Email me directly.',
+    n: '06', q: "My partner isn't on board — will this still work?",
+    a: "Yes. It's designed so one parent can run the framework even if the other isn't doing it. The moves that work don't require a unified front — they require one parent who understands what they're looking at.",
+  },
+  {
+    n: '07', q: "My kid doesn't have ADHD or any diagnosis — is this still for us?",
+    a: "Yes. Middle Skills is built for the developmental reality of ages 9–15, not for any specific diagnosis. If your kid is in the middle years and something has shifted, this is for you.",
+  },
+  {
+    n: '08', q: 'What age range is this for?',
+    a: "9 to 15 — the middle years. Some content scales slightly above and below, but the core curriculum is built for this specific developmental window. And what you learn here doesn't expire when they turn 16: the way you communicate, repair, and show up will serve your relationship with your child for the rest of your lives.",
+  },
+  {
+    n: '09', q: 'Is there a refund policy?',
+    a: "Yes — 30 days, no questions, no funnels. Complete the first module, and if it isn't useful, write me and I'll send your money back the same day.",
+  },
+  {
+    n: '10', q: 'Can my school or parent group buy it together?',
+    a: null,
+    aJsx: true,
+  },
+  {
+    n: '11', q: 'Is Sean actually an expert?',
+    a: "Fourteen years as a middle school teacher — watching thousands of kids move through this exact developmental stage — and a dad of three sons currently in the middle years. He's not theorizing. He's teaching from the classroom and the kitchen table at once.",
   },
 ];
 
 export default function CoursePage() {
   return (
-    <article className="v6-page theme-terracotta">
+    <article className="v6-page cs-page" data-theme="terracotta">
       <JsonLd data={COURSE_SCHEMA} />
       <Nav active="/course" />
 
-      {/* ===== PAGE HEADER ===== */}
-      <header className="v6-page-head" aria-label="Course introduction">
-        <div>
-          <span className="v6-page-head-eyebrow">The Course</span>
-        </div>
-        <h1 className="v6-page-head-h1">
-          Middle Skills &mdash; <em>develop the whole kid</em>
-        </h1>
-        <div className="v6-page-head-meta">
-          <div><b>06</b>Skills</div>
-          <div><b>Self-paced</b>Lifetime access</div>
-          <div><b>Coming soon</b>Join the waitlist</div>
+      {/* ── 1. HERO ── */}
+      <header className="cs-hero">
+        <div className="cs-hero-inner">
+          <span className="cs-eyebrow is-center">Middle Skills &middot; The Course</span>
+          <h1>
+            You&rsquo;re not losing your kid. You just need a <em>new map.</em>
+          </h1>
+          <p className="cs-hero-sub">
+            Middle Skills is the parenting curriculum for the years the old playbook stops
+            working &mdash; built by a teacher who spent fourteen years in the room where it
+            happens.
+          </p>
+          <p className="cs-hero-anchor">$499. Less than two therapy sessions.</p>
+          <div className="cs-hero-actions">
+            <a href="#enroll" className="v6-cta v6-cta-primary">
+              Enroll in Middle Skills <span className="v6-cta-arrow">&rarr;</span>
+            </a>
+            <a href="#curriculum" className="v6-cta v6-cta-ghost">See what&rsquo;s inside</a>
+          </div>
+          <p className="cs-hero-note" style={{ marginTop: '24px' }}>
+            Self-paced &middot; lifetime access &middot; backed by a 30-day guarantee
+          </p>
         </div>
       </header>
 
-      {/* ===== HERO ===== */}
-      <section className="v6-course-hero" aria-label="About the course">
-        <div className="v6-course-hero-text">
-          <div style={{ fontFamily: '"Lora", Georgia, serif', fontStyle: 'italic', fontSize: 28, color: 'var(--accent)' }}>
-            The flagship
+      {/* ── 2. IMMERSION ── */}
+      <section className="cs-immersion">
+        <div className="cs-immersion-grid">
+          <div className="cs-immersion-aside">
+            <span className="cs-eyebrow">If this is your house</span>
+            <h2>You used to be able to <em>reach them.</em></h2>
           </div>
-          <h1>The whole curriculum taught the way I taught middle schoolers.</h1>
-          <p className="v6-course-hero-sub">
-            Six modules, one per Middle Skill. The same skills I taught for fourteen years in middle school classrooms &mdash; now adapted for the parents teaching them at home. Each module covers what the skill is, how it develops, what gets in the way, and the specific moves that help your kid build it.
-          </p>
-          <p className="v6-course-hero-sub">
-            It&apos;s not a system. It&apos;s not a hack. It&apos;s a curriculum &mdash; readings, short videos, scripts, worksheets, and the kind of tactical detail you can actually use at the dinner table tonight. Self-paced so you can take it on your own timeline; monthly office hours with me when you want to talk it through with a teacher and other parents doing the work.
-          </p>
-          <div className="v6-course-hero-meta">
-            <div className="v6-course-hero-meta-item"><b>18</b>Video lessons</div>
-            <div className="v6-course-hero-meta-item"><b>09</b>Worksheets</div>
-            <div className="v6-course-hero-meta-item"><b>90 days</b>Plan</div>
-          </div>
-          <div style={{ display: 'flex', gap: 12 }}>
-            <Link href="#waitlist" className="v6-cta v6-cta-primary">
-              Join the waitlist <span className="v6-cta-arrow">&rarr;</span>
-            </Link>
-            <Link href="#curriculum" className="v6-cta v6-cta-ghost">
-              See the curriculum
-            </Link>
+          <div className="cs-prose">
+            <p className="cs-prose-lead">
+              Your kid was easy to reach a year ago. Not perfect &mdash; but you could get through.
+              You knew what to say when things got hard.
+            </p>
+            <p>
+              Now you say the right thing and they look at you like you&rsquo;re speaking a different
+              language. You try to connect and they disappear &mdash; into a door, a screen, a shrug.
+            </p>
+            <p>
+              You ask a simple question &mdash; <em>how was your day?</em> &mdash; and somehow it
+              turns into a fight you didn&rsquo;t start and can&rsquo;t explain.
+            </p>
+            <p>
+              You&rsquo;re still doing the things that used to work. They&rsquo;re not working. And
+              the harder you push, the further they go.
+            </p>
+            <p>And the worst part &mdash; you keep asking yourself: what am I doing wrong?</p>
           </div>
         </div>
-
-        <aside className="v6-course-hero-card">
-          <span className="v6-course-hero-card-eyebrow">Middle Skills</span>
-          <div style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 36, lineHeight: 1.0, letterSpacing: '-0.025em', textWrap: 'balance' }}>
-            The whole curriculum.
-          </div>
-          <ul>
-            <li>18 video lessons across 6 modules</li>
-            <li>Printable worksheets &amp; scripts</li>
-            <li>Monthly live office hour with Sean</li>
-            <li>Private parent community</li>
-            <li>Lifetime access &amp; updates</li>
-          </ul>
-          <Link href="#waitlist" className="v6-cta v6-cta-primary" style={{ justifyContent: 'center' }}>
-            Join the waitlist &rarr;
-          </Link>
-          <div style={{ fontFamily: '"Lora", Georgia, serif', fontStyle: 'italic', fontSize: 15, color: 'var(--ink-soft)', textAlign: 'center' }}>
-            No spam. No countdown. Just a quiet email when the doors open.
-          </div>
-        </aside>
       </section>
 
-      {/* ===== CURRICULUM ===== */}
-      <section className="v6-curric" id="curriculum" aria-label="Course curriculum">
-        <header className="v6-curric-head">
-          <span className="v6-page-head-eyebrow">Curriculum</span>
-          <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 'clamp(40px,4.4vw,64px)', lineHeight: 1, letterSpacing: '-0.03em', margin: '8px 0 16px', textWrap: 'balance' }}>
-            Six modules. ~20 lessons. One whole curriculum.
+      {/* ── 3. THE WHISPER ── */}
+      <section className="cs-whisper cs-bleed">
+        <div className="cs-whisper-inner">
+          <p className="cs-whisper-q">
+            You keep asking yourself:{' '}
+            <b>am I the problem? Is something wrong with my kid? Why can&rsquo;t I get through to them anymore?</b>
+          </p>
+          <span className="cs-whisper-tag">&mdash; the question that keeps you up at 2 a.m.</span>
+        </div>
+      </section>
+
+      {/* ── 4. THE REFRAME ── */}
+      <section className="cs-reframe">
+        <header className="cs-reframe-head">
+          <h2>
+            Here&rsquo;s what&rsquo;s actually happening &mdash; and it&rsquo;s <em>not your fault.</em>
           </h2>
-          <p style={{ fontFamily: '"Source Serif 4", Georgia, serif', fontSize: 18, lineHeight: 1.55, color: 'var(--ink-soft)', margin: 0 }}>
-            Each module is roughly 90 minutes of video, broken into 4&ndash;6 short lessons, plus a worksheet you&apos;ll actually use. Watch in order, or skip to the skill your kid is working on right now.
+          <p className="cs-reframe-head-aside">
+            This is the move that separates Growth Mindset Parenting from every &ldquo;be more
+            patient&rdquo; approach. Not a vibe. A mechanism &mdash; the developmental reason your
+            old tools stopped working.
+          </p>
+        </header>
+        <div className="cs-reframe-body">
+          <div className="cs-reframe-step">
+            <div className="cs-reframe-step-n">01</div>
+            <h3>The brain goes offline</h3>
+            <p>
+              During early adolescence the prefrontal cortex &mdash; impulse control, empathy,
+              long-term thinking &mdash; is rebuilt from the inside out. Not metaphorically.
+              Neurologically.
+            </p>
+          </div>
+          <div className="cs-reframe-step">
+            <div className="cs-reframe-step-n">02</div>
+            <h3>Your old tools stop working</h3>
+            <p>
+              The reasoning, the consequences, the heart-to-hearts that used to land now bounce off.
+              You didn&rsquo;t get worse at parenting. The kid you were parenting changed.
+            </p>
+          </div>
+          <div className="cs-reframe-step">
+            <div className="cs-reframe-step-n">03</div>
+            <h3>It becomes learnable</h3>
+            <p>
+              Once you understand the developmental architecture, you can stop fighting the wrong
+              battle &mdash; and start teaching the skills the stage actually requires.
+            </p>
+          </div>
+        </div>
+        <div className="cs-reframe-land">
+          <p>
+            This is a teaching problem, not a character problem. And{' '}
+            <em>teaching is a skill</em> &mdash; one you can learn.
+          </p>
+        </div>
+        <p className="cs-reframe-bridge">
+          This isn&rsquo;t a course you take to fix your kid. It&rsquo;s a course that changes{' '}
+          <em>how you show up.</em>
+        </p>
+      </section>
+
+      {/* ── 5. TRANSFORMATION ── */}
+      <section className="cs-transform">
+        <header className="cs-transform-head">
+          <span className="cs-eyebrow">What actually changes</span>
+          <h2>
+            It isn&rsquo;t about fixing your kid. It&rsquo;s a calmer, surer you &mdash;{' '}
+            <em>and a kid who actually grows.</em>
+          </h2>
+          <p>
+            The behavior improves &mdash; but that&rsquo;s just the surface. The real change runs
+            deeper, and it goes both ways: you stop second-guessing yourself, and your kid starts
+            growing into someone steadier. Here&rsquo;s what that looks like.
+          </p>
+        </header>
+        <div className="cs-transform-list">
+          <div className="cs-transform-item">
+            <div className="cs-transform-num">01</div>
+            <p>
+              You&rsquo;ll <b>know what to say</b> the next time your kid shuts down at the dinner
+              table &mdash; not just in theory, but the actual words.
+            </p>
+          </div>
+          <div className="cs-transform-item">
+            <div className="cs-transform-num">02</div>
+            <p>
+              You&rsquo;ll know how to <b>let them struggle without rushing in to fix it</b> &mdash;
+              so they build the resilience to recover on their own.
+            </p>
+          </div>
+          <div className="cs-transform-item">
+            <div className="cs-transform-num">03</div>
+            <p>
+              You&rsquo;ll <b>hand off real responsibility without the power struggle</b> &mdash; and
+              watch them grow into ownership instead of waiting to be told.
+            </p>
+          </div>
+          <div className="cs-transform-item">
+            <div className="cs-transform-num">04</div>
+            <p>
+              You&rsquo;ll <b>trust yourself again</b> &mdash; the parent who actually understands
+              what your kid is going through, while everyone else is just waiting it out.
+            </p>
+          </div>
+          <div className="cs-transform-item cs-transform-item-capstone">
+            <div className="cs-transform-num">05</div>
+            <p>
+              And the whole point: you&rsquo;ll{' '}
+              <b>raise a kid who can stand on their own two feet</b> &mdash; more resilient, more
+              capable, more themselves &mdash; long after the hard years are behind you both.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. WHO IT'S FOR ── */}
+      <section className="v6-fit">
+        <header className="v6-fit-head">
+          <div>
+            <span className="cs-eyebrow">Is this for you?</span>
+            <h2>
+              I&rsquo;d rather you skip this than buy the <em>wrong thing.</em>
+            </h2>
+          </div>
+          <p className="v6-fit-head-aside">
+            So here&rsquo;s the honest version of who Middle Skills is built for &mdash; and who it
+            isn&rsquo;t. When the wrong fit walks away, the right fit can trust me.
+          </p>
+        </header>
+        <div className="v6-fit-grid">
+          <div className="v6-fit-card v6-fit-card-yes">
+            <h3>This is for you if&hellip;</h3>
+            <ul>
+              <li>Your kid is somewhere between 9 and 15, and you feel like you&rsquo;ve lost your ability to get through to them</li>
+              <li>They&rsquo;re not a &ldquo;problem kid&rdquo; &mdash; they&rsquo;ve just become someone you don&rsquo;t fully recognize</li>
+              <li>You want to understand what&rsquo;s happening in their brain, not just manage the behavior</li>
+              <li>You want to learn how to teach your kid the skills this stage demands &mdash; resilience, responsibility, standing on their own two feet</li>
+              <li>You&rsquo;re willing to change how you show up, not only how they act</li>
+              <li>You&rsquo;re tired of waiting for &ldquo;the phase&rdquo; to pass on its own</li>
+              <li>You&rsquo;d rather learn the why than memorize a one-size-fits-all script</li>
+            </ul>
+          </div>
+          <div className="v6-fit-card v6-fit-card-no">
+            <h3>This is not for you if&hellip;</h3>
+            <ul>
+              <li>You believe your kid&rsquo;s behavior is a character problem, not a skill gap</li>
+              <li>You&rsquo;re looking for a way to make your kid more compliant</li>
+              <li>You want behavior-modification tricks without understanding the development underneath</li>
+              <li>You see the middle years as a phase to survive rather than a window to work with</li>
+              <li>You&rsquo;re not ready to look at your own patterns alongside your kid&rsquo;s</li>
+              <li>You need a fix by Friday</li>
+              <li>You need clinical treatment &mdash; this is parent education that complements therapy, not a replacement for it</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. CURRICULUM ── */}
+      <section className="v6-curric cs-curric" id="curriculum">
+        <header className="v6-curric-head">
+          <span className="cs-eyebrow">What&rsquo;s inside</span>
+          <h2 style={{
+            fontFamily: 'var(--sans)', fontWeight: 800,
+            fontSize: 'clamp(38px,4.4vw,60px)', lineHeight: 1,
+            letterSpacing: '-0.035em', margin: '8px 0 16px', textWrap: 'balance',
+          }}>
+            Six modules. Eighteen lessons. One whole curriculum.
+          </h2>
+          <p style={{
+            fontFamily: 'var(--font-source-serif), Georgia, serif',
+            fontSize: '18px', lineHeight: 1.55, color: 'var(--ink-soft)', margin: 0,
+          }}>
+            Each module is roughly 90 minutes of video across three lessons, plus a worksheet and
+            scripts you&rsquo;ll actually use. Every one is built around what your kid will be able
+            to <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>do</em> &mdash; real,
+            nameable skills, not vague takeaways.
           </p>
         </header>
         <div className="v6-curric-grid">
-          {MODULES.map((mod) => (
-            <article key={mod.n} className="v6-curric-mod">
-              <div className="v6-curric-mod-num">{mod.n}</div>
+          {MODULES.map((m) => (
+            <article className="v6-curric-mod" key={m.n}>
+              <div className="v6-curric-mod-num">{m.n}</div>
               <div>
-                <h3>{mod.title}</h3>
-                <p>{mod.desc}</p>
-                <p style={{ fontFamily: 'var(--sans)', fontSize: 14, color: 'var(--ink-mute)', margin: 0 }}>Lessons coming soon.</p>
+                <h3>{m.title}</h3>
+                <p>{m.desc}</p>
+                <span className="cs-curric-objs-label">Your kid will be able to</span>
+                <ul>
+                  {m.objs.map((o) => <li key={o}>{o}</li>)}
+                </ul>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* ===== IS THIS FOR YOU ===== */}
-      <section className="v6-fit" aria-label="Is this course for you?">
-        <header className="v6-fit-head">
-          <div>
-            <span className="v6-page-head-eyebrow">Is this for you?</span>
-            <h2>Who Middle Skills was built for.</h2>
+      {/* ── 8. ABOUT SEAN ── */}
+      <section className="cs-about">
+        <div className="cs-about-inner">
+          <span className="cs-eyebrow">About Sean</span>
+          <blockquote className="cs-about-quote">
+            &ldquo;My wife used to say I had an unfair advantage. I didn&rsquo;t. I had twelve years
+            of practice with other people&rsquo;s kids.&rdquo;
+          </blockquote>
+          <div className="cs-about-body">
+            <p>
+              Fourteen years as a middle school teacher &mdash; watching thousands of kids move
+              through this exact developmental window. Not in a book. In the room, every day, seeing
+              what worked and what didn&rsquo;t and why.
+            </p>
+            <p>
+              When his own sons hit the middle years, he noticed something uncomfortable: he was a
+              better teacher than he was a dad. The skills he used all day with other people&rsquo;s
+              kids &mdash; the ones that reached even the toughest students &mdash; he simply
+              wasn&rsquo;t using at home. So he started. They worked at the kitchen table just like
+              they worked in the classroom. Middle Skills is those tools, built for parents.
+            </p>
           </div>
-          <p className="v6-fit-head-aside">
-            I&apos;d rather you skip this course than buy something that isn&apos;t going to work for you. So here&apos;s the honest version of who it&apos;s for, and who it isn&apos;t.
+          <p className="cs-about-sig">
+            &mdash; Sean Kane &middot; Middle school teacher, 14 years &middot; Dad of three &middot; Austin, TX
           </p>
-        </header>
-        <div className="v6-fit-grid">
-          <div className="v6-fit-card v6-fit-card-yes">
-            <h3>This course is for parents who&hellip;</h3>
-            <ul>
-              <li>Have a kid (or kids) somewhere between 9 and 15</li>
-              <li>See parenting as a practice</li>
-              <li>Are aiming for relationship, not outcomes</li>
-              <li>Want a curriculum, not a content drip</li>
-              <li>Trust that this work is taught, not enforced</li>
-              <li>Are willing to do their own growing alongside their kid&apos;s</li>
-              <li>Want depth over checklists</li>
-              <li>Would rather understand what&apos;s happening developmentally than memorize a script</li>
-            </ul>
-          </div>
-          <div className="v6-fit-card v6-fit-card-no">
-            <h3>This course is not for parents who&hellip;</h3>
-            <ul>
-              <li>Want a one-size-fits-all blueprint</li>
-              <li>See middle school as a phase to survive</li>
-              <li>Are looking for a way to make their kid more compliant</li>
-              <li>Need a fix by Friday</li>
-              <li>Believe their kid&apos;s behavior is a character problem rather than a skill gap</li>
-              <li>Aren&apos;t ready to examine their own patterns alongside their kid&apos;s</li>
-              <li>Are shopping for tactics without context</li>
-            </ul>
-          </div>
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS ===== */}
-      {/* Note: placeholder quotes — replace with real IG/TikTok comments before launch */}
-      <section className="v6-testi" aria-label="What parents are saying">
+      {/* ── 9. SOCIAL PROOF ── */}
+      <section className="v6-testi cs-social">
         <header className="v6-testi-head">
-          <span className="v6-page-head-eyebrow">From Instagram &amp; TikTok</span>
-          <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 'clamp(40px,4.4vw,56px)', lineHeight: 1, letterSpacing: '-0.03em', margin: '8px 0 0', textWrap: 'balance' }}>
-            What parents keep telling us.
+          <span className="cs-eyebrow is-center">What parents are saying</span>
+          <h2 style={{
+            fontFamily: 'var(--sans)', fontWeight: 800,
+            fontSize: 'clamp(36px,4vw,56px)', lineHeight: 1,
+            letterSpacing: '-0.03em', margin: '8px 0 0', textWrap: 'balance',
+          }}>
+            Real changes, in real houses.
           </h2>
         </header>
         <div className="v6-testi-grid">
-          <div className="v6-testi-card">
-            <div className="v6-testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote className="v6-testi-q">
-              &ldquo;I read the practices on a Sunday and on Monday morning my house felt different. Not magic &mdash; just the first time I&apos;d ever been given a script.&rdquo;
-            </blockquote>
-            <div className="v6-testi-attrib">
-              <span className="v6-testi-attrib-name">Maria L.</span>
-              <span className="v6-testi-attrib-meta">Mom of two &middot; Houston, TX</span>
+          {TESTIMONIALS.map((t) => (
+            <div className="v6-testi-card" key={t.q.slice(0, 30)}>
+              <blockquote className="v6-testi-q">&ldquo;{t.q}&rdquo;</blockquote>
+              <div className="v6-testi-attrib">
+                <span className="v6-testi-attrib-meta">{t.src}</span>
+              </div>
             </div>
-          </div>
-          <div className="v6-testi-card">
-            <div className="v6-testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote className="v6-testi-q">
-              &ldquo;I&apos;m a teacher too, and I kept thinking: this is the parent training I wish my kids&apos; parents had. Sean writes like a colleague who&apos;s done both jobs.&rdquo;
-            </blockquote>
-            <div className="v6-testi-attrib">
-              <span className="v6-testi-attrib-name">Daniel K.</span>
-              <span className="v6-testi-attrib-meta">Middle school teacher &middot; Brooklyn, NY</span>
-            </div>
-          </div>
-          <div className="v6-testi-card">
-            <div className="v6-testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <blockquote className="v6-testi-q">
-              &ldquo;The repair script alone was worth it. We use it two or three times a week. The kids ask for it now &mdash; &lsquo;can we do the redo?&rsquo;&rdquo;
-            </blockquote>
-            <div className="v6-testi-attrib">
-              <span className="v6-testi-attrib-name">Priya &amp; Arjun S.</span>
-              <span className="v6-testi-attrib-meta">Parents of three &middot; Toronto, ON</span>
-            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 10. COST OF STAYING ── */}
+      <section className="cs-cost">
+        <div className="cs-cost-grid">
+          <h2>Nothing about the middle years <em>fixes itself.</em></h2>
+          <div className="cs-cost-body">
+            <p>
+              The developmental window is real &mdash; and how you navigate the next three or four
+              years shapes how your kid walks out of adolescence. That&rsquo;s not meant to scare
+              you. It&rsquo;s meant to be honest:{' '}
+              <em>showing up differently now matters.</em>
+            </p>
+            <p>
+              You can wait it out. A lot of parents do. But &ldquo;the phase&rdquo; isn&rsquo;t a
+              strategy, and the distance that opens up in these years doesn&rsquo;t always close on
+              its own. Every hard moment is either a wall you build or a door you learn to open.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="v6-faq" aria-label="Frequently asked questions">
+      {/* ── 11. VALUE + PRICE ── */}
+      <section className="cs-value cs-bleed" id="enroll">
+        <div className="cs-value-head">
+          <span className="cs-eyebrow is-center">What you&rsquo;re getting</span>
+          <h2>
+            The whole course, for less than <em>two therapy sessions.</em>
+          </h2>
+          <p>
+            A single family-therapy hour runs $150&ndash;$200. Middle Skills is everything &mdash;
+            the full curriculum, monthly live time with Sean, the parent community, and every future
+            update &mdash; for one price.
+          </p>
+        </div>
+        <div className="cs-value-grid">
+          <div className="cs-includes">
+            <ul>
+              <li>18 video lessons across 6 modules</li>
+              <li>A podcast-style audio version of every lesson</li>
+              <li>Printable worksheets &amp; scripts</li>
+              <li>Monthly live office hour with Sean</li>
+              <li>Private parent community</li>
+              <li>Lifetime access &amp; every future update</li>
+            </ul>
+          </div>
+          <aside className="cs-price">
+            <div className="cs-price-tag">Founding group &middot; Pre-order</div>
+            <div className="cs-price-eyebrow">Founding price</div>
+            <div className="cs-price-big">
+              <span className="cs-price-num">$499</span>
+              <span className="cs-price-was">$599</span>
+            </div>
+            <p className="cs-price-once">One payment &middot; lifetime access</p>
+            <div className="cs-price-plan">
+              <span>Prefer to split it?</span>
+              <b>2 &times; $269</b>
+            </div>
+            <a href="#" className="v6-cta v6-cta-primary" style={{ background: 'var(--accent)', justifyContent: 'center' }}>
+              Join the founding group <span className="v6-cta-arrow">&rarr;</span>
+            </a>
+            <p className="cs-price-fine">
+              Founding-group pricing for pre-orders &mdash; the course launches in October, and your
+              rate is locked in for life. Backed by the 30-day Parent Confidence Guarantee.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      {/* ── 12. GUARANTEE ── */}
+      <section className="cs-guarantee">
+        <div className="cs-guarantee-card">
+          <div className="cs-guarantee-seal">
+            <b>30</b>
+            <span>Day</span>
+          </div>
+          <div className="cs-guarantee-text">
+            <h3>The <em>Parent Confidence</em> Guarantee.</h3>
+            <p>
+              Complete the first module. If you don&rsquo;t understand your kid differently within 30
+              days, write me and I&rsquo;ll refund you in full &mdash; same day, no questions asked.
+              The course works when you do the work, and I&rsquo;ll stand behind that.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 13. FAQ ── */}
+      <section className="v6-faq">
         <div className="v6-faq-grid">
           <div>
-            <span className="v6-page-head-eyebrow">FAQ</span>
-            <h2 style={{ fontFamily: 'var(--sans)', fontWeight: 800, fontSize: 'clamp(40px,4.4vw,56px)', lineHeight: 0.98, letterSpacing: '-0.03em', margin: '8px 0 16px', textWrap: 'balance' }}>
+            <span className="cs-eyebrow">FAQ</span>
+            <h2 style={{
+              fontFamily: 'var(--sans)', fontWeight: 800,
+              fontSize: 'clamp(36px,4vw,56px)', lineHeight: 0.98,
+              letterSpacing: '-0.03em', margin: '8px 0 16px', textWrap: 'balance',
+            }}>
               Questions parents actually ask.
             </h2>
-            <p style={{ fontFamily: '"Source Serif 4", Georgia, serif', fontSize: 17, lineHeight: 1.55, color: 'var(--ink-soft)', margin: 0, maxWidth: '36ch' }}>
-              Don&apos;t see yours?{' '}
-              <a href={`mailto:sean@growthmindsetparenting.com`} style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>
+            <p style={{
+              fontFamily: 'var(--font-source-serif), Georgia, serif',
+              fontSize: '17px', lineHeight: 1.55, color: 'var(--ink-soft)',
+              margin: 0, maxWidth: '36ch',
+            }}>
+              Don&rsquo;t see yours?{' '}
+              <Link href="/contact" style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>
                 Email me directly
-              </a>{' '}
+              </Link>{' '}
               &mdash; I read every one.
             </p>
           </div>
           <div className="v6-faq-list">
-            {FAQS.map((faq) => (
-              <div key={faq.n} className="v6-faq-item">
-                <h3>{faq.q}<span>{faq.n}</span></h3>
-                <p>{faq.a}</p>
+            {FAQS.map((f) => (
+              <div className="v6-faq-item" key={f.n}>
+                <h3>{f.q}<span>{f.n}</span></h3>
+                {f.aJsx ? (
+                  <p>
+                    Yes. There&rsquo;s a group rate for bulk enrollments and a license for schools
+                    and parent organizations. Head to the{' '}
+                    <Link href="/partnerships" style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>
+                      partnerships page
+                    </Link>{' '}
+                    and we&rsquo;ll set it up.
+                  </p>
+                ) : (
+                  <p>{f.a}</p>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== WAITLIST CTA ===== */}
-      <section className="v6-enroll" id="waitlist" aria-label="Join the waitlist">
-        <div>
-          <div style={{ fontFamily: '"Lora", Georgia, serif', fontStyle: 'italic', fontSize: 24, color: 'var(--accent)', marginBottom: 12 }}>Coming soon</div>
-          <h2>Join the waitlist for <em>Middle Skills.</em></h2>
-          <p>Lifetime access, monthly office hours, and a private parent community when it opens. I&apos;ll send one note the day the doors open &mdash; nothing else.</p>
-        </div>
-        <div className="v6-enroll-cta">
-          <SubscribeForm
-            inputPlaceholder="sean@growthmindsetparenting.com"
-            buttonLabel="Join the waitlist →"
-          />
+      {/* ── 14. CLOSE ── */}
+      <section className="cs-close cs-bleed">
+        <div className="cs-close-inner">
+          <span className="cs-eyebrow is-center is-light">The last word</span>
+          <h2>
+            You&rsquo;re closer than you think to being the parent who <em>gets it.</em>
+          </h2>
+          <p>
+            Who has the words. Who doesn&rsquo;t spiral when things get hard, because you understand
+            what&rsquo;s actually happening. The middle school years don&rsquo;t have to be something
+            you survive &mdash; they can be the years you both look back on as the ones that made the
+            relationship.
+          </p>
+          <div className="cs-close-actions">
+            <a href="#enroll" className="v6-cta v6-cta-primary" style={{ background: 'var(--accent)' }}>
+              I&rsquo;m ready to understand my kid <span className="v6-cta-arrow">&rarr;</span>
+            </a>
+            <a href="#curriculum" className="v6-cta v6-cta-ghost">See what&rsquo;s inside</a>
+          </div>
+          <span className="cs-close-note">
+            $499, or 2 payments of $269 &middot; 30-day Parent Confidence Guarantee
+          </span>
         </div>
       </section>
 
