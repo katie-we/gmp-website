@@ -345,61 +345,35 @@
 }
 /* reframe bar */
 .v6-chaos-reframe {
-  background: var(--card-ink);
-  color: var(--paper);
-  padding: 52px 56px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  padding: 64px 56px;
 }
 .v6-chaos-reframe-inner {
-  max-width: 1080px;
+  max-width: 760px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 48px;
+  text-align: center;
 }
 .v6-chaos-reframe-text {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: clamp(22px, 2.6vw, 34px);
+  font-size: clamp(27px, 2.9vw, 37px);
   letter-spacing: -0.025em;
-  line-height: 1.14;
-  max-width: 30ch;
+  line-height: 1.16;
   margin: 0;
-  color: var(--paper);
+  color: var(--ink);
 }
-.v6-chaos-reframe-text em {
+.v6-chaos-reframe-soft {
+  display: block;
+  margin-top: 16px;
+  color: var(--ink-soft);
+  font-weight: 500;
   font-family: var(--serif-text);
   font-style: italic;
-  font-weight: 500;
-  color: color-mix(in oklab, var(--paper) 58%, transparent);
+  font-size: 0.6em;
+  line-height: 1.5;
   letter-spacing: 0;
 }
-.v6-chaos-reframe-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  flex: 0 0 auto;
-  white-space: nowrap;
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--paper);
-  background: var(--accent);
-  padding: 18px 32px;
-  border-radius: 999px;
-  transition: background 0.15s, transform 0.18s, gap 0.18s;
-}
-.v6-chaos-reframe-cta:hover {
-  background: var(--accent-soft);
-  color: var(--accent-deep);
-  gap: 18px;
-  transform: translateY(-2px);
-}
-.v6-chaos-reframe-arrow { transition: transform 0.18s; }
-.v6-chaos-reframe-cta:hover .v6-chaos-reframe-arrow { transform: translateX(4px); }
 
 /* ── FREE FIELD GUIDE ── */
 .v6-fg {

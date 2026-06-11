@@ -24,12 +24,9 @@ export default function ChaosSection() {
       <div className="v6-chaos-reframe">
         <div className="v6-chaos-reframe-inner">
           <p className="v6-chaos-reframe-text">
-            You&rsquo;re not the problem. And they&rsquo;re not broken.{' '}
-            <em>What looks like attitude almost always has a name &mdash; a developmental skill that hasn&rsquo;t come online yet. All of them can be built.</em>
+            You&rsquo;re not the problem. And they&rsquo;re not broken.
+            <span className="v6-chaos-reframe-soft">What looks like attitude almost always has a name &mdash; a developmental skill that hasn&rsquo;t come online yet. All of them can be built.</span>
           </p>
-          <a href="#skills" className="v6-chaos-reframe-cta">
-            See the six skills <span className="v6-chaos-reframe-arrow" aria-hidden="true">&rarr;</span>
-          </a>
         </div>
       </div>
     </section>

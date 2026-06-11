@@ -97,7 +97,6 @@
   .v6-chaos-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 48px; }
   .v6-chaos-card { position: static; }
   .v6-chaos-reframe { padding: 48px 20px; }
-  .v6-chaos-reframe-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
   /* FIELD GUIDE (v7) */
   .v7-lead-card { grid-template-columns: 1fr; gap: 36px; padding: 40px 28px; }
   .v7-gc { width: 100%; transform: none; }
