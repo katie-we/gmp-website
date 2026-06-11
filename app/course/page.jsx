@@ -573,8 +573,8 @@ export default function CoursePage() {
                   <p>
                     Yes. There&rsquo;s a group rate for bulk enrollments and a license for schools
                     and parent organizations. Head to the{' '}
-                    <Link href="/partnerships" style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>
-                      partnerships page
+                    <Link href="/work-with-me" style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>
+                      Work with me page
                     </Link>{' '}
                     and we&rsquo;ll set it up.
                   </p>

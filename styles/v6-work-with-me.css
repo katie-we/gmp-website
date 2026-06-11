@@ -16,7 +16,7 @@
 .pd6-hero h1 {
   font-family: var(--sans); margin: 0 0 28px;
   font-size: 76px; line-height: 0.98; letter-spacing: -0.04em;
-  font-weight: 800; max-width: 14ch; text-wrap: balance;
+  font-weight: 800; max-width: 22ch; text-wrap: balance;
 }
 .pd6-hero h1 em {
   font-family: "Lora", Georgia, serif;
@@ -24,7 +24,7 @@
 }
 .pd6-hero p {
   font-family: "Source Serif 4", Georgia, serif;
-  font-size: 22px; line-height: 1.55; max-width: 46ch;
+  font-size: 22px; line-height: 1.55; max-width: 65ch;
   color: var(--ink-soft); margin: 0 0 32px;
 }
 
