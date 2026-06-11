@@ -15,6 +15,7 @@ const FGM_SKILLS = [
 
 export default function FieldGuideModal({ open, onClose }) {
   const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
   const [error, setError] = useState('');
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -25,6 +26,7 @@ export default function FieldGuideModal({ open, onClose }) {
     if (!open) return;
     setSent(false);
     setError('');
+    setConsent(false);
     setSubmitting(false);
     const id = setTimeout(() => inputRef.current?.focus(), 80);
     return () => clearTimeout(id);
@@ -146,7 +148,19 @@ export default function FieldGuideModal({ open, onClose }) {
                   />
                 </div>
                 {error && <div className="fgm-error">{error}</div>}
-                <button className="fgm-submit" type="submit" disabled={submitting}>
+                <label className="fgm-consent">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                  />
+                  <span>
+                    Yes, send me the free field guide and the{' '}
+                    <a href="#subscribe" onClick={onClose}>Saturday Letter</a>.
+                    I can unsubscribe anytime &mdash; no awkward breakups.
+                  </span>
+                </label>
+                <button className="fgm-submit" type="submit" disabled={submitting || !consent}>
                   {submitting ? 'Sending…' : 'Send me the guide'}
                   {!submitting && <span className="fgm-submit-arrow">&rarr;</span>}
                 </button>

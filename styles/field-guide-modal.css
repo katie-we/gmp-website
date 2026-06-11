@@ -252,6 +252,30 @@
   margin: -2px 0 0 2px;
 }
 
+.fgm-consent {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  font-family: var(--sans, "Inter", sans-serif);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.fgm-consent input[type="checkbox"] {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  accent-color: var(--ink);
+  cursor: pointer;
+}
+.fgm-consent a {
+  color: var(--ink);
+  font-weight: 700;
+  text-underline-offset: 2px;
+}
+
 .fgm-submit {
   display: inline-flex;
   align-items: center;
