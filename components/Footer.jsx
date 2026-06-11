@@ -16,6 +16,7 @@ export default function Footer() {
         <Link href="/about">About</Link>
         <Link href="/work-with-me">Work with me</Link>
         <Link href="/privacy" style={{ color: 'var(--ink-mute)', fontSize: 13 }}>Privacy</Link>
+        <Link href="/terms" style={{ color: 'var(--ink-mute)', fontSize: 13 }}>Terms</Link>
         <a href="/feed.xml" style={{ color: 'var(--ink-mute)', fontSize: 13 }}>RSS</a>
       </nav>
       <div className="v6-foot-meta">

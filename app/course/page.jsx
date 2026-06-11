@@ -5,7 +5,7 @@ import { SITE } from '../../data/site';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Middle Skills — The Course | Growth Mindset Parenting',
+  title: 'Middle Skills — The Course',
   description:
     'The parenting curriculum for the years the old playbook stops working — built by a 14-year middle school teacher. Six modules, 18 lessons. Pre-order founding price: $499.',
   openGraph: {
@@ -518,6 +518,7 @@ export default function CoursePage() {
             <p className="cs-price-fine">
               Founding-group pricing for pre-orders &mdash; the course launches in October, and your
               rate is locked in for life. Backed by the 30-day Parent Confidence Guarantee.
+              {' '}<a href="/terms" style={{ color: 'var(--ink-mute)', textDecoration: 'underline' }}>Terms of purchase.</a>
             </p>
           </aside>
         </div>
