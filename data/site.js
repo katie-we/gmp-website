@@ -13,7 +13,7 @@ export const SITE = {
   stats: {
     instagramFollowers: '100K+',
     tiktokFollowers: '37K+',
-    totalFollowing: '140K',
+    totalFollowing: '170K',
     teachingYears: 14,
     studentsTeached: '1,000+',
     sons: 3,

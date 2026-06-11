@@ -43,7 +43,7 @@
 .v6-page-head-h1 {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: 96px;
+  font-size: clamp(36px, 8vw, 96px);
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--ink);
@@ -51,9 +51,10 @@
   text-wrap: balance;
 }
 .v6-page-head-h1 em {
-  font-family: "Lora", Georgia, serif;
+  font-family: var(--font-lora), Georgia, serif;
   font-style: italic;
   font-weight: 500;
+  font-size: 1.05em;
   color: var(--accent);
 }
 .v6-page-head-meta {
@@ -1122,16 +1123,17 @@
 .v6-about-hero-text h1 {
   font-family: var(--sans);
   font-weight: 800;
-  font-size: 96px;
+  font-size: clamp(36px, 8vw, 96px);
   line-height: 0.95;
   letter-spacing: -0.04em;
   margin: 16px 0 24px;
   text-wrap: balance;
 }
 .v6-about-hero-text h1 em {
-  font-family: "Lora", Georgia, serif;
+  font-family: var(--font-lora), Georgia, serif;
   font-style: italic;
   font-weight: 500;
+  font-size: 1.05em;
   color: var(--accent);
 }
 .v6-about-hero-text p {

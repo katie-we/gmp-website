@@ -28,13 +28,15 @@ export default function TermsPage() {
           education course created by Sean Kane / Growth Mindset Parenting. By completing your
           purchase you agree to them.</p>
 
-          <h2>Refund policy</h2>
+          <h2>Our guarantee</h2>
 
-          <p>Complete Module 1 within 30 days of purchase. If it isn&apos;t useful, email{' '}
+          <p>Complete the course. Apply the tools. Give the process an honest effort. If you
+          don&apos;t feel more confident handling the challenges of middle school parenting
+          after doing the work, we&apos;ll refund your purchase. You bring the commitment.
+          We&apos;ll take the risk. To request a refund, email{' '}
           <a href="mailto:sean@growthmindsetparenting.com" style={{ color: 'var(--accent)' }}>
             sean@growthmindsetparenting.com
-          </a>{' '}for a full refund — same day, no questions asked. No partial refunds are
-          issued after the 30-day window has closed.</p>
+          </a>.</p>
 
           <h2>Course access</h2>
 

@@ -200,7 +200,7 @@ export default function AboutPage() {
               <div className="v6-about-stat-l">Students taught</div>
             </div>
             <div className="v6-about-stat" role="listitem">
-              <b>140K</b>
+              <b>170K</b>
               <div className="v6-about-stat-l">Following across social</div>
             </div>
           </div>
