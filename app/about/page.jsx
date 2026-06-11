@@ -120,7 +120,7 @@ export default function AboutPage() {
           <h2 id="what-worked">What worked there.</h2>
           <figure className="v6-about-figure">
             <Image src="/images/sean-teaching.jpg" alt="Sean in the classroom" width={500} height={375} />
-            <figcaption>The classroom, circa 2017.</figcaption>
+            <figcaption>My classroom, circa 2013.</figcaption>
           </figure>
           <p>
             After fourteen years of watching this developmental window play out with over a thousand

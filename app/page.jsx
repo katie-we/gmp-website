@@ -115,7 +115,7 @@ export default function HomePage() {
             What I&rsquo;m here to do
           </div>
           <h2 className="v6-mission-h">
-            I help responsive, thoughtful parents of middle school kids shift from reactive to proactive by giving parents the tools to see their kid clearly and to develop the six skills that make a kid emotionally intelligent, <em>independent</em> and <em>connected</em>.
+            I help responsive, thoughtful parents of middle school kids shift <em>from reactive to proactive</em> by giving parents the tools to see their kid clearly and to develop the six skills that make a kid <em className="is-soft">emotionally intelligent, independent and connected.</em>
           </h2>
           <div className="v6-mission-body">
             <p>

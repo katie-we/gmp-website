@@ -7,6 +7,10 @@
 
 .v7-root { max-width: 1400px; margin: 0 auto; }
 
+/* ── MISSION tweaks ── */
+.v7-root .v6-mission-h em.is-soft { color: oklch(0.82 0.075 55); }
+.v7-root .v6-mission-body { max-width: 80ch; }
+
 /* ── HERO ── */
 .v7-root .v6-hero {
   --v6-hero-cols: 1.12fr 1fr;
@@ -41,8 +45,14 @@
   z-index: 1;
   flex: 1;
   min-height: 520px;
+  display: flex;
 }
 .v7-root .v6-hero-photo img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  min-height: 520px;
   border-radius: 0;
   box-shadow: none;
 }

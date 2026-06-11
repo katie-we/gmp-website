@@ -144,7 +144,7 @@ const FAQS = [
   },
   {
     n: '11', q: 'Is Sean actually an expert?',
-    a: "Fourteen years as a middle school teacher — watching thousands of kids move through this exact developmental stage — and a dad of three sons currently in the middle years. He's not theorizing. He's teaching from the classroom and the kitchen table at once.",
+    a: "Fourteen years as a middle school teacher and administrator with a Masters in Education from Northwestern University. He's got 3 kids. He's taken over 2 years to properly position this course between real research and real experience. This isn't just opinion and theory; it's practical and actionable.",
   },
 ];
 
