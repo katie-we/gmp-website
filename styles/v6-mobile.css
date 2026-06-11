@@ -98,8 +98,8 @@
   .v6-chaos-card { position: static; }
   .v6-chaos-reframe { padding: 48px 20px; }
   /* FIELD GUIDE (v7) */
-  .v7-lead-card { grid-template-columns: 1fr; gap: 36px; padding: 40px 28px; }
-  .v7-gc { width: 100%; transform: none; }
+  .v7-lead-card { grid-template-columns: 1fr; gap: 0; padding: 40px 28px; }
+  .v7-lead-mock { display: none; }
   .v7-lead-cta { width: 100%; justify-content: center; }
   /* FIELD GUIDE (v6 legacy) */
   .v6-fg-card { grid-template-columns: 1fr; gap: 36px; padding: 36px 24px; }
@@ -171,7 +171,6 @@
     gap: 16px;
     align-items: start;
   }
-  .v6-page-head-h1 { font-size: 36px; }
   .v6-page-head-meta {
     flex-direction: row;
     flex-wrap: wrap;
@@ -209,7 +208,6 @@
 
   /* ABOUT */
   .v6-about-hero { grid-template-columns: 1fr; }
-  .v6-about-hero-text h1 { font-size: 44px; }
   .v6-about-essay {
     grid-template-columns: 1fr;
   }
@@ -302,7 +300,6 @@
     gap: 16px;
     padding-bottom: 40px;
   }
-  .v6-page-head-h1 { font-size: 64px; }
   .v6-page-head-meta {
     flex-direction: row;
     flex-wrap: wrap;
