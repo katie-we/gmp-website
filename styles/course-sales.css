@@ -481,6 +481,7 @@
   border-radius: 16px;
   display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center;
   padding: 48px 56px;
+  max-width: 75%; margin: 0 auto;
 }
 .cs-guarantee-seal {
   width: 132px; height: 132px; border-radius: 999px;
