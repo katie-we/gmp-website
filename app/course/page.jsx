@@ -510,9 +510,9 @@ export default function CoursePage() {
             <p className="cs-price-once">One payment &middot; lifetime access</p>
             <div className="cs-price-plan">
               <span>Prefer to split it?</span>
-              <b>2 &times; $269</b>
+              <a href="https://www.growthmindsetparenting.com/offers/QYzJYerk" style={{ fontWeight: 700, color: 'var(--accent)', textDecoration: 'underline' }}>2 &times; $269</a>
             </div>
-            <a href="#" className="v6-cta v6-cta-primary" style={{ background: 'var(--accent)', justifyContent: 'center' }}>
+            <a href="https://www.growthmindsetparenting.com/offers/BFeFvsHP" className="v6-cta v6-cta-primary" style={{ background: 'var(--accent)', justifyContent: 'center' }}>
               Join the founding group <span className="v6-cta-arrow">&rarr;</span>
             </a>
             <p className="cs-price-fine">
