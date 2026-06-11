@@ -63,11 +63,10 @@ export default function HomePage() {
             For the middle years &mdash; <span style={{ color: 'var(--accent)', fontWeight: 700 }}>ages 9 to 15.</span>
           </div>
           <h1 className="v6-hero-h1">
-            Middle school isn&apos;t when things fall apart. It&apos;s when they have the
-            best shot of <em>going right.</em>
+            Your middle schooler melts down over homework, goes quiet at dinner, and meets every request with a complaint. It&apos;s not a character flaw, yet. It&apos;s a set of skills they haven&apos;t built, and these are the years you have to teach them.
           </h1>
           <p className="v6-hero-sub">
-            Your kid&apos;s brain is unusually open in these years, and you&apos;re the most trusted teacher they have. I write for parents who want to spend this window building the skills their kid is still learning &mdash; and the ones they&apos;re still building themselves.
+            I&apos;m Sean. I spent 14 years in middle school classrooms, and I&apos;m raising three sons of my own. The kids who thrive at this age aren&apos;t better behaved; they&apos;ve been taught real skills, like regulation, relationship, and resilience. And you are the teacher.
           </p>
           <div className="v6-hero-actions">
             <FieldGuideHeroCta />
@@ -107,23 +106,11 @@ export default function HomePage() {
             What I&rsquo;m here to do
           </div>
           <h2 className="v6-mission-h">
-            I help everyday parents turn the hard moments into real{' '}
-            <em>connection</em> &mdash; and raise resilient, capable kids while keeping
-            their patience, their weekends, and the <em>relationship</em> intact.
+            I help responsive, thoughtful parents of middle school kids shift from reactive to proactive by giving parents the tools to see their kid clearly and to develop the six skills that make a kid emotionally intelligent, independent and connected.
           </h2>
           <div className="v6-mission-body">
             <p>
-              If you want a home that runs on connection instead of consequences &mdash;
-              where the hard days don&rsquo;t harden into hard years &mdash; you&rsquo;re in
-              the right place. You don&rsquo;t need to be a perfect parent or a child
-              psychologist. You need a handful of practices that cut through the chaos and
-              tell you the next right move.
-            </p>
-            <p>
-              I spent fourteen years learning them in a classroom. They work just as well at
-              your kitchen table. Here you&rsquo;ll find the field guide, the Saturday Letter,
-              the course, and the practices themselves &mdash; built to help you take one
-              small action tonight and raise kids who can stand on their own.
+              If you want to see your kid thrive instead of survive, communicate instead of collapse and form before they fold, then they will need a parent who can meet them where they are with the skills they need to be their best. You don&rsquo;t have the manual. I have the science backed, classroom and kitchen tested skills that help you transform your flailing middle schooler into an emotionally intelligent, capable, and connected kid you&rsquo;re proud to call your own.
             </p>
           </div>
           <a href="#skills" className="v6-mission-cta">

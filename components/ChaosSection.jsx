@@ -1,9 +1,9 @@
 export default function ChaosSection() {
   return (
-    <section className="v6-chaos" aria-label="When everything comes loose">
+    <section className="v6-chaos" aria-label="When everything changes">
       <div className="v6-chaos-inner">
         <header className="v6-chaos-head">
-          <span className="v6-chaos-eyebrow">When everything comes loose</span>
+          <span className="v6-chaos-eyebrow">When everything changes</span>
           <h2 className="v6-chaos-h">
             Everything came loose <em>at once.</em>
           </h2>
