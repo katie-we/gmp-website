@@ -335,18 +335,37 @@
   margin: 32px 0 0;
 }
 
-/* ── 9. SOCIAL PROOF ── */
+/* ── 9. SOCIAL PROOF (comment wall) ── */
 .cs-social .v6-testi-head { margin-bottom: 48px; }
 .cs-social .v6-testi-grid {
-  display: block;
-  columns: 3;
-  column-gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
 }
+.cs-social .v6-testi-col { display: flex; flex-direction: column; gap: 18px; }
 .cs-social .v6-testi-card {
-  break-inside: avoid;
-  margin: 0 0 22px;
-  padding: 26px 28px;
-  border-radius: 14px;
+  position: relative;
+  margin: 0;
+  padding: 20px 22px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 18px 18px 18px 5px;
+}
+/* speech-bubble tail (bottom-left) */
+.cs-social .v6-testi-card::before,
+.cs-social .v6-testi-card::after {
+  content: ""; position: absolute; width: 0; height: 0;
+}
+.cs-social .v6-testi-card::before {
+  left: 20px; bottom: -13px;
+  border-width: 13px 14px 0 0; border-style: solid;
+  border-color: var(--ink) transparent transparent transparent;
+}
+.cs-social .v6-testi-card::after {
+  left: 21px; bottom: -10px;
+  border-width: 10px 11px 0 0; border-style: solid;
+  border-color: var(--paper) transparent transparent transparent;
 }
 .cs-social .v6-testi-q {
   font-family: var(--font-source-serif), Georgia, serif;
@@ -355,26 +374,18 @@
   font-size: 17px;
   line-height: 1.5;
   color: var(--ink);
-  margin: 0 0 16px;
+  margin: 0;
   text-wrap: pretty;
 }
-.cs-social .v6-testi-attrib {
-  display: flex; flex-direction: row; align-items: center; gap: 9px;
-  border-top: 1px solid var(--rule);
-  padding-top: 16px; margin-top: 4px;
-}
-.cs-social .v6-testi-attrib::before {
-  content: ""; width: 7px; height: 7px; border-radius: 999px;
-  background: var(--accent); flex: 0 0 auto;
-}
-.cs-social .v6-testi-attrib-meta {
+/* provenance stated once, under the heading */
+.cs-social .v6-testi-source {
   font-family: var(--sans);
-  font-weight: 700;
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  white-space: nowrap;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: var(--ink-mute);
+  text-align: center;
+  margin: 14px 0 0;
 }
 
 /* ── 10. COST OF STAYING ── */
@@ -557,11 +568,128 @@
   .cs-price { border-left: 0; border-top: 1.5px solid var(--ink); }
   .v6-fit-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
   .v6-fit-grid { grid-template-columns: 1fr; }
-  .cs-social .v6-testi-grid { columns: 2; }
 }
+@media (max-width: 900px) { .cs-social .v6-testi-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 720px) {
   .cs-guarantee-card { grid-template-columns: 1fr; gap: 28px; text-align: center; justify-items: center; }
   .cs-bleed, .cs-whisper, .cs-value, .cs-close { padding-left: 28px; padding-right: 28px; }
   .cs-bleed { margin-left: -28px; margin-right: -28px; }
-  .cs-social .v6-testi-grid { columns: 1; }
+  .cs-preorder-bar { margin: 0 -28px 0; }
+  .cs-preorder-bar-inner { padding: 10px 28px; font-size: 13px; }
+}
+@media (max-width: 600px) { .cs-social .v6-testi-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════════
+   PRE-ORDER / FOUNDING-GROUP TREATMENT
+   The course opens October 2026. One cohesive announcement system:
+   sticky banner → hero postmark stamp → price-card ribbon + timeline.
+   ═══════════════════════════════════════════════════════════ */
+
+/* — sticky announcement banner (full-bleed, sits above the nav) — */
+.cs-preorder-bar {
+  position: sticky; top: 0; z-index: 50;
+  margin: 0 -56px 0;
+  background: var(--accent);
+  color: var(--paper);
+  border-bottom: 1.5px solid var(--ink);
+}
+.cs-preorder-bar-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 11px 56px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+  font-family: var(--sans); font-weight: 600; font-size: 14px;
+  letter-spacing: 0.005em; text-align: center;
+}
+.cs-preorder-bar-inner b { font-weight: 800; }
+.cs-preorder-bar-dot {
+  width: 8px; height: 8px; border-radius: 999px; background: var(--paper);
+  flex: 0 0 auto;
+  animation: csPulse 2.4s ease-out infinite;
+}
+@keyframes csPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.65); }
+  70%  { box-shadow: 0 0 0 7px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@media (prefers-reduced-motion: reduce) { .cs-preorder-bar-dot { animation: none; } }
+.cs-preorder-bar a {
+  color: var(--paper); font-weight: 800; text-decoration: none;
+  border-bottom: 1.5px solid rgba(255,255,255,0.55); padding-bottom: 1px;
+  white-space: nowrap; transition: border-color 0.15s ease;
+}
+.cs-preorder-bar a:hover { border-bottom-color: var(--paper); }
+
+/* — hero postmark stamp — */
+.cs-hero { position: relative; }
+.cs-stamp {
+  position: absolute; top: 6px; right: 0;
+  width: 132px; height: 132px; border-radius: 999px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; gap: 1px;
+  border: 1.5px solid var(--accent);
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  transform: rotate(-9deg);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5.5px var(--accent);
+}
+.cs-stamp-kicker {
+  font-family: var(--sans); font-weight: 800; font-size: 9.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+}
+.cs-stamp-rule { width: 56px; height: 1px; background: var(--accent); opacity: 0.45; margin: 6px 0; }
+.cs-stamp-opens { font-family: var(--font-lora), Georgia, serif; font-style: italic; font-size: 13px; line-height: 1; }
+.cs-stamp-date {
+  font-family: var(--sans); font-weight: 800; font-size: 20px;
+  letter-spacing: -0.015em; line-height: 1; margin-top: 3px; color: var(--accent-deep);
+}
+@media (max-width: 1100px) { .cs-stamp { display: none; } }
+
+/* — hero founding flag pill — */
+.cs-hero-flag {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-weight: 700; font-size: 13px;
+  letter-spacing: 0.03em; color: var(--accent-deep);
+  background: var(--accent-soft);
+  border: 1.5px solid var(--accent);
+  padding: 7px 16px 7px 13px; border-radius: 999px;
+  margin: 30px 0 4px;
+}
+.cs-hero-flag::before {
+  content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--accent); flex: 0 0 auto;
+}
+
+/* — price-card pre-order ribbon — */
+.cs-price { position: relative; overflow: hidden; }
+.cs-price-ribbon {
+  position: absolute; top: 22px; right: -52px;
+  transform: rotate(45deg);
+  background: var(--accent); color: var(--paper);
+  font-family: var(--sans); font-weight: 800; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
+  padding: 7px 60px; box-shadow: 0 2px 9px rgba(40,25,15,0.18);
+}
+
+/* — price-card launch timeline — */
+.cs-preorder-steps {
+  list-style: none; margin: 22px 0 0; padding: 20px 0 0;
+  border-top: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 15px;
+}
+.cs-preorder-steps li {
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-size: 13.5px; line-height: 1.45; color: var(--ink-soft);
+  padding-left: 18px; position: relative; text-wrap: pretty;
+}
+.cs-preorder-steps li::before {
+  content: ""; position: absolute; left: 0; top: 6px;
+  width: 7px; height: 7px; border-radius: 999px; background: var(--accent);
+}
+.cs-preorder-steps li:not(:last-child)::after {
+  content: ""; position: absolute; left: 3px; top: 14px; bottom: -15px;
+  width: 1px; background: var(--rule);
+}
+.cs-preorder-steps-when {
+  display: block; font-family: var(--sans); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px;
 }

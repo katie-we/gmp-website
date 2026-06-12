@@ -87,17 +87,24 @@ const MODULES = [
   },
 ];
 
-const TESTIMONIALS = [
-  { q: 'You are gonna almost single-handedly help heal my home. Tools I never had that you\'re giving me.', src: 'From Instagram' },
-  { q: 'Thank GOD I found your content. At a very low point in parenting my 11-year-old son. Gratefully out here listening to ALL your advice.', src: 'From TikTok' },
-  { q: 'I love you. Where have you been my entire motherhood?', src: 'From Instagram' },
-  { q: "I'm so thankful for your page and guidance. In these moments that I've in some way failed — then I see your videos and realize maybe I'm not failing, but instead in the exact place with my 11-year-old that I'm supposed to be.", src: 'From TikTok' },
-  { q: 'The way you put this into words and help us to understand is your true desire to help these kids shining through.', src: 'From Instagram' },
-  { q: "So grateful I found your account. I can tell you have so much knowledge and I value your insight. You are an excellent teacher.", src: 'From TikTok' },
-  { q: "Wow this is good. I'm so glad I stumbled upon your page. This approach is what I'm looking for.", src: 'From Instagram' },
-  { q: "The fact you came across my FYP a while ago is the universe telling me I am doing the right thing as a teacher and parent. Progress over perfection.", src: 'From TikTok' },
-  { q: "Great content. I appreciate your knowledge. It's clear, real-world advice.", src: 'From Instagram' },
-  { q: "I'm so grateful for your page — my son is the most incredible person and I can better understand him now. So thankful.", src: 'Cassidy' },
+// Three columns manually balanced by quote length so column bottoms align
+const TESTIMONIAL_COLS = [
+  [
+    'I love you. Where have you been my entire motherhood?',
+    'Great content. I appreciate your knowledge. It\'s clear, real-world advice.',
+    'Wow this is good. I\'m so glad I stumbled upon your page. This approach is what I\'m looking for.',
+    'You are gonna almost single-handedly help heal my home. Tools I never had that you\'re giving me.',
+  ],
+  [
+    'I\'m so thankful for your page and guidance. In these moments that I\'ve in some way failed — then I see your videos and realize maybe I\'m not failing, but instead in the exact place with my 11-year-old that I\'m supposed to be.',
+    'The way you put this into words and help us to understand is your true desire to help these kids shining through.',
+    'I\'m so grateful for your page — my son is the most incredible person and I can better understand him now. So thankful.',
+  ],
+  [
+    'The fact you came across my FYP a while ago is the universe telling me I am doing the right thing as a teacher and parent. Progress over perfection.',
+    'So grateful I found your account. I can tell you have so much knowledge and I value your insight. You are an excellent teacher.',
+    'Thank GOD I found your content. At a very low point in parenting my 11-year-old son. Gratefully out here listening to ALL your advice.',
+  ],
 ];
 
 const FAQS = [
@@ -118,8 +125,8 @@ const FAQS = [
     a: "The free posts are one idea at a time. Middle Skills is the whole thing, in order — six modules, 18 lessons, the worksheets and scripts, and the audio version of every lesson. The free content is the front door. The course is the house.",
   },
   {
-    n: '05', q: "I don't have the time to watch a course.",
-    a: "We know. Each module is broken into 3 lessons that you can complete in a week. Around 90 minutes per module, 30 minutes per lesson. Every lesson comes with video and podcast-style audio for the car or the gym. And for every robust written resource, there are key points, frameworks and summary documents to reference. The course is designed so you can use the pieces you need, when you need, as you go.",
+    n: '05', q: "I don't have hours to watch a course.",
+    a: "Each module is broken into short lessons you can take in a single nap window or after bedtime — and every lesson also comes as a podcast-style audio episode, so you can listen on a commute, a walk, or the school run instead of watching. The full curriculum is roughly 90 minutes per module; you don't have to take it all at once.",
   },
   {
     n: '06', q: "My partner isn't on board — will this still work?",
@@ -144,18 +151,39 @@ const FAQS = [
   },
   {
     n: '11', q: 'Is Sean actually an expert?',
-    a: "Fourteen years as a middle school teacher and administrator with a Masters in Education from Northwestern University. He's got 3 kids. He's taken over 2 years to properly position this course between real research and real experience. This isn't just opinion and theory; it's practical and actionable.",
+    a: "Fourteen years as a middle school teacher — watching thousands of kids move through this exact developmental stage — and a dad of three sons currently in the middle years. He's not theorizing. He's teaching from the classroom and the kitchen table at once.",
   },
 ];
+
+const LAUNCH_DATE = 'October 2026';
+const PRICE_FOUNDING = '$499';
+const PRICE_LAUNCH = '$599';
+const PRICE_SPLIT = '2 × $269';
 
 export default function CoursePage() {
   return (
     <article className="v6-page cs-page" data-theme="terracotta">
       <JsonLd data={COURSE_SCHEMA} />
+
+      {/* ── PRE-ORDER ANNOUNCEMENT BAR ── */}
+      <div className="cs-preorder-bar">
+        <div className="cs-preorder-bar-inner">
+          <span className="cs-preorder-bar-dot"></span>
+          <span>Pre-order now &mdash; <b>Middle Skills opens {LAUNCH_DATE}</b>, at the founding price.</span>
+          <a href="#enroll">Reserve your seat &rarr;</a>
+        </div>
+      </div>
+
       <Nav active="/course" />
 
       {/* ── 1. HERO ── */}
       <header className="cs-hero">
+        <div className="cs-stamp" aria-hidden="true">
+          <span className="cs-stamp-kicker">Pre-order</span>
+          <span className="cs-stamp-rule"></span>
+          <span className="cs-stamp-opens">opens</span>
+          <span className="cs-stamp-date">OCT 2026</span>
+        </div>
         <div className="cs-hero-inner">
           <span className="cs-eyebrow is-center">Middle Skills &middot; The Course</span>
           <h1>
@@ -166,15 +194,16 @@ export default function CoursePage() {
             working &mdash; built by a teacher who spent fourteen years in the room where it
             happens.
           </p>
-          <p className="cs-hero-anchor">$499. Less than two therapy sessions.</p>
+          <span className="cs-hero-flag">Founding pre-order &mdash; opens {LAUNCH_DATE}</span>
+          <p className="cs-hero-anchor">{PRICE_FOUNDING}. Less than two therapy sessions.</p>
           <div className="cs-hero-actions">
             <a href="#enroll" className="v6-cta v6-cta-primary">
-              Enroll in Middle Skills <span className="v6-cta-arrow">&rarr;</span>
+              Pre-order Middle Skills <span className="v6-cta-arrow">&rarr;</span>
             </a>
             <a href="#curriculum" className="v6-cta v6-cta-ghost">See what&rsquo;s inside</a>
           </div>
           <p className="cs-hero-note" style={{ marginTop: '24px' }}>
-            Self-paced &middot; lifetime access &middot; backed by a 30-day guarantee
+            Self-paced &middot; lifetime access &middot; 30-day guarantee &middot; founding price locked for life
           </p>
         </div>
       </header>
@@ -234,44 +263,36 @@ export default function CoursePage() {
         <div className="cs-reframe-body">
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">01</div>
-            <h3>It&rsquo;s a renovation, not a malfunction.</h3>
+            <h3>The brain goes offline</h3>
             <p>
-              The early adolescent brain isn&rsquo;t breaking down. It&rsquo;s being rebuilt.
-              Between 9 and 15, neural pathways prune and rewire on a scale matched by few other
-              periods of life. Impulse control, empathy, long-term thinking, social skills are all
-              under construction. Not metaphorically, neurologically.
+              During early adolescence the prefrontal cortex &mdash; impulse control, empathy,
+              long-term thinking &mdash; is rebuilt from the inside out. Not metaphorically.
+              Neurologically.
             </p>
           </div>
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">02</div>
-            <h3>You see what they&rsquo;re actually working on.</h3>
+            <h3>Your old tools stop working</h3>
             <p>
-              What looks like defiance is often autonomy taking shape. What looks like withdrawal is
-              resilience being tested. What looks like overreaction is an emotional system still being
-              built. Your kid isn&rsquo;t broken or behind. They&rsquo;re doing the developmental
-              work this stage requires.
+              The reasoning, the consequences, the heart-to-hearts that used to land now bounce off.
+              You didn&rsquo;t get worse at parenting. The kid you were parenting changed.
             </p>
           </div>
           <div className="cs-reframe-step">
             <div className="cs-reframe-step-n">03</div>
-            <h3>You teach what the stage requires.</h3>
+            <h3>It becomes learnable</h3>
             <p>
-              With the architecture in view and your kid&rsquo;s work in focus, you can stop fighting
-              the wrong battle and start teaching the skills the moment is built for. This is the
-              leverage. The brain is open. You&rsquo;re the trusted presence inside it.
+              Once you understand the developmental architecture, you can stop fighting the wrong
+              battle &mdash; and start teaching the skills the stage actually requires.
             </p>
           </div>
         </div>
         <div className="cs-reframe-land">
           <p>
-            Once the architecture is in view, the rest becomes learnable.
-            That&rsquo;s what the Course is built to teach.
+            This is a teaching problem, not a character problem. And <em>teaching is a skill</em>{' '}
+            &mdash; one you can learn.
           </p>
         </div>
-        <p className="cs-reframe-bridge">
-          This isn&rsquo;t a course you take to fix your kid. It&rsquo;s a course that changes{' '}
-          <em>how you show up.</em>
-        </p>
       </section>
 
       {/* ── 5. TRANSFORMATION ── */}
@@ -279,7 +300,8 @@ export default function CoursePage() {
         <header className="cs-transform-head">
           <span className="cs-eyebrow">What actually changes</span>
           <h2>
-            It isn&rsquo;t about fixing your kid. It&rsquo;s a course that changes how you show up.
+            It isn&rsquo;t about fixing your kid. It&rsquo;s a calmer, surer you &mdash;{' '}
+            <em>and a kid who actually grows.</em>
           </h2>
           <p>
             The behavior improves &mdash; but that&rsquo;s just the surface. The real change runs
@@ -291,40 +313,37 @@ export default function CoursePage() {
           <div className="cs-transform-item">
             <div className="cs-transform-num">01</div>
             <p>
-              You&rsquo;ll know what to say when your kid shuts down at the dinner table &mdash;{' '}
-              <b>not a script, but the mechanism that opens the door instead of forcing it.</b>
+              You&rsquo;ll <b>know what to say</b> the next time your kid shuts down at the dinner
+              table &mdash; not just in theory, but the actual words.
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">02</div>
             <p>
-              You&rsquo;ll stay with your kid through the missed assignment, the bad practice, the
-              friend who went cold &mdash; <b>without taking it over</b> &mdash; and they will build
-              the muscle to recover on their own.
+              You&rsquo;ll know how to <b>let them struggle without rushing in to fix it</b>{' '}
+              &mdash; so they build the resilience to recover on their own.
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">03</div>
             <p>
-              You&rsquo;ll hand off the morning routine, the schoolwork, the chores &mdash;{' '}
-              <b>without the power struggle</b> &mdash; and watch your kid grow into ownership
-              instead of waiting to be told.
+              You&rsquo;ll <b>hand off real responsibility without the power struggle</b>{' '}
+              &mdash; and watch them grow into ownership instead of waiting to be told.
             </p>
           </div>
           <div className="cs-transform-item">
             <div className="cs-transform-num">04</div>
             <p>
-              You&rsquo;ll walk through the hard moments together &mdash; talking about what
-              happened, what was felt, and what they&rsquo;d do differently &mdash; so the challenge
-              becomes <b>instructive instead of destructive.</b>
+              You&rsquo;ll <b>trust yourself again</b> &mdash; the parent who actually understands
+              what your kid is going through, while everyone else is just waiting it out.
             </p>
           </div>
           <div className="cs-transform-item cs-transform-item-capstone">
             <div className="cs-transform-num">05</div>
             <p>
-              You&rsquo;ll raise a kid who can <b>communicate, feel, struggle, recover, own their
-              choices, and stay in real relationship with you</b> &mdash; long after the hard years
-              are behind you both.
+              And the whole point: you&rsquo;ll <b>raise a kid who can stand on their own two
+              feet</b> &mdash; more resilient, more capable, more themselves &mdash; long after the
+              hard years are behind you both.
             </p>
           </div>
         </div>
@@ -340,8 +359,8 @@ export default function CoursePage() {
             </h2>
           </div>
           <p className="v6-fit-head-aside">
-            Here&rsquo;s the honest version of who Middle Skills is built for &mdash; and who it
-            isn&rsquo;t.
+            So here&rsquo;s the honest version of who Middle Skills is built for &mdash; and who it
+            isn&rsquo;t. When the wrong fit walks away, the right fit can trust me.
           </p>
         </header>
         <div className="v6-fit-grid">
@@ -350,8 +369,8 @@ export default function CoursePage() {
             <ul>
               <li>Your kid is somewhere between 9 and 15, and you feel like you&rsquo;ve lost your ability to get through to them</li>
               <li>They&rsquo;re not a &ldquo;problem kid&rdquo; &mdash; they&rsquo;ve just become someone you don&rsquo;t fully recognize</li>
-              <li>You want to understand and communicate about what&rsquo;s happening in their inner life, not just manage the behavior</li>
-              <li>You want to teach your kid the skills this stage demands &mdash; resilience, responsibility, autonomy &mdash; so they bring them to adult life</li>
+              <li>You want to understand what&rsquo;s happening in their brain, not just manage the behavior</li>
+              <li>You want to learn how to teach your kid the skills this stage demands &mdash; resilience, responsibility, standing on their own two feet</li>
               <li>You&rsquo;re willing to change how you show up, not only how they act</li>
               <li>You&rsquo;re tired of waiting for &ldquo;the phase&rdquo; to pass on its own</li>
               <li>You&rsquo;d rather learn the why than memorize a one-size-fits-all script</li>
@@ -370,6 +389,10 @@ export default function CoursePage() {
             </ul>
           </div>
         </div>
+        <p className="cs-reframe-bridge">
+          This isn&rsquo;t a course you take to fix your kid. It&rsquo;s a course that changes{' '}
+          <em>how you show up.</em>
+        </p>
       </section>
 
       {/* ── 7. CURRICULUM ── */}
@@ -426,10 +449,9 @@ export default function CoursePage() {
             <p>
               When his own sons hit the middle years, he noticed something uncomfortable: he was a
               better teacher than he was a dad. The skills he used all day with other people&rsquo;s
-              kids &mdash; the ones that reached even the toughest students &mdash; weren&rsquo;t
-              always working at home. So he&rsquo;s building the bridge between the spaces.
-              Connecting what teachers and psychologists know to what parents do. Using his passion
-              to teach people and help kids to facilitate progressive change for families.
+              kids &mdash; the ones that reached even the toughest students &mdash; he simply
+              wasn&rsquo;t using at home. So he started. They worked at the kitchen table just like
+              they worked in the classroom. Middle Skills is those tools, built for parents.
             </p>
           </div>
           <p className="cs-about-sig">
@@ -449,14 +471,16 @@ export default function CoursePage() {
           }}>
             Real changes, in real houses.
           </h2>
+          <p className="v6-testi-source">Unedited comments from Instagram &amp; TikTok.</p>
         </header>
         <div className="v6-testi-grid">
-          {TESTIMONIALS.map((t) => (
-            <div className="v6-testi-card" key={t.q.slice(0, 30)}>
-              <blockquote className="v6-testi-q">&ldquo;{t.q}&rdquo;</blockquote>
-              <div className="v6-testi-attrib">
-                <span className="v6-testi-attrib-meta">{t.src}</span>
-              </div>
+          {TESTIMONIAL_COLS.map((col, i) => (
+            <div className="v6-testi-col" key={i}>
+              {col.map((q) => (
+                <div className="v6-testi-card" key={q.slice(0, 30)}>
+                  <blockquote className="v6-testi-q">&ldquo;{q}&rdquo;</blockquote>
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -487,11 +511,12 @@ export default function CoursePage() {
         <div className="cs-value-head">
           <span className="cs-eyebrow is-center">What you&rsquo;re getting</span>
           <h2>
-            The whole course, for less than <em>a few therapy sessions.</em>
+            The whole course, for less than <em>two therapy sessions.</em>
           </h2>
           <p>
-            Middle Skills is everything &mdash; the full curriculum, monthly live time with Sean,
-            the parent community, and every future update &mdash; for one price.
+            A single family-therapy hour runs $150&ndash;$200. Middle Skills is everything &mdash;
+            the full curriculum, monthly live time with Sean, the parent community, and every future
+            update &mdash; for one price.
           </p>
         </div>
         <div className="cs-value-grid">
@@ -501,30 +526,40 @@ export default function CoursePage() {
               <li>A podcast-style audio version of every lesson</li>
               <li>Printable worksheets &amp; scripts</li>
               <li>Monthly live office hour with Sean</li>
-              <li>Resource summaries, frameworks and key points</li>
+              <li>Private parent community</li>
               <li>Lifetime access &amp; every future update</li>
             </ul>
           </div>
           <aside className="cs-price">
-            <div className="cs-price-tag">Founding group &middot; Pre-order</div>
+            <div className="cs-price-ribbon">Pre-order</div>
+            <div className="cs-price-tag">Founding group</div>
             <div className="cs-price-eyebrow">Founding price</div>
             <div className="cs-price-big">
-              <span className="cs-price-num">$499</span>
-              <span className="cs-price-was">$599</span>
+              <span className="cs-price-num">{PRICE_FOUNDING}</span>
+              <span className="cs-price-was">{PRICE_LAUNCH}</span>
             </div>
             <p className="cs-price-once">One payment &middot; lifetime access</p>
             <div className="cs-price-plan">
               <span>Prefer to split it?</span>
-              <a href="https://courses.growthmindsetparenting.com/offers/QYzJYerk" style={{ fontWeight: 700, color: 'var(--accent)', textDecoration: 'underline' }}>2 &times; $269</a>
+              <b>{PRICE_SPLIT}</b>
             </div>
             <a href="https://courses.growthmindsetparenting.com/offers/BFeFvsHP" className="v6-cta v6-cta-primary" style={{ background: 'var(--accent)', justifyContent: 'center' }}>
-              Join the founding group <span className="v6-cta-arrow">&rarr;</span>
+              Reserve my founding seat <span className="v6-cta-arrow">&rarr;</span>
             </a>
-            <p className="cs-price-fine">
-              Founding-group pricing for pre-orders &mdash; the course launches in October, and your
-              rate is locked in for life. Backed by the 30-day Parent Confidence Guarantee.
-              {' '}<a href="/terms" style={{ color: 'var(--ink-mute)', textDecoration: 'underline' }}>Terms of purchase.</a>
-            </p>
+            <ul className="cs-preorder-steps">
+              <li>
+                <span className="cs-preorder-steps-when">Today</span>
+                Reserve your seat and lock the {PRICE_FOUNDING} founding price &mdash; it rises to {PRICE_LAUNCH} at launch.
+              </li>
+              <li>
+                <span className="cs-preorder-steps-when">{LAUNCH_DATE}</span>
+                The full course unlocks. You&rsquo;ll get an email the moment it goes live.
+              </li>
+              <li>
+                <span className="cs-preorder-steps-when">30-day guarantee</span>
+                Your refund window starts when the course opens &mdash; not today.
+              </li>
+            </ul>
           </aside>
         </div>
       </section>
@@ -537,12 +572,11 @@ export default function CoursePage() {
             <span>Day</span>
           </div>
           <div className="cs-guarantee-text">
-            <h3>Our Guarantee.</h3>
+            <h3>The <em>Parent Confidence</em> Guarantee.</h3>
             <p>
-              Complete the course. Apply the tools. Give the process an honest effort. If you
-              don&rsquo;t feel more confident handling the challenges of middle school parenting
-              after doing the work, we&rsquo;ll refund your purchase. You bring the commitment.
-              We&rsquo;ll take the risk.
+              Complete the first module. If you don&rsquo;t understand your kid differently within
+              30 days, write me and I&rsquo;ll refund you in full &mdash; same day, no questions
+              asked. The course works when you do the work, and I&rsquo;ll stand behind that.
             </p>
           </div>
         </div>
@@ -614,7 +648,7 @@ export default function CoursePage() {
             <a href="#curriculum" className="v6-cta v6-cta-ghost">See what&rsquo;s inside</a>
           </div>
           <span className="cs-close-note">
-            $499, or 2 payments of $269 &middot; 30-day Parent Confidence Guarantee
+            Founding pre-order &middot; opens {LAUNCH_DATE} &middot; {PRICE_FOUNDING} or {PRICE_SPLIT} &middot; 30-day guarantee
           </span>
         </div>
       </section>
