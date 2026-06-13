@@ -263,6 +263,7 @@
   .v7-hero-photo-wrap { display: block; }
   .v7-hero-block { inset: 16px 0 -16px 16px; }
   .v7-hero-photo-wrap .v6-hero-photo { min-height: 0; aspect-ratio: 16 / 11; }
+  .v7-root .v6-hero-photo img { min-height: 0; }
 }
 @media (max-width: 900px) {
   .v7-hero-h1-narrative { max-width: 26ch; }
