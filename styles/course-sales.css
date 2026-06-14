@@ -335,37 +335,18 @@
   margin: 32px 0 0;
 }
 
-/* ── 9. SOCIAL PROOF (comment wall) ── */
+/* ── 9. SOCIAL PROOF ── */
 .cs-social .v6-testi-head { margin-bottom: 48px; }
 .cs-social .v6-testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  align-items: start;
+  display: block;
+  columns: 3;
+  column-gap: 22px;
 }
-.cs-social .v6-testi-col { display: flex; flex-direction: column; gap: 18px; }
 .cs-social .v6-testi-card {
-  position: relative;
-  margin: 0;
-  padding: 20px 22px;
-  background: var(--paper);
-  border: 1.5px solid var(--ink);
-  border-radius: 18px 18px 18px 5px;
-}
-/* speech-bubble tail (bottom-left) */
-.cs-social .v6-testi-card::before,
-.cs-social .v6-testi-card::after {
-  content: ""; position: absolute; width: 0; height: 0;
-}
-.cs-social .v6-testi-card::before {
-  left: 20px; bottom: -13px;
-  border-width: 13px 14px 0 0; border-style: solid;
-  border-color: var(--ink) transparent transparent transparent;
-}
-.cs-social .v6-testi-card::after {
-  left: 21px; bottom: -10px;
-  border-width: 10px 11px 0 0; border-style: solid;
-  border-color: var(--paper) transparent transparent transparent;
+  break-inside: avoid;
+  margin: 0 0 22px;
+  padding: 26px 28px;
+  border-radius: 14px;
 }
 .cs-social .v6-testi-q {
   font-family: var(--font-source-serif), Georgia, serif;
@@ -374,18 +355,26 @@
   font-size: 17px;
   line-height: 1.5;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 16px;
   text-wrap: pretty;
 }
-/* provenance stated once, under the heading */
-.cs-social .v6-testi-source {
+.cs-social .v6-testi-attrib {
+  display: flex; flex-direction: row; align-items: center; gap: 9px;
+  border-top: 1px solid var(--rule);
+  padding-top: 16px; margin-top: 4px;
+}
+.cs-social .v6-testi-attrib::before {
+  content: ""; width: 7px; height: 7px; border-radius: 999px;
+  background: var(--accent); flex: 0 0 auto;
+}
+.cs-social .v6-testi-attrib-meta {
   font-family: var(--sans);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.01em;
-  color: var(--ink-mute);
-  text-align: center;
-  margin: 14px 0 0;
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
 /* ── 10. COST OF STAYING ── */
@@ -569,7 +558,7 @@
   .v6-fit-head { grid-template-columns: 1fr; gap: 20px; align-items: start; }
   .v6-fit-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 900px) { .cs-social .v6-testi-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 900px) { .cs-social .v6-testi-grid { columns: 2; } }
 @media (max-width: 720px) {
   .cs-guarantee-card { grid-template-columns: 1fr; gap: 28px; text-align: center; justify-items: center; }
   .cs-bleed, .cs-whisper, .cs-value, .cs-close { padding-left: 28px; padding-right: 28px; }
@@ -577,7 +566,7 @@
   .cs-preorder-bar { margin: 0 -28px 0; }
   .cs-preorder-bar-inner { padding: 10px 28px; font-size: 13px; }
 }
-@media (max-width: 600px) { .cs-social .v6-testi-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .cs-social .v6-testi-grid { columns: 1; } }
 
 /* ═══════════════════════════════════════════════════════════
    PRE-ORDER / FOUNDING-GROUP TREATMENT
